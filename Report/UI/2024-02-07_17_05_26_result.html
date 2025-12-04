@@ -1,0 +1,3593 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>EGD_Dev_UI_Automation_Test_Report</title>
+    <meta name="generator" content="HTMLTestReport 0.0.1"/>
+    <link rel="stylesheet" href="http://unpkg.com/layui@2.6.8/dist/css/layui.css">
+    
+<style type="text/css">
+    .title { width: auto; height: 60px; text-align: center; font: bolder 38px/60px "Microsoft YaHei UI"; color: #009688; }
+    .summary span { font: normal 16px/38px "Microsoft YaHei UI"; margin-left: 20px; }
+    .success-btn { background-color: #28a745; }
+    .skip-btn { background-color: #84898c; }
+    .passClass  { background-color: #bdedbc; }
+    .failClass  { background-color: #ffefa4; }
+    .errorClass { background-color: #ffc9c9; }
+    .passCase   { color: #5cb85c; }
+    .skipCase   { color: #84898c; }
+    .failCase   { color: #FF6600; font-weight: bold; }
+    .errorCase  { color: #c00; font-weight: bold; }
+    .hiddenRow  { display: none; }
+    .testcase   { margin-left: 2em; }
+    .layui-table tbody tr:hover, .layui-table-click, .layui-table-header, .layui-table-hover, .layui-table-mend, .layui-table-patch, .layui-table-tool, .layui-table[lay-even] tr:nth-child(even) {
+        background-color: transparent;
+    }
+</style>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+</head>
+<body>
+    <script language="javascript" type="text/javascript"><!--
+    output_list = Array();
+    function showCase(level) {
+        trs = document.getElementsByTagName("tr");
+        for (var i = 0; i < trs.length; i++) {
+            tr = trs[i];
+            id = tr.id;
+            if (id.substr(0,2) == 'ft') {
+                if (level == 2 || level == 0) {
+                    tr.className = 'hiddenRow';
+                }
+                else {
+                    tr.className = '';
+                }
+            }
+            if (id.substr(0,2) == 'pt') {
+                if (level < 2) {
+                    tr.className = 'hiddenRow';
+                }
+                else {
+                    tr.className = '';
+                }
+            }
+        }      
+    }
+    function showClassDetail(cid, count) {
+        var id_list = Array(count);
+        var toHide = 1;
+        for (var i = 0; i < count; i++) {
+            tid0 = 't' + cid.substr(1) + '.' + (i+1);
+            tid = 'f' + tid0;
+            tr = document.getElementById(tid);
+            if (!tr) {
+                tid = 'p' + tid0;
+                tr = document.getElementById(tid);
+            }
+            id_list[i] = tid;
+            if (tr.className) {
+                toHide = 0;
+            }
+        }
+        for (var i = 0; i < count; i++) {
+            tid = id_list[i];
+            if (toHide) {
+                document.getElementById(tid).className = 'hiddenRow';
+            }
+            else {
+                document.getElementById(tid).className = '';
+            }
+        }
+    }
+    function showTestDetail(div_id){
+        var details_div = document.getElementById(div_id)
+        var displayState = details_div.style.display
+        if (displayState == 'block' || displayState == '' ) {
+            details_div.style.display = 'none'
+        }
+        else {
+            displayState = 'block'
+            details_div.style.display = 'block'
+        }
+    }
+    function html_escape(s) {
+        s = s.replace(/&/g,'&amp;');
+        s = s.replace(/</g,'&lt;');
+        s = s.replace(/>/g,'&gt;');
+        return s;
+    }
+    --></script>
+    <div class="layui-container">
+        
+    <!--报告标题-->
+    <div class="title">EGD_Dev_UI_Automation_Test_Report</div>
+    
+    <!--汇总信息-->
+    <fieldset class="layui-elem-field summary">
+        <legend>Report Summary</legend>
+        <div class="layui-field-box">
+            <table class="layui-table">
+                <colgroup>
+                    <col width="50%">
+                    <col width="50%">
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <td>
+                            <button type="button" class="layui-btn">Start Time</button>
+                            <span class="text-dark">2024-02-07 17:05:26</span>
+                        </td>
+                        <td>
+                            <button type="button" class="layui-btn">Duration</button>
+                            <span class="text-dark">0:08:42.429211 s</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button type="button" class="layui-btn">Case Count</button>
+                            <span class="text-dark">181</span>
+                        </td>
+                        <td>
+                            <button type="button" class="layui-btn">Pass Rate</button>
+                            <span class="text-dark">100.00%</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <button type="button" class="layui-btn">Description</button>
+                            <span class="text-dark">Automation Test starts at 18:00 everyday, and the Report automatically sent,DO NOT reply.You can check details from the attachment,thank you!</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center">
+                            <button type="button" class="layui-btn success-btn">Passed Cases：181</button>
+                            <button type="button" class="layui-btn layui-btn-warm">Failed Cases：0</button>
+                            <button type="button" class="layui-btn layui-btn-danger">Error Cases：0</button>
+                            <button type="button" class="layui-btn skip-btn">Skipped Cases：0</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </fieldset>
+    
+    <!--图表展示-->
+    <fieldset class="layui-elem-field summary">
+        <legend>Test Case Execution Result</legend>
+        <div class="layui-field-box">
+            <div class="char">
+                <div id="chart1" style="width: 49%;height: 400px;float: left"></div>
+                <div id="chart2" style="width: 49%;height: 400px;float: left"></div>
+            </div>
+        </div>
+    </fieldset>
+
+        
+    <fieldset class="layui-elem-field summary">
+        <legend>Execution Details</legend>
+        <div class="layui-field-box">
+            <table id='result_table' class="layui-table">
+            <thead>
+                <tr id='header_row' style='background-color: #009688; color: #fff'>
+                    <th>Test Case</th>
+                    <th>Total Count</th>
+                    <th>Pass</th>
+                    <th>Fail</th>
+                    <th>Error</th>
+                    <th>Skip</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+				<tbody>
+                
+    <tr class='passClass'>
+        <td class="text-center">test_add_quote.AddQuote_UI_Test</td>
+        <td class="text-center">36</td>
+        <td class="text-center">36</td>
+        <td class="text-center">0</td>
+        <td class="text-center">0</td>
+        <td class="text-center">0</td>
+        <td class="text-center"><button type="button" class="layui-btn layui-btn-xs" onclick="showClassDetail('c1',36)">Details</button></td>
+    </tr>
+
+<tr id='pt1.1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_addquote_ui_001: Verify the url for Add Quotes page</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt1.1')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt1.1' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt1.1: http://egd2.sighte.com/Quote/Create
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1.2' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_addquote_ui_002: Verify the default section in Add Quotes page, it should be "Proposal Details", "Contact Details", "Site Details" and "Doors"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt1.2')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt1.2' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt1.2: Proposal Details Contact Details Site Details Doors
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1.3' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_addquote_ui_003: Verify the Save Quote button in Add Quotes page</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt1.3')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt1.3' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt1.3: exist
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1.4' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_addquote_ui_004: Verify each description of Proplsal Details in Add Quotes page, it should be 'Proposal Number','Pricing Category','User','Account Type','Order Date','Quote Status','Account Customer',"Supply Type"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt1.4')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt1.4' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt1.4: Proposal Number Pricing Category User Account Type Order Date Quote Status Account Customer Supply Type
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1.5' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_addquote_ui_005: Verify each value in "Pricing Category" list, it should be 'Category 1','Category 2','Category 3','Category 4','Company 1',"Wholesale"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt1.5')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt1.5' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt1.5: Category 1
+Category 2
+Category 3
+Category 4
+Company 1
+Wholesale
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1.6' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_addquote_ui_006: Verify the default value in "Pricing Category" list, it should be "Category 4"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt1.6')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt1.6' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt1.6: Category 4
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1.7' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_addquote_ui_007: Verify the default value in "User" list, it should be current login user</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt1.7')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt1.7' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt1.7: Yi Sun
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1.8' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_addquote_ui_008: Verify each value in "Account Type" list, it should be 'Cash sale',"Account"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt1.8')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt1.8' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt1.8: Cash sale
+Account
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1.9' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_addquote_ui_009: Verify the default value in "Account Type" list, it should be "Cash sale"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt1.9')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt1.9' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt1.9: Cash sale
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1.10' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_addquote_ui_010: Verify each value in "Quote Status" list, it should be 'Cash sale','Quote','Active',"Close"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt1.10')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt1.10' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt1.10: Lead
+Quote
+Active
+Close
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1.11' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_addquote_ui_011: Verify the default value in "Quote Status" list, it should be "Quote"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt1.11')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt1.11' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt1.11: Cash sale
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1.12' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_addquote_ui_012: Verify each value in "Supply Type" list, it should be 'MLB – Install','MLB – Pick Up','MLB – Deliver','SYD – Install','SYD – Pick Up','SYD – Deliver','ACT – Deliver',"TAS – Deliver"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt1.12')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt1.12' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt1.12: Please Select
+MLB – Install
+MLB – Pick Up
+MLB – Deliver
+SYD – Install
+SYD – Pick Up
+SYD – Deliver
+ACT – Deliver
+TAS – Deliver
+SA – Deliver
+QLD – Deliver
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1.13' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_addquote_ui_013: Verify the default value in "Supply Type" list, it should be "Please Select"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt1.13')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt1.13' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt1.13: Please Select
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1.14' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_addquote_ui_014: Verify The "Account Customer" list should enable after select "Account" in "Account Type" list</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt1.14')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt1.14' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt1.14: attribute is: &lt;bound method WebElement.get_attribute of &lt;selenium.webdriver.remote.webelement.WebElement (session="147512a0-47a4-48f5-b8d5-c7b471c2023d", element="6a49e8a7-efc5-465f-a990-117a323c13d7")&gt;&gt;
+Account Customer is enabled
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1.15' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_addquote_ui_015: Verify each section in "Contact Details", it should including "Client Contact Details" and "Site Contact Details"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt1.15')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt1.15' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt1.15: Client Contact Details Site Contact Details
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1.16' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_addquote_ui_016: Verify each element in "Client Contact Details", it should including "Client Name","Customer Purchase Order"\,"Contact Name","Contact Mobile","Contact Email","Contact Address","Contact Suburb",and "Contact Postcode"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt1.16')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt1.16' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt1.16: Client Name Customer Purchase Order Contact Name Contact Mobile Contact Email Contact Address Contact Suburb Contact Postcode
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1.17' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_addquote_ui_017: Verify  the input editbox for "Client Name"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt1.17')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt1.17' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt1.17: true
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1.18' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_addquote_ui_018: Verify  the input editbox for "Customer Purchase Order"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt1.18')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt1.18' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt1.18: true
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1.19' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_addquote_ui_019: Verify  the input editbox for "Contact Name"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt1.19')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt1.19' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt1.19: true
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1.20' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_addquote_ui_020: Verify  the input editbox for "Contact Mobile"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt1.20')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt1.20' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt1.20: true
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1.21' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_addquote_ui_021: Verify  the input editbox for "Contact Email"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt1.21')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt1.21' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt1.21: true
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1.22' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_addquote_ui_022: Verify  the input editbox for "Contact Address"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt1.22')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt1.22' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt1.22: true
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1.23' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_addquote_ui_023: Verify  the input editbox for "Contact Suburb"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt1.23')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt1.23' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt1.23: true
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1.24' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_addquote_ui_024: Verify  the input editbox for "Contact Postcode"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt1.24')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt1.24' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt1.24: true
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1.25' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_addquote_ui_025: Verify each element in "Site Contact Details", it should including "Site Contact Name","Site Phone","Site Email","Site/Delivery/Pickup Address","Site Suburb" and "Site Postcode"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt1.25')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt1.25' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt1.25: Site Contact Name Site Phone Site Email Site/Delivery/Pickup Address Site Suburb Site Postcode
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1.26' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_addquote_ui_026: Verify the default status for checkbox for "Copy Client details",it should be uncheck by default</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt1.26')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt1.26' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt1.26: false
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1.27' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_addquote_ui_027: Verify  the input editbox for "Site Contact Name"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt1.27')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt1.27' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt1.27: true
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1.28' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_addquote_ui_028: Verify  the input editbox for "Site Phone"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt1.28')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt1.28' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt1.28: true
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1.29' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_addquote_ui_029: Verify  the input editbox for "Site Email"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt1.29')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt1.29' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt1.29: true
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1.30' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_addquote_ui_030: Verify  the input editbox for "Site Address"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt1.30')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt1.30' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt1.30: true
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1.31' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_addquote_ui_031: Verify  the input editbox for "Site Suburb"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt1.31')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt1.31' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt1.31: true
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1.32' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_addquote_ui_032: Verify  the input editbox for "Site Postcode"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt1.32')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt1.32' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt1.32: true
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1.33' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_addquote_ui_033: Verify  the "Add New Door" button"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt1.33')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt1.33' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt1.33: Add New Door
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1.34' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_addquote_ui_034: Verify the add new door menu</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt1.34')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt1.34' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt1.34: ['Standard\nCustom\nShutter']
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1.35' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_addquote_ui_035: Verify the validation in Add Quote page</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt1.35')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt1.35' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt1.35: Validation Errors 1. Please select Supply Type. 2. Please enter Client Email address.
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt1.36' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_addquote_ui_036: Verify Add a Quote Successfully</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt1.36')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt1.36' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt1.36: (Quote successfully created)
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+    <tr class='passClass'>
+        <td class="text-center">test_add_quote_with_door.AddQuoteWithDoor_UI_Test</td>
+        <td class="text-center">1</td>
+        <td class="text-center">1</td>
+        <td class="text-center">0</td>
+        <td class="text-center">0</td>
+        <td class="text-center">0</td>
+        <td class="text-center"><button type="button" class="layui-btn layui-btn-xs" onclick="showClassDetail('c2',1)">Details</button></td>
+    </tr>
+
+<tr id='pt2.1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_addquote_withdoor_fun_001: Verify  Add a Quote with a standard door function</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt2.1')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt2.1' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt2.1: Door 1(A1) Quote
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+    <tr class='passClass'>
+        <td class="text-center">test_add_service.AddService_UI_Test</td>
+        <td class="text-center">6</td>
+        <td class="text-center">6</td>
+        <td class="text-center">0</td>
+        <td class="text-center">0</td>
+        <td class="text-center">0</td>
+        <td class="text-center"><button type="button" class="layui-btn layui-btn-xs" onclick="showClassDetail('c3',6)">Details</button></td>
+    </tr>
+
+<tr id='pt3.1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_addservice_ui_001: Verify the url for Add Service page</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt3.1')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt3.1' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt3.1: http://egd2.sighte.com/Service/Create?QuoteId=0
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt3.2' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_addservice_ui_002: Verify each section in Add Service page</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt3.2')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt3.2' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt3.2: Doors Service Details   Site Contact Details Service Items Service Documents
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt3.3' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_addservice_ui_003: Verify each section in Add Service page</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt3.3')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt3.3' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt3.3: &lt;&lt;    Back to Services 
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt3.4' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_addservice_ui_004: Verify each elements in "Doors" section</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt3.4')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt3.4' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt3.4: Door Type Please Select
+Custom Door
+Insulated Sectional
+Panel Lift-Safe
+Roller Door
+Single Skin Sectional Additional Door Information
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt3.5' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_addservice_ui_005: Verify he Additional Door Infomation box in "Doors" section</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt3.5')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt3.5' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt3.5: yes
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt3.6' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_addservice_ui_006: Verify  each elements in "Service Details" section</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt3.6')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt3.6' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt3.6: Service Type Service Area Service Status Invoice No. Account Type Account Customer Order Date Service Date Customer PO User Service Tech Service Tech Name Description
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+    <tr class='passClass'>
+        <td class="text-center">test_add_service_item.AddServiceItem_UI_Test</td>
+        <td class="text-center">6</td>
+        <td class="text-center">6</td>
+        <td class="text-center">0</td>
+        <td class="text-center">0</td>
+        <td class="text-center">0</td>
+        <td class="text-center"><button type="button" class="layui-btn layui-btn-xs" onclick="showClassDetail('c4',6)">Details</button></td>
+    </tr>
+
+<tr id='pt4.1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_additem_ui_001: Verify the title for Add Service Item page</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt4.1')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt4.1' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt4.1: Select Service Items
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt4.2' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_additem_ui_002: Verify each section in Add Service Item page</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt4.2')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt4.2' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt4.2: View more Service Type
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt4.3' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_additem_ui_003: Verify Item Select button in Add Service Item page</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt4.3')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt4.3' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt4.3: Button is present and visible
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt4.4' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_additem_ui_004: Verify Close button in Add Service Item page</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt4.4')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt4.4' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt4.4: Button is present and visible
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt4.5' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_additem_ui_005: Verify Search button in Add Service Item page</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt4.5')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt4.5' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt4.5: yes
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt4.6' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_additem_ui_006: Verify new addes service itme in Add Service page</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt4.6')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt4.6' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt4.6: S-Res-ST
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+    <tr class='passClass'>
+        <td class="text-center">test_add_service_with_item.AddServiceWithItem_Fun_Test</td>
+        <td class="text-center">1</td>
+        <td class="text-center">1</td>
+        <td class="text-center">0</td>
+        <td class="text-center">0</td>
+        <td class="text-center">0</td>
+        <td class="text-center"><button type="button" class="layui-btn layui-btn-xs" onclick="showClassDetail('c5',1)">Details</button></td>
+    </tr>
+
+<tr id='pt5.1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_addservice_with_item_fun_001: Verify  Add a Service with a service item function</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt5.1')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt5.1' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt5.1: Add_by_Automation
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+    <tr class='passClass'>
+        <td class="text-center">test_add_standard_door.Add_StandardDoor_Fun_Test</td>
+        <td class="text-center">4</td>
+        <td class="text-center">4</td>
+        <td class="text-center">0</td>
+        <td class="text-center">0</td>
+        <td class="text-center">0</td>
+        <td class="text-center"><button type="button" class="layui-btn layui-btn-xs" onclick="showClassDetail('c6',4)">Details</button></td>
+    </tr>
+
+<tr id='pt6.1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_standarddoor_fun_001: Verify the input validation when add a new door</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt6.1')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt6.1' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt6.1: Errors
+Door type is required
+Door design is required
+Door finish is required
+Door color is required
+Packaging Type must be selected.
+If SR (left) is less than 89mm, LH Jamb should be minimum 90mm.
+If SR (right) is less than 89mm, RH Jamb should be minimum 90mm.
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt6.2' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_standarddoor_fun_002: Verify the add door function</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt6.2')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt6.2' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt6.2: 1   Panel Lift-Safe, Classic panel, Woodgrain Texture, Monument (3010 x 5060)
+1   Panel Lift-Safe, Classic panel, Woodgrain Texture, Monument (3010 x 5060)
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt6.3' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_standarddoor_fun_003: Verify the duplicate button for the new added door</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt6.3')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt6.3' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt6.3: true
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt6.4' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_standarddoor_fun_004: Verify the delete button for the new added door</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt6.4')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt6.4' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt6.4: true
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+    <tr class='passClass'>
+        <td class="text-center">test_admin_portal.Admin_UI_Test</td>
+        <td class="text-center">9</td>
+        <td class="text-center">9</td>
+        <td class="text-center">0</td>
+        <td class="text-center">0</td>
+        <td class="text-center">0</td>
+        <td class="text-center"><button type="button" class="layui-btn layui-btn-xs" onclick="showClassDetail('c7',9)">Details</button></td>
+    </tr>
+
+<tr id='pt7.1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_adminportal_ui_001: Verify the url of Admin login Page</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt7.1')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt7.1' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt7.1: url is: http://egd2.sighte.com/
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt7.2' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_adminportal_ui_002: Verify the default Sections in Admin login Page</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt7.2')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt7.2' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt7.2: ADD LIST ACCOUNT
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt7.3' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_adminportal_ui_003: Verify the Find Quote in Admin Login page</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt7.3')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt7.3' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt7.3: true
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt7.4' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_adminportal_ui_004: Verify the Find Address in Admin Login page</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt7.4')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt7.4' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt7.4: true
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt7.5' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_adminportal_ui_005: Verify the Find Client in Admin Login page</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt7.5')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt7.5' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt7.5: true
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt7.6' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_adminportal_ui_006: Verify the Add Menu</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt7.6')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt7.6' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt7.6: Quote Lead Account Customer Installer
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt7.7' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_adminportal_ui_007: Verify the List Menu</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt7.7')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt7.7' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt7.7: Quotes Services                    » Account Customers Installers MYOB Job Accepted Doors On-Hold Doors New Order Production Schedule Pipeline Active Pipeline
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt7.8' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_adminportal_ui_008: Verify the Account Menu</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt7.8')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt7.8' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt7.8: Change my password Update my profile Update my email settings Users Management Rolling Cycle Management SMS Notifications Log off
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt7.9' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_adminportal_ui_009: Verify the Copyright and Terms</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt7.9')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt7.9' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt7.9: © 2024 - EcoGarageDoors Terms and Policies
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+    <tr class='passClass'>
+        <td class="text-center">test_custom_door.Add_CustomDoor_UI_Test</td>
+        <td class="text-center">19</td>
+        <td class="text-center">19</td>
+        <td class="text-center">0</td>
+        <td class="text-center">0</td>
+        <td class="text-center">0</td>
+        <td class="text-center"><button type="button" class="layui-btn layui-btn-xs" onclick="showClassDetail('c8',19)">Details</button></td>
+    </tr>
+
+<tr id='pt8.1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_customdoor_ui_001: Verify the main elements in the page, should including correct title, Add button and Close button</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt8.1')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt8.1' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt8.1: Custom Door Details
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt8.2' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_customdoor_ui_002: Verify each element for install details, should including "Install Type","Design","Colour Category","Door Colour","Frame Colour",</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt8.2')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt8.2' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt8.2: Install Type Design Colour Category Door Colour Frame Colour Timber Profile Insert Material Insert Location Insert Type Insert Colour Insert Other Custom Colour
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt8.3' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_customdoor_ui_003: Verify the Install Type dropdown list, should including "Commercial Cat 1","Commercial Cat 2","Commercial STD","Panel Replacement" and "Residential"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt8.3')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt8.3' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt8.3: Please Select
+Commercial Cat 1
+Commercial Cat 2
+Commercial STD
+Panel Replacement
+Residential
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt8.4' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_customdoor_ui_004: Verify the Design dropdown list, should including "Ali Batten","Ali Louvre Panel","Aliwood","Alumicomp","Bar panel","Barn Panel",</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt8.4')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt8.4' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt8.4: Please Select
+Ali Batten
+Ali Louvre Panel
+Aliwood
+Alumalite
+Alumicomp
+Bar panel
+Barn Panel
+Carriage Panel
+Cedar Batten
+Cedar Panel 135
+Cedar Panel 86
+Classic Panel
+Frame Only STD
+Frame Only Welded
+Glasslite
+Grille Panel
+Herringbone Panel
+Louvre Panel
+Perfalite
+Raised Panel
+Recessed Panel
+Tranquilo Panel
+Twinlight
+Verti Panel
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt8.5' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_customdoor_ui_005: Verify the Colour Category dropdown list, should including "Custom","OilColour","Painted","PowderCoatStandard","PowderCoatUpgrade","Primed","Raw" and "SealedColour"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt8.5')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt8.5' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt8.5: Please Select
+Custom
+OilColour
+Painted
+PowderCoatStandard
+PowderCoatUpgrade
+Primed
+Raw
+SealedColour
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt8.6' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_customdoor_ui_006: Verify the Door Colour dropdown list should be diabled if select "Custom" in Colour Category</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt8.6')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt8.6' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt8.6: Disabled
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt8.7' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_customdoor_ui_007: Verify the Door Colour dropdown if select "OliColour" in Colour Category</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt8.7')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt8.7' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt8.7: Please Select
+Black Ash
+Clear
+Custom
+Sela Brown
+TBA
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt8.8' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_customdoor_ui_008: Verify the Door Colour dropdown if select "Painted" in Colour Category</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt8.8')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt8.8' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt8.8: Please Select
+Custom Colour
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt8.9' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_customdoor_ui_009: Verify the Door Colour dropdown if select "Raw" in Colour Category</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt8.9')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt8.9' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt8.9: Please Select
+TBA
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt8.10' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_customdoor_ui_010: Verify the Door Colour dropdown if select "SealedColour" in Colour Category</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt8.10')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt8.10' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt8.10: Please Select
+Clear
+Custom
+Dark oak
+Ebony
+Hemlock
+Light oak
+Rosewood
+TBA
+Walnut
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt8.11' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_customdoor_ui_011: Verify the Frame Colour dropdown list</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt8.11')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt8.11' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt8.11: Please Select
+Clear
+Custom
+Dark oak
+Ebony
+Hemlock
+Light oak
+Rosewood
+TBA
+Walnut
+Mill Finish
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt8.12' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_customdoor_ui_012: Verify the Timber Profile dropdown list,should includes "135mm Shiplap","135mm V-Join","86mm Shiplap" and "86mm V-Join"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt8.12')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt8.12' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt8.12: Please Select
+135mm Shiplap
+135mm V-Join
+86mm Shiplap
+86mm V-Join
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt8.13' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_customdoor_ui_013: Verify the Insert Material dropdown list,should includes "ACPS Upgrade - Cat 1","ACPS Upgrade - Cat 2","Acrylic","Aluminium","Exterier Ply","Glass","Other",</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt8.13')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt8.13' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt8.13: Please Select
+ACPS Upgrade - Cat 1
+ACPS Upgrade - Cat 2
+Acrylic
+Aluminium
+Exterier Ply
+Glass
+Other
+Polycarbonate
+Standard ACPS
+Supplied By Client
+TBA
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt8.14' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_customdoor_ui_014: Verify the Insert Location dropdown list,should includes "Face Fixed","Inserted into Frame" and "TBA"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt8.14')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt8.14' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt8.14: Please Select
+Face Fixed
+Inserted into Frame
+TBA
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt8.15' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_customdoor_ui_015: Verify Insert Type dropdown list, the default value should be empty</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt8.15')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt8.15' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt8.15: Please Select
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt8.16' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_customdoor_ui_016: Verify the Insert Type dropdown if select "ACPS Cat1" in Insert Material category,should includes "Alutile","Other","Ultrabond" and "Vitrabond"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt8.16')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt8.16' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt8.16: Please Select
+Alutile
+Other
+Ultrabond
+Vitrabond
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt8.17' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_customdoor_ui_017: Verify the Insert Type dropdown if select "ACPS Cat2" in Insert Material category,should includes "Alpolic","Alucabond","Other" and "Symonite"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt8.17')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt8.17' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt8.17: Please Select
+Alpolic
+Alucabond
+Other
+Symonite
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt8.18' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_customdoor_ui_018: Verify the Insert Type dropdown if select "Acrylic" in Insert Material category,should includes "3mm Acrylic" and "6mm Acrylic"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt8.18')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt8.18' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt8.18: Please Select
+3mm Acrylic
+4.5mm Acrylic
+6mm Acrylic
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt8.19' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_customdoor_ui_019: Verify the Insert Type dropdown if select "Aluminium" in Insert Material category,should includes "CLOVERLEAF - 36%","Other","P1012SQ - 10mm Square-70%","P1925 - 19mm Round-51%","P1931SR - 19x3mm slots-41%",</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt8.19')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt8.19' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt8.19: Please Select
+CLOVERLEAF - 36%
+Other
+P1012SQ - 10mm Square-70%
+P1925 - 19mm Round-51%
+P1931SR - 19x3mm slots-41%
+P2031 - 2MM Round-41%
+P2332HEX - 23mm Hexagon-44%
+P2563SR - 25x6.3mm slots-43%
+P3247 - 3.2mm Round-41%
+P4763 - 4.7mm Round-51%
+P4769 - 4.7mm Square-47%
+P5512SD - 5.5mm Square-19%
+P7995 - 7.9mm Round-62%
+P9511HEX - 11.9mm Hexagon-64%
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+    <tr class='passClass'>
+        <td class="text-center">test_panel_lift_safe.PanelLiftSafe_UI_Test</td>
+        <td class="text-center">12</td>
+        <td class="text-center">12</td>
+        <td class="text-center">0</td>
+        <td class="text-center">0</td>
+        <td class="text-center">0</td>
+        <td class="text-center"><button type="button" class="layui-btn layui-btn-xs" onclick="showClassDetail('c9',12)">Details</button></td>
+    </tr>
+
+<tr id='pt9.1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_panellift_ui_001: Verify each section in Panel Lift Safe page</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt9.1')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt9.1' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt9.1: Order Rollforming Assembly Modifications Extras Orders Paint Painted QC
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt9.2' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_panellift_ui_002: Verify each column in Order table</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt9.2')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt9.2' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt9.2: Number of Doors: Proposal No Created Date Supply Type Door No Order Date Status     Extras Orders &amp; Documents
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt9.3' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_panellift_ui_003: Verify each elements in Rollforming table</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt9.3')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt9.3' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt9.3: Number of Doors: Reschedule from:
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt9.4' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_panellift_ui_004: Verify Date Filter fun in Rollforming table</div></td>
+    <td>Pass</td>
+    <td colspan='5' align='center' style="color:#428bca"></td>
+</tr>
+
+<tr id='pt9.5' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_panellift_ui_005: Verify Save Changes button in Rollforming table</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt9.5')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt9.5' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt9.5: Button is present and visible
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt9.6' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_panellift_ui_006: Verify Table display in Rollforming screen</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt9.6')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt9.6' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt9.6: yes
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt9.7' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_panellift_ui_007: Verify each elements in Assembly table</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt9.7')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt9.7' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt9.7: Number of Doors: Prop. No Door No Status
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt9.8' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_panellift_ui_008: Verify each elements in Modification table</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt9.8')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt9.8' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt9.8: Number of Doors: Prop. No Door Colour     Extras Orders &amp; Documents
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt9.9' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_panellift_ui_009: Verify each elements in Extra Order table</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt9.9')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt9.9' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt9.9: Number of Doors: Prop. No Colour Category     Extras Orders &amp; Documents
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt9.10' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_panellift_ui_010: Verify each elements in Paint table</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt9.10')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt9.10' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt9.10: Number of Doors: Proposal No Actual Height Status
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt9.11' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_panellift_ui_011: Verify each elements in Painted table</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt9.11')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt9.11' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt9.11: Number of Doors: Proposal No Number of Panels Status
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt9.12' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_panellift_ui_012: Verify each elements in QC table</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt9.12')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt9.12' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt9.12: Number of Doors: Proposal No Actual Width Status
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+    <tr class='passClass'>
+        <td class="text-center">test_production.Production_UI_Test</td>
+        <td class="text-center">3</td>
+        <td class="text-center">3</td>
+        <td class="text-center">0</td>
+        <td class="text-center">0</td>
+        <td class="text-center">0</td>
+        <td class="text-center"><button type="button" class="layui-btn layui-btn-xs" onclick="showClassDetail('c10',3)">Details</button></td>
+    </tr>
+
+<tr id='pt10.1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_production_ui_001: Verify the url for Production page</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt10.1')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt10.1' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt10.1: http://egd2.sighte.com/Production
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt10.2' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_production_ui_002: Verify the title for Production page</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt10.2')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt10.2' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt10.2: Production Details
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt10.3' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_production_ui_003: Verify each section in Production page</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt10.3')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt10.3' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt10.3: Roller Doors Panel Lift Safe Insulated Doors Custom Doors Roller Shutters [OBSOLETE] All Doors
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+    <tr class='passClass'>
+        <td class="text-center">test_search_doors.SearchDoors_UI_Test</td>
+        <td class="text-center">6</td>
+        <td class="text-center">6</td>
+        <td class="text-center">0</td>
+        <td class="text-center">0</td>
+        <td class="text-center">0</td>
+        <td class="text-center"><button type="button" class="layui-btn layui-btn-xs" onclick="showClassDetail('c11',6)">Details</button></td>
+    </tr>
+
+<tr id='pt11.1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_searchdoors_ui_001: Verify the url for Search Doors page</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt11.1')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt11.1' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt11.1: http://egd2.sighte.com/Quote/List
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt11.2' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_searchdoors_ui_002: Verify the title for Search Doors page</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt11.2')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt11.2' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt11.2: Search Quotes
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt11.3' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_searchdoors_ui_003: Verify each section of Doors filter table in Search Doors page, should have "Door Status changed between" and "Other Parameters"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt11.3')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt11.3' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt11.3: Door Status Other Parameters
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt11.4' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_searchdoors_ui_004: Verify each filter in "Door Status changed between" in Doors filter table, should have "Filter Date"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt11.4')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt11.4' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt11.4: Filter Date
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt11.5' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_searchdoors_ui_005: Verify each filter in "Other Parameters" in Doors filter table, should have "Door Status" and "User" filters</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt11.5')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt11.5' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt11.5: Door Status User
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt11.6' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_searchdoors_ui_006: Verify the default user name in "User" filter in Doors filter table, should be the current login user</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt11.6')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt11.6' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt11.6: Yi Sun
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+    <tr class='passClass'>
+        <td class="text-center">test_search_quotes.SearchQuotes_UI_Test</td>
+        <td class="text-center">17</td>
+        <td class="text-center">17</td>
+        <td class="text-center">0</td>
+        <td class="text-center">0</td>
+        <td class="text-center">0</td>
+        <td class="text-center"><button type="button" class="layui-btn layui-btn-xs" onclick="showClassDetail('c12',17)">Details</button></td>
+    </tr>
+
+<tr id='pt12.1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_searchquotes_ui_001: Verify the url for Search Quotes page</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt12.1')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt12.1' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt12.1: http://egd2.sighte.com/Quote/List
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt12.2' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_searchquotes_ui_002: Verify the title for Search Quotes page</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt12.2')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt12.2' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt12.2: Search Quotes
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt12.3' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_searchquotes_ui_003: Verify the default section should be "Quotes" in Search Quotes page</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt12.3')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt12.3' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt12.3: exist
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt12.4' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_searchquotes_ui_004: Verify the default elements in Search Quotes page</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt12.4')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt12.4' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt12.4: Quotes Doors Search Results
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt12.5' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_searchquotes_ui_005: Verify each section of Quotes filter table in Search Quotes page, should have "Date Range","Client Details" and "Quote Infomation"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt12.5')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt12.5' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt12.5: Date Range Client Details Quote Information
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt12.6' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_searchquotes_ui_006: Verify each filter in "Date Range" in Quotes filter table, should have "Filter Date","User" and "Quote Status" filters</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt12.6')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt12.6' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt12.6: Filter Date User Quote Status
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt12.7' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_searchquotes_ui_007: Verify each filter in "Client Details" in Quotes filter table, should have "Client Name","Contact Number","Suburb" and "Postcode" filters</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt12.7')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt12.7' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt12.7: Client Name Contact Number Suburb Postcode
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt12.8' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_searchquotes_ui_008: Verify each filter in "Quote Information" in Quotes filter table, should have "Proposal No","Door Design","Colour Category","Door Colour" and "Site Address" filters</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt12.8')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt12.8' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt12.8: Proposal No Door Design Colour Category Door Colour Site Address
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt12.9' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_searchquotes_ui_009: Verify the default user name in "User" filter in Quotes filter table, should be the current login user</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt12.9')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt12.9' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt12.9: Yi Sun
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt12.10' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_searchquotes_ui_010: Verify the search by client name function, should find the correct proposal No. for this client</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt12.10')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt12.10' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt12.10: 202623
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt12.11' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_searchquotes_ui_011: Verify the search by Proposal ID function, should find the correct proposal No. for this client</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt12.11')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt12.11' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt12.11: 202623
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt12.12' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_searchquotes_ui_012: Verify the search by Contact Number function, should find the correct proposal No. for this client</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt12.12')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt12.12' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt12.12: 202623
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt12.13' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_searchquotes_ui_013: Verify the search by Suburb function, should find the correct proposal No. for this client</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt12.13')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt12.13' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt12.13: 202623
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt12.14' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_searchquotes_ui_014: Verify the search by Postcode function, should find the correct proposal No. for this client</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt12.14')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt12.14' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt12.14: 202623
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt12.15' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_searchquotes_ui_015: Verify the search by Door Design function, should find the correct proposal No. for this client</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt12.15')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt12.15' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt12.15: 202623
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt12.16' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_searchquotes_ui_016: Verify the search by Door Colour function, should find the correct proposal No. for this client</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt12.16')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt12.16' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt12.16: 202623
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt12.17' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_searchquotes_ui_017: Verify the search by Colour Category function, should find the correct proposal No. for this client</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt12.17')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt12.17' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt12.17: 202623
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+    <tr class='passClass'>
+        <td class="text-center">test_search_service.SearchService_UI_Test</td>
+        <td class="text-center">19</td>
+        <td class="text-center">19</td>
+        <td class="text-center">0</td>
+        <td class="text-center">0</td>
+        <td class="text-center">0</td>
+        <td class="text-center"><button type="button" class="layui-btn layui-btn-xs" onclick="showClassDetail('c13',19)">Details</button></td>
+    </tr>
+
+<tr id='pt13.1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_searchservice_ui_001: Verify the url for Search Service page</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt13.1')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt13.1' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt13.1: http://egd2.sighte.com/Service/List
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt13.2' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_searchservice_ui_002: Verify the title for Search Service page</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt13.2')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt13.2' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt13.2: Search Services
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt13.3' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_searchservice_ui_003: Verify the default section in Search Service page</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt13.3')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt13.3' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt13.3: exist
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt13.4' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_searchservice_ui_004: Verify the default elements in Search Service page</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt13.4')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt13.4' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt13.4: Quotes Services Search Results
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt13.5' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_searchservice_ui_005: Verify each section of Service filter table in Search Service page</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt13.5')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt13.5' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt13.5: Date Range Client Details Service Information
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt13.6' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_searchservice_ui_006: Verify each filter in "Date Range" in Service filter table</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt13.6')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt13.6' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt13.6: Filter Date User
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt13.7' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_searchservice_ui_007: Verify each filter in "Client Details" in Service filter table</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt13.7')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt13.7' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt13.7: Client Name Address Suburb Postcode Contact Number
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt13.8' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_searchservice_ui_008: Verify each filter in "Service Infomation" in Service filter table</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt13.8')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt13.8' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt13.8: Service Status Service Area Service Type Invoice No Customer PO
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt13.9' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_searchservice_ui_009: Verify each filter in "Service Infomation" in Service filter table</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt13.9')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt13.9' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt13.9: Yi Sun
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt13.10' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_searchservice_ui_010: Verify the search by client name function</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt13.10')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt13.10' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt13.10: 202353S1
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt13.11' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_searchservice_ui_011: Verify the search by address function</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt13.11')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt13.11' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt13.11: 202353S1
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt13.12' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_searchservice_ui_012: Verify the search by Suburb function</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt13.12')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt13.12' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt13.12: 202353S1
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt13.13' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_searchservice_ui_013: Verify the search by Postcode function</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt13.13')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt13.13' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt13.13: 202353S1
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt13.14' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_searchservice_ui_014: Verify the search by Contact Number function</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt13.14')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt13.14' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt13.14: 202353S1
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt13.15' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_searchservice_ui_015: Verify the Service Status dropdown list</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt13.15')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt13.15' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt13.15: Please Select
+Quote
+MYOB Ready
+Order
+Invoiced
+Close
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt13.16' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_searchservice_ui_016: Verify the Service Area dropdown list</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt13.16')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt13.16' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt13.16: Please Select
+Vic Metro
+Vic Country
+Vic Pick up
+Vic Delivery
+Sydney metro
+Sydney pick up
+Sydney delivery
+NSW country
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt13.17' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_searchservice_ui_017: Verify the Service Type dropdown list</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt13.17')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt13.17' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt13.17: Please Select
+Order Residential
+Order Commercial
+Quote Commercial
+Quote residential
+Warranty
+Goodwill
+Non conformance
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt13.18' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_searchservice_ui_018: Verify the search by Invoice No. function</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt13.18')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt13.18' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt13.18: 202353S1
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt13.19' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_searchservice_ui_019: Verify the search by Customer PO function</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt13.19')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt13.19' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt13.19: 202353S1
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+    <tr class='passClass'>
+        <td class="text-center">test_standard_door.Add_StandardDoor_UI_Test</td>
+        <td class="text-center">42</td>
+        <td class="text-center">42</td>
+        <td class="text-center">0</td>
+        <td class="text-center">0</td>
+        <td class="text-center">0</td>
+        <td class="text-center"><button type="button" class="layui-btn layui-btn-xs" onclick="showClassDetail('c14',42)">Details</button></td>
+    </tr>
+
+<tr id='pt14.1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_standarddoor_ui_001: Verify the main elements in the page, should including correct title, Add button and Close button</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt14.1')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt14.1' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt14.1: Standard Door Details Add
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt14.2' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_standarddoor_ui_002: Verify each element for install details, should including "Install Type","Door Type","Design","Colour Category","Door Colour","Door Finish","Custom Colour","Technician Measure" and "Measure Required"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt14.2')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt14.2' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt14.2: Install Type Door Type Design Colour Category Door Colour Door Finish Custom Colour Technician Measure Measure Required
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt14.3' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_standarddoor_ui_003: Verify the Install Type dropdown list, should including "Commercial Cat 1","Commercial Cat 2","Commercial STD","Panel Replacement" and "Residential"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt14.3')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt14.3' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt14.3: Please Select
+Commercial Cat 1
+Commercial Cat 2
+Commercial STD
+Panel Replacement
+Residential
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt14.4' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_standarddoor_ui_004: Verify the Door Type dropdown list, should including "Insulated Sectional","Panel Lift-Safe" and "Roller Door"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt14.4')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt14.4' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt14.4: Please Select
+Insulated Sectional
+Panel Lift-Safe
+Roller Door
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt14.5' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_standarddoor_ui_005: Verify the Colour Category dropdown list, should including "ColorBond","Custom","Flexigraphic","Flexographic","MetalFx","OilColor","Painted Finish","Portabella","PowderCoatStandard","PowderCoatUpgrade","SealedColor","Timber Essence" and "TimberFX"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt14.5')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt14.5' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt14.5: Please Select
+ColorBond
+Custom
+Flexigraphic
+Flexographic
+MetalFx
+OilColor
+Painted Finish
+Portabella
+PowderCoatStandard
+PowderCoatUpgrade
+SealedColor
+Timber Essence
+TimberFX
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt14.6' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_standarddoor_ui_006: Verify the Design dropdown for Panel Lift-Safe Door, should including "Slimline","Classic panel","Lincoln panel","Ultraline" and "Wideline"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt14.6')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt14.6' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt14.6: Please Select
+Slimline
+Classic panel
+Lincoln panel
+Ultraline
+Wideline
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt14.7' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_standarddoor_ui_007: Verify the Design dropdown for Insulated Sectional Door, should including "Ribline","Fineline","Flatline" and "Stanford"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt14.7')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt14.7' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt14.7: Please Select
+Ribline
+Fineline
+Flatline
+Stanford
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt14.8' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_standarddoor_ui_008: Verify the Design dropdown for Roller Door, should including "Exoroll eS","Exoroll eD","B Series" and "NovaTaur"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt14.8')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt14.8' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt14.8: Please Select
+Exoroll eS
+Exoroll eD
+B Series
+NovaTaur
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt14.9' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_standarddoor_ui_009: Verify the Door Colour dropdown for ColorBond Category, should including "Basalt","Blue Gum",</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt14.9')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt14.9' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt14.9: Please Select
+Basalt
+Blue Gum
+Classic Cream
+Cove
+Dover White
+Dune
+Evening Haze
+Gully
+Ironstone
+Jasper
+Manor Red
+Monument
+Night Sky
+Paperbark
+Shale Grey
+Southerly
+Surfmist
+TBA
+Wallaby
+Windspray
+Woodland Grey
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt14.10' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_standarddoor_ui_010: Verify the Door Colour dropdown for Custom Category, should be disabled</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt14.10')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt14.10' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt14.10: correct
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt14.11' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_standarddoor_ui_011: Verify the Door Colour dropdown for Flexigraphic Category, should including "Caoba Dawn","Classic Cedar" and "TBA"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt14.11')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt14.11' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt14.11: Please Select
+Caoba Dawn
+Classic Cedar
+TBA
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt14.12' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_standarddoor_ui_012: Verify the Door Colour dropdown for Flexographic Category, should including "Caoba Dawn","Classic Cedar" and "TBA"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt14.12')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt14.12' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt14.12: Please Select
+Caoba Dawn
+Classic Cedar
+TBA
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt14.13' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_standarddoor_ui_013: Verify the Door Colour dropdown for MetalFx Category, should including "Deep Bronze","New Copper","Precious Silver Pearl" and "TBA"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt14.13')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt14.13' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt14.13: Please Select
+Deep Bronze
+New Copper
+Precious Silver Pearl
+TBA
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt14.14' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_standarddoor_ui_014: Verify the Door Colour dropdown for PaintedFinish Category, should including "Cottage Green","Deep Ocean","Mangrove","Monument Matt","Pale Eucalypt" and "Terrain"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt14.14')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt14.14' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt14.14: Please Select
+Cottage Green
+Deep Ocean
+Mangrove
+Monument Matt
+Pale Eucalypt
+Terrain
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt14.15' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_standarddoor_ui_015: Verify the Door Colour dropdown for Portabella Category, should including "African Ebony","European Oak","Golden Oak","Grey Ironbark","Knotted Walnut","Red Gum" and "TBA"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt14.15')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt14.15' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt14.15: Please Select
+African Ebony
+European Oak
+Golden Oak
+Grey Ironbark
+Knotted Walnut
+Red Gum
+TBA
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt14.16' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_standarddoor_ui_016: Verify the Door Colour dropdown for TimberFX Category, should including "Cedar","Jarrah","TBA" and "Walnut"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt14.16')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt14.16' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt14.16: Please Select
+Cedar
+Jarrah
+TBA
+Walnut
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt14.17' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_standarddoor_ui_017: Verify the Custom Colour input box, should be Disabled by default</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt14.17')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt14.17' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt14.17: correct
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt14.18' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_standarddoor_ui_018: Verify the Custom Colour input box, should be Enabled for Custom Colour Category</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt14.18')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt14.18' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt14.18: correct
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt14.19' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_standarddoor_ui_019: Verify each element for size details, should including "Opening Size LH","Opening Size RH","Opening Size Width","SR Left","HR","SR Right","LHRK","SwiFit SMS Bracket" and "LSR Kit"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt14.19')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt14.19' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt14.19: Opening Size LH Opening Size RH Opening Size Width SR Left HR SR Right LHRK SwiFit SMS Bracket LSR Kit
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt14.20' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_standarddoor_ui_020: Verify the default value for Opening Size LH, should be "0"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt14.20')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt14.20' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt14.20: 0
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt14.21' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_standarddoor_ui_021: Verify the default value for Opening Size RH, should be "0"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt14.21')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt14.21' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt14.21: 0
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt14.22' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_standarddoor_ui_022: Verify the default value for Opening Size Width, should be "0"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt14.22')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt14.22' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt14.22: 0
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt14.23' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_standarddoor_ui_023: Verify the default value for SR Left, should be "0"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt14.23')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt14.23' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt14.23: 0
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt14.24' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_standarddoor_ui_024: Verify the default value for HR, should be "0"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt14.24')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt14.24' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt14.24: 0
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt14.25' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_standarddoor_ui_025: Verify the default value for SR Right, should be "0"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt14.25')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt14.25' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt14.25: 0
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt14.26' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_standarddoor_ui_026: Verify the LHRK dropdown, should including "FMLHR","High Lift" and "Verticle Lift"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt14.26')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt14.26' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt14.26: Please Select
+FMLHR
+High Lift
+Verticle Lift
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt14.27' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_standarddoor_ui_027: Verify each element for Timer/Taper/AdditionalFab details, should including "Timber Packers","Taper","Additional Fabrication","Additional Fabrication Required","Shop Drawings" and "Lifting/Access Equipment"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt14.27')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt14.27' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt14.27: Timber Packers Taper Additional Fabrication Additional Fabrication Required Shop Drawings Lifting/Access Equipment
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt14.28' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_standarddoor_ui_028: Verify each element for all checkboxes, should including "Induction Loop","Reverse Roll Install","Fully Slotted","Emergency Key Release","Reverse Roll Colour","Battery Backup" and "Eco Smart WiFi"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt14.28')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt14.28' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt14.28: Induction Loop Reverse Roll Install Fully Slotted Emergency Key Release Reverse Roll Colour Battery Backup Eco Smart WiFi
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt14.29' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_standarddoor_ui_029: Verify each element for Opener, should including "Opener","No of Handsets","Wall Button","Opener Details","Digital Keypad","Internal Push Button","PE Beam" and "No. of PE Beam Sets"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt14.29')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt14.29' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt14.29: Opener No of Handsets Wall Button Opener Details Digital Keypad Internal Push Button PE Beam No. of PE Beam Sets
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt14.30' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_standarddoor_ui_030: Verify each element for other elements, should including "Weight Being Added","Seals","Hang Door Fromn","Lintel Type","Fixing Type","IBeam Noggins","Remove and Dispose","Job Status","Expected Delivery Date","Cut Date","Paint Date","QC Date" and "Other Date"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt14.30')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt14.30' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt14.30: Weight Being Added Seals Hang Door From Lintel Type Fixing Type IBeam Noggins Remove and Dispose Job Status Expected Delivery Date Cut Date Paint Date QC Date Other Date
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt14.31' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_standarddoor_ui_031: Verify each element for Aditional Infomation, should including "Additional Door Information" and "Production Notes"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt14.31')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt14.31' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt14.31: Additional Door Information Production Notes
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt14.32' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_standarddoor_ui_032: Verify the Extras and Site Picture, should including "Extras" and "Site Picture"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt14.32')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt14.32' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt14.32: Extras Site Pictures
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt14.33' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_standarddoor_ui_033: Verify the details for Jamb in Extras section, should including "LH Jamb Type","Size" and "RH Jamb Type"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt14.33')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt14.33' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt14.33: LH Jamb Type Size RH Jamb Type Size
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt14.34' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_standarddoor_ui_034: Verify the list for LH JAMB Type, should including "Custom Fabrication","Hot Dip","Internal – RHS","Internal – Standard","RHS" and "Standard"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt14.34')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt14.34' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt14.34: Please Select
+Custom Fabrication
+Hot Dip
+Internal – RHS
+Internal – Standard
+RHS
+Standard
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt14.35' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_standarddoor_ui_035: Verify the list for LH Width Size, should including "50","100","125S","150" and "180"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt14.35')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt14.35' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt14.35: 50
+100
+125
+150
+180
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt14.36' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_standarddoor_ui_036: Verify the list for LH Depth Size, should including "50" and "70"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt14.36')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt14.36' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt14.36: 50
+70
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt14.37' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_standarddoor_ui_037: Verify the list for RH JAMB Type, should including "Custom Fabrication","Hot Dip","Internal – RHS","Internal – Standard","RHS" and "Standard"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt14.37')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt14.37' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt14.37: Please Select
+Custom Fabrication
+Hot Dip
+Internal – RHS
+Internal – Standard
+RHS
+Standard
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt14.38' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_standarddoor_ui_038: Verify the list for RH Width Size, should including "50","100","125S","150" and "180"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt14.38')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt14.38' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt14.38: 50
+100
+125
+150
+180
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt14.39' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_standarddoor_ui_039: Verify the list for RH Depth Size, should including "50" and "70"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt14.39')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt14.39' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt14.39: 50
+70
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt14.40' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_standarddoor_ui_041: Verify the list for LH Cover Width Size, should including "102","127","152","150" and "182"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt14.40')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt14.40' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt14.40: 102
+127
+152
+182
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt14.41' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_standarddoor_ui_042: Verify the list for LH Cover Depth Size, should including "52" and "72"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt14.41')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt14.41' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt14.41: 52
+72
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt14.42' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_standarddoor_ui_043: Verify the list for LH Cover Type, should including "Colourbond" and "Custom"</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt14.42')">
+        Pass</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt14.42' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt14.42: Please Select
+Colourbond
+Custom
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+                </tbody>
+                <tr id='total_row' class="text-center active">
+                    <td align="right">Total</td>
+                    <td>181</td>
+                    <td>181</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+	</fieldset>
+
+        <a href="#">
+    <ul class="layui-fixbar"><li class="layui-icon layui-fixbar-top" lay-type="top" style="display: list-item;"></li></ul>
+    </a>
+    
+        
+    <script type="text/javascript">
+        // 初始化echarts实例
+        var myChart1 = echarts.init(document.getElementById('chart1'));
+        var myChart2 = echarts.init(document.getElementById('chart2'));
+        // 指定图表的配置项和数据
+        option1 = {
+            tooltip: {
+                formatter: '{a} <br/>{b} : {c}%'
+            },
+            toolbox: {
+                feature: {
+                    restore: {},
+                    saveAsImage: {}
+                }
+            },
+            series: [{
+                name: 'Test Result',
+                type: 'gauge',
+                detail: {
+                    formatter: '100.00%'
+                },
+                data: [{
+                    value: '100.00',
+                    name: 'Case Pass Rate'
+                }],
+                axisLine: {
+                    lineStyle: {
+                        color: [
+                            [0.2, '#c20000'],
+                            [0.8, '#ddb518'],
+                            [1, '#00a10a']
+                        ]
+                    }
+                }
+            }]
+        };
+        option2 = {
+            color: ['#00a10a', '#ddb518', 'rgba(204,46,41,0.73)', '#85898c'],
+            tooltip: {
+                trigger: 'item',
+                formatter: '{a} <br/>{b}: {c} ({d}%)'
+            },
+            legend: {
+                orient: 'vertical',
+                left: 10,
+                data: ['Passed', 'Failed', 'Error', 'Skipped']
+            },
+            series: [{
+                name: 'Test Result',
+                type: 'pie',
+                radius: ['50%', '70%'],
+                avoidLabelOverlap: false,
+                label: {
+                    show: false,
+                    position: 'center'
+                },
+                emphasis: {
+                    label: {
+                        show: true,
+                        fontSize: '30',
+                        fontWeight: 'bold'
+                    }
+                },
+                labelLine: {
+                    show: false
+                },
+                data: [{
+                        value: 181,
+                        name: 'Pass'
+                    },
+                    {
+                        value: 0,
+                        name: 'Fail'
+                    },
+                    {
+                        value: 0,
+                        name: 'Error'
+                    },
+                    {
+                        value: 0,
+                        name: 'Skip'
+                    }
+                ]
+            }]
+        };
+
+        myChart1.setOption(option1);
+        myChart2.setOption(option2);
+    </script>
+    
+    </div>
+</body>
+</html>
