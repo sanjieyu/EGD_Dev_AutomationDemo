@@ -14,47 +14,47 @@ from selenium.webdriver.common.action_chains import ActionChains
 
 class Search_Service(Admin_Page):
 
-    search_service_loc = (By.XPATH,'/html/body/div[2]/div/div[2]/ul/li[2]/ul/li[2]/ul/li[1]/a')
+    search_service_loc = (By.ID,'serviceSearch')
 
     '''loc for default values in this page'''
-    searchservice_title_loc =(By.XPATH,'/html/body/div[3]/div[2]/div/div/h1')
+    searchservice_title_loc = (By.NAME,'searchservice')
     quotes_sub_loc = (By.ID,'li-quote-search')
     service_sub_loc = (By.ID,'li-service-search')
-    searchresult_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/div/div/h4')
+    searchresult_loc = (By.CSS_SELECTOR, "[aria-label='search_result']")
 
     '''loc for default values in "Service" section'''
-    date_range_loc =(By.XPATH,'/html/body/div[3]/div[2]/div/div/div/form/div/div/div[2]/div/div[1]/div[1]/h4')
-    client_details_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/form/div/div/div[2]/div/div[2]/div[1]/h4')
-    service_info_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/form/div/div/div[2]/div/div[3]/div[1]/h4')
-    searchservice_btn_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/form/div/div/div[2]/div/div[4]/div/input')
-    addservice_btn_loc = (By.XPATH, '/html/body/div[3]/div[2]/div/div/div/form/div/div/div[2]/div/div[4]/div/a')
+    date_range_loc = (By.CSS_SELECTOR, "[aria-label='date_range']")
+    client_details_loc = (By.CSS_SELECTOR, "[aria-label='client_details']")
+    service_info_loc = (By.CSS_SELECTOR, "[aria-label='service_info']")
+    searchservice_btn_loc = (By.ID,'btnSearch')
+    addservice_btn_loc = (By.ID, 'btnAdd')
 
-    filter_date_loc =(By.XPATH,'/html/body/div[3]/div[2]/div/div/div/form/div/div/div[2]/div/div[1]/div[2]/label')
-    user_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/form/div/div/div[2]/div/div[1]/div[3]/label')
+    filter_date_loc = (By.CSS_SELECTOR, "[aria-label='filter_date']")
+    user_loc = (By.CSS_SELECTOR, "[aria-label='user']")
     user_box = (By.ID,'ServiceSearchModel_UserAssignedId')
     filter_date_box = (By.ID,'ServiceFilterDate')
-    searched_invoiceno_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/div/div/div/div/div/table/tbody/tr/td[2]/a')
+    searched_invoiceno_loc = (By.CSS_SELECTOR, "[aria-label='invoice']")
 
-    client_name_loc =(By.XPATH,'/html/body/div[3]/div[2]/div/div/div/form/div/div/div[2]/div/div[2]/div[2]/label')
+    client_name_loc = (By.CSS_SELECTOR, "[aria-label='client_name']")
     client_name_box = (By.ID,'ServiceSearchModel_ClientName')
-    address_loc = (By.XPATH, '/html/body/div[3]/div[2]/div/div/div/form/div/div/div[2]/div/div[2]/div[3]/label')
+    address_loc = (By.CSS_SELECTOR, "[aria-label='address']")
     address_box = (By.ID,'ServiceSearchModel_ContactAddress')
-    contact_number_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/form/div/div/div[2]/div/div[2]/div[6]/label')
+    contact_number_loc = (By.CSS_SELECTOR, "[aria-label='contact_number']")
     contact_number_box = (By.ID,'ServiceSearchModel_ContactNumber')
-    suburb_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/form/div/div/div[2]/div/div[2]/div[4]/label')
+    suburb_loc = (By.CSS_SELECTOR, "[aria-label='suburb']")
     suburb_box = (By.ID,'ServiceSearchModel_Suburb')
-    postcode_loc = (By.XPATH, '/html/body/div[3]/div[2]/div/div/div/form/div/div/div[2]/div/div[2]/div[5]/label')
+    postcode_loc = (By.CSS_SELECTOR, "[aria-label='postcode']")
     postcode_box = (By.ID,'ServiceSearchModel_Postcode')
 
-    service_status_loc =(By.XPATH,'/html/body/div[3]/div[2]/div/div/div/form/div/div/div[2]/div/div[3]/div[2]/label')
+    service_status_loc = (By.CSS_SELECTOR, "[aria-label='service_status']")
     service_status_select = (By.ID,'ServiceSearchModel_ServiceStatusId')
-    service_area_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/form/div/div/div[2]/div/div[3]/div[3]/label')
+    service_area_loc = (By.CSS_SELECTOR, "[aria-label='service_area']")
     service_area_select = (By.ID,'ServiceSearchModel_ServiceTypeId')
-    service_type_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/form/div/div/div[2]/div/div[3]/div[4]/label')
+    service_type_loc = (By.CSS_SELECTOR, "[aria-label='service_type']")
     service_type_select = (By.ID,'ServiceSearchModel_ServiceSupplyTypeId')
-    invoice_no_loc = (By.XPATH, '/html/body/div[3]/div[2]/div/div/div/form/div/div/div[2]/div/div[3]/div[5]/label')
+    invoice_no_loc = (By.CSS_SELECTOR, "[aria-label='invoice_no']")
     invoice_no_box = (By.ID,'ServiceSearchModel_InvoiceNo')
-    customer_po_loc = (By.XPATH, '/html/body/div[3]/div[2]/div/div/div/form/div/div/div[2]/div/div[3]/div[6]/label')
+    customer_po_loc = (By.CSS_SELECTOR, "[aria-label='customer_po']")
     customer_po_box = (By.ID,'ServiceSearchModel_CustomerPO')
 
     def go_searchservice(self):

@@ -4,7 +4,6 @@
 
 import selenium
 from selenium import webdriver
-from time import sleep
 from selenium.webdriver.common.by import By
 from UIModule.dealer_portal import *
 from selenium.webdriver.support.ui import Select
@@ -14,26 +13,26 @@ from selenium.common.exceptions import ElementNotInteractableException
 
 class Add_Dealer_Quote(Deal_Portal):
 
-    quote_details_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/form/div/h1')
-    doors_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/fieldset/h1')
+    quote_details_loc = (By.NAME,'details')
+    doors_loc = (By.NAME,'doorid')
     save_quote_btn_loc = (By.ID,'btnSaveQuote')
-    quote_success_created_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/form/div/h1')
+    quote_success_created_loc = (By.XPATH,"//button[text()='Result']")
 
     '''Quote Details section'''
-    proposal_num_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/form/div/div/fieldset/div[1]/div[1]/label')
+    proposal_num_loc = (By.XPATH,"//div[contains(@class,'proposalnum')]")
     proposal_num_box_loc = (By.ID,'ProposalNo')
-    purchase_order_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/form/div/div/fieldset/div[1]/div[2]/label')
+    purchase_order_loc = (By.XPATH,"//div[contains(@class,'proposalorder')]")
     purchase_order_box_loc = (By.ID,'ClientPurchaseOrderNumber')
-    user_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/form/div/div/fieldset/div[1]/div[3]/label')
+    user_loc = (By.NAME,'username')
     user_select_loc = (By.ID,'UserAssignedId')
-    job_notes_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/form/div/div/fieldset/div[3]/div/label')
+    job_notes_loc = (By.XPATH,"//div[contains(@class,'jobnote')]")
     job_notes_box_loc = (By.ID,'JobNotes')
 
     '''Doors section'''
     insulated_btn_loc = (By.ID,'insulated-sectional-add-door-btn')
     panel_btn_loc = (By.ID,'panel-lift-safe-add-door-btn')
     roller_btn_loc = (By.ID,'roller-type-add-door-btn')
-    default_des_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/fieldset/div/div/div[1]/div/div')
+    default_des_loc = (By.XPATH,"//div[contains(@class,'defaultdes')]")
 
 
     def creat_quote(self):

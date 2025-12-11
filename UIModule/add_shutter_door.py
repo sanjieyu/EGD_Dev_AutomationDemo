@@ -14,8 +14,8 @@ class Add_Shutter_Door(Shutter_Door):
 
     new_door_page_loc = (By.ID,'shutterDoorForm')
     new_door_title= (By.ID,'btnShowDoor')
-    new_door_duplicate = (By.XPATH, '/html/body/div[3]/div[2]/div[1]/div/fieldset/div/div/div[1]/div/div/div/div[3]/a[1]')
-    new_door_delete = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/fieldset/div/div/div[1]/div/div/div/div[3]/a[2]')
+    new_door_duplicate = (By.XPATH,'//*[@id="duplicatedoor"]/div/div[2]/span')
+    new_door_delete = (By.ID,'btnDelete')
 
     '''loc for validation'''
     validation_msgbox_loc = (By.ID,'shutterErrorsBody')

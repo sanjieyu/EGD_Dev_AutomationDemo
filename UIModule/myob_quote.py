@@ -12,31 +12,32 @@ from selenium.webdriver.support.ui import Select
 from UIModule.admin_portal import *
 
 class MYOB_Quotes(Admin_Page):
-    myob_title_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/h1')
+
+    myob_title_loc = (By.CSS_SELECTOR,"label[for='MyobTitle']")
     search_btn_loc = (By.ID,'btnMYOBQuoteSearch')
-    searched_proposal_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div[1]/div/div[1]/div/table/tbody/tr[1]/td[2]/a')
+    searched_proposal_loc = (By.CSS_SELECTOR,"label[for='SearchResult']")
     save_btn_loc = (By.ID,'saveMYOBListData')
     door_status_dropdown_loc = (By.XPATH,"//select[contains(@id, '_status')]")
 
 
     '''client details'''
-    client_details_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div[1]/form/div/div/div[1]/div[1]/div[1]/h4')
-    client_name_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div[1]/form/div/div/div[1]/div[1]/div[2]/label')
-    contact_num_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div[1]/form/div/div/div[1]/div[1]/div[3]/label')
+    client_details_loc = (By.CSS_SELECTOR, "[aria-label='details']")
+    client_name_loc = (By.CSS_SELECTOR, "[aria-label='name']")
+    contact_num_loc = (By.CSS_SELECTOR, "[aria-label='mobile']")
     client_name_box_loc = (By.ID,'ClientName')
     contact_num_box_loc = (By.ID,'ContactNumber')
 
     '''Location'''
-    location_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div[1]/form/div/div/div[1]/div[2]/div[1]/h4')
-    suburb_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div[1]/form/div/div/div[1]/div[2]/div[2]/label')
-    site_address_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div[1]/form/div/div/div[1]/div[2]/div[3]/label')
+    location_loc = (By.CSS_SELECTOR,"label[for='Location']")
+    suburb_loc = (By.CSS_SELECTOR,"label[for='Suburb']")
+    site_address_loc = (By.CSS_SELECTOR,"label[for='Address']")
     suburb_box_loc = (By.ID,'Suburb')
     site_address_box_loc = (By.ID,'SiteAddress')
 
     '''Quote Information'''
-    quote_info_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div[1]/form/div/div/div[1]/div[3]/div[1]/h4')
-    proposal_no_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div[1]/form/div/div/div[1]/div[3]/div[2]/label')
-    user_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div[1]/form/div/div/div[1]/div[3]/div[3]/label')
+    quote_info_loc = (By.CSS_SELECTOR,"label[for='QuoteInfo']")
+    proposal_no_loc = (By.CSS_SELECTOR,"label[for='ProposalId']")
+    user_loc = (By.CSS_SELECTOR,"label[for='User']")
     proposal_no_box_loc = (By.ID,'ProposalNo')
     user_select_loc = (By.ID,'UserAssignedId')
 

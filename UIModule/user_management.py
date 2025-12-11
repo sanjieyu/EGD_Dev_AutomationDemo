@@ -15,23 +15,23 @@ from selenium.webdriver.common.action_chains import ActionChains
 
 class User_Management(Admin_Page):
 
-    user_title_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/h1')
-    roles_assigned_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/h3[1]/span')
-    registered_users_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/h3[2]/span/span')
+    user_title_loc = (By.NAME,'usermanager')
+    roles_assigned_loc = (By.CSS_SELECTOR, "[aria-label='roles_assigned']")
+    registered_users_loc = (By.CSS_SELECTOR, "[aria-label='registered_users']")
     new_btn_loc = (By.ID,'btnAddUser')
 
     '''Add New User screen'''
-    newuser_title_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div[1]/h1')
-    first_name_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div[2]/div/form/div[1]/div[1]/div/label')
-    last_name_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div[2]/div/form/div[1]/div[2]/div/label')
-    email_loc  = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div[2]/div/form/div[2]/label')
+    newuser_title_loc = (By.CSS_SELECTOR, "label[for='NewUser']")
+    first_name_loc = (By.CSS_SELECTOR, "label[for='FirstName']")
+    last_name_loc = (By.CSS_SELECTOR, "label[for='LastName']")
+    email_loc  = (By.CSS_SELECTOR, "label[for='Email']")
     first_name_box_lox = (By.ID,'userFirstName')
     last_name_box_loc = (By.ID,'userLastName')
     email_box_loc = (By.ID,'userEmail')
     save_user_btn_loc = (By.XPATH,'//*[@id="btnUserSave"]')
-    close_user_btn_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div[3]/input[2]')
+    close_user_btn_loc = (By.ID, 'btnClose')
 
-    error_msg_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div[2]/div/div/div/div/li')
+    error_msg_loc = (By.CSS_SELECTOR, "label[for='ErrorMsg']")
 
 
     def go_user_management(self):

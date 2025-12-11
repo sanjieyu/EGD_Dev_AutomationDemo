@@ -4,7 +4,6 @@
 
 import selenium
 from selenium import webdriver
-from time import sleep
 from selenium.webdriver.common.by import By
 from UIModule.admin_portal import *
 from selenium.webdriver.support.ui import Select
@@ -13,54 +12,55 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 
 class Add_Service(Admin_Page):
-    search_service_title_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/h1')     # new added
-    search_service_loc = (By.XPATH, '/html/body/div[2]/div/div[2]/ul/li[2]/ul/li[2]/ul/li[1]/a')
-    add_new_service_btn = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/form/div/div/div[2]/div/div[4]/div/a')
-    success_confirm_btn = (By.XPATH,'/html/body/div[8]/div/div[6]/button[1]')
+
+    search_service_title_loc = (By.XPATH,'//*[@id="serviceTitle"]/div/div[1]/span')     # new added
+    search_service_loc = (By.XPATH,'//*[@id="serviceId"]/div/div[2]/span')
+    add_new_service_btn = (By.ID,'btnServiceAdd')
+    success_confirm_btn = (By.ID,'btnServiceConfirm')
 
     '''loc for each section in this page'''
-    doors_section_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div[1]/div/h1[1]')
-    service_details_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div[1]/div/h1[2]')
-    site_contact_details_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div[1]/div/div[3]/h1')
-    service_item_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div[1]/div/h1[3]')
-    service_documents_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div[1]/div/h1[4]')
+    doors_section_loc = (By.CSS_SELECTOR, "[aria-label='doorsection']")
+    service_details_loc = (By.CSS_SELECTOR, "[aria-label='servicedetails']")
+    site_contact_details_loc = (By.CSS_SELECTOR, "[aria-label='sitecontact']")
+    service_item_loc = (By.CSS_SELECTOR, "[aria-label='serviceitem']")
+    service_documents_loc = (By.CSS_SELECTOR, "[aria-label='document']")
     back_service_btn = (By.ID,'btnBackToQuote')
     save_service_btn = (By.ID,'btnSaveService')
-    add_service_item_btn = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div[1]/div/div[4]/div/div/div[2]/a')
+    add_service_item_btn = (By.ID, 'btnServiceItem')
     add_attachement_btn_loc = (By.ID,'servicenewfiles')
 
     '''loc for each element in "Doors" section"'''
-    door_type_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div[1]/div/div[1]/div/div/div[1]/fieldset/label')
+    door_type_loc = (By.CSS_SELECTOR, "[aria-label='doortype']")
     door_type_select = (By.ID,'serviceDoorType')
-    additional_info_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div[1]/div/div[1]/div/div/div[2]/label')
+    additional_info_loc = (By.CSS_SELECTOR, "[aria-label='additionalinfo']")
     additional_info_box = (By.ID,'serviceAdditionalDoorInfo')
 
     '''loc for each element in "Service Details" section"'''
-    service_type_loc = (By.XPATH, '/html/body/div[3]/div[2]/div[1]/div[1]/div/div[2]/div/div[1]/label')
+    service_type_loc = (By.CSS_SELECTOR, "[aria-label='servicetype']")
     service_type_select = (By.ID,'serviceSupplyType')
-    service_area_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div[1]/div/div[2]/div/div[2]/label')
+    service_area_loc = (By.CSS_SELECTOR, "[aria-label='servicearea']")
     service_area_select = (By.ID,'serviceTypeValue')
-    service_status_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div[1]/div/div[2]/div/div[3]/label')
+    service_status_loc = (By.CSS_SELECTOR, "[aria-label='status']")
     service_status_select = (By.ID,'serviceStatusId')
-    invoice_no_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div[1]/div/div[2]/div/div[4]/label')
+    invoice_no_loc = (By.CSS_SELECTOR, "[aria-label='invoice']")
     invoice_no_box = (By.ID,'serviceInvoiceNo')
-    account_type_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div[1]/div/div[2]/div/div[5]/label')
+    account_type_loc = (By.CSS_SELECTOR, "[aria-label='accountype']")
     account_type_select = (By.ID,'servicePaymentTypeId')
-    account_customer_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div[1]/div/div[2]/div/div[6]/label')
+    account_customer_loc = (By.CSS_SELECTOR, "[aria-label='accountcustomer']")
     account_customer_select = (By.ID,'serviceAccountCustomer')
-    order_date_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div[1]/div/div[2]/div/div[7]/label')
+    order_date_loc = (By.CSS_SELECTOR, "[aria-label='orderdate']")
     order_date_filter = (By.ID,'serviceOrderDate')
-    service_date_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div[1]/div/div[2]/div/div[8]/label')
+    service_date_loc = (By.CSS_SELECTOR, "[aria-label='servicedate']")
     service_date_filter = (By.ID,'serviceServiceDate')
-    customer_po_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div[1]/div/div[2]/div/div[9]/label')
+    customer_po_loc = (By.CSS_SELECTOR, "[aria-label='customerpo']")
     customer_po_box = (By.ID,'serviceCustomerPO')
-    user_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div[1]/div/div[2]/div/div[10]/label')
+    user_loc = (By.CSS_SELECTOR, "[aria-label='userid']")
     user_select = (By.ID,'serviceUserAssigned')
-    service_tech_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div[1]/div/div[2]/div/div[11]/label')
+    service_tech_loc = (By.CSS_SELECTOR, "[aria-label='servicetech']")
     service_tech_select = (By.ID,'serviceInstaller')
-    service_tech_name_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div[1]/div/div[2]/div/div[12]/label')
+    service_tech_name_loc = (By.CSS_SELECTOR, "[aria-label='techname']")
     service_tech_name_box = (By.ID,'serviceTechName')
-    description_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div[1]/div/div[2]/div/div[13]/label')
+    description_loc = (By.CSS_SELECTOR, "[aria-label='description']")
     description_box = (By.ID,'serviceDescription')
 
     '''loc for each element in "Site Contact Details" section"'''

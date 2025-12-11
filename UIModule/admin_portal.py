@@ -4,63 +4,63 @@
 
 from selenium.webdriver.common.by import By
 from selenium import webdriver
-from time import sleep
 from UIModule.login_admin import *
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 
 class Admin_Page(Admin_Portal):
+
     '''loc for default values in this page'''
     eco_icon_loc = (By.XPATH,'/html/body/div[2]/div/div[1]/a/img')
     add_loc = (By.XPATH,'/html/body/div[2]/div/div[2]/ul/li[1]/a')
     list_loc = (By.XPATH,'/html/body/div[2]/div/div[2]/ul/li[2]/a')
     findquote_box_loc = (By.ID,'search-quote')
-    findquote_button_loc=(By.XPATH,'/html/body/div[2]/div/div[2]/div[1]/div/div/button')
+    findquote_button_loc= (By.ID, 'btnFindQuote')
     findaddress_box_loc = (By.ID,'search-address')
-    findaddress_button_loc=(By.XPATH,'/html/body/div[2]/div/div[2]/div[2]/div/div/button')
+    findaddress_button_loc= (By.ID, 'btnFindAddress')
     findclient_box_loc = (By.ID,'search-client')
-    findclient_button_loc=(By.XPATH,'//*[@id="search-client-btn"]')
+    findclient_button_loc= (By.ID, 'btnFindClient')
 
-    account_loc = (By.XPATH,'/html/body/div[2]/div/div[2]/form/ul/li/a')
-    copyright_loc = (By.XPATH,'/html/body/footer/div/p')
-    terms_loc = (By.XPATH,'/html/body/footer/div/a')
+    account_loc = (By.CSS_SELECTOR, "[aria-label='account']")
+    copyright_loc = (By.CSS_SELECTOR, "[aria-label='copyright']")
+    terms_loc = (By.CSS_SELECTOR, "[aria-label='terms']")
 
     '''Add Menu'''
-    quote_add_loc = (By.XPATH,'/html/body/div[2]/div/div[2]/ul/li[1]/ul/li[1]/a')
-    lead_add_loc = (By.XPATH,'/html/body/div[2]/div/div[2]/ul/li[1]/ul/li[2]/a')
-    account_add_loc = (By.XPATH,'/html/body/div[2]/div/div[2]/ul/li[1]/ul/li[3]/a')
-    installer_add_loc = (By.XPATH,'/html/body/div[2]/div/div[2]/ul/li[1]/ul/li[4]/a')
+    quote_add_loc = (By.CSS_SELECTOR,'.open > ul:nth-child(2) > li:nth-child(1) > a:nth-child(1)')
+    lead_add_loc = (By.CSS_SELECTOR,'.open > ul:nth-child(2) > li:nth-child(2) > a:nth-child(1)')
+    account_add_loc = (By.CSS_SELECTOR,'.open > ul:nth-child(2) > li:nth-child(3) > a:nth-child(1)')
+    installer_add_loc = (By.CSS_SELECTOR,'.open > ul:nth-child(2) > li:nth-child(4) > a:nth-child(1)')
 
     '''List Menu'''
-    quote_list_loc = (By.XPATH,'/html/body/div[2]/div/div[2]/ul/li[2]/ul/li[1]/a')
-    services_list_loc = (By.XPATH,'/html/body/div[2]/div/div[2]/ul/li[2]/ul/li[2]/a')
-    account_list_loc = (By.XPATH,'/html/body/div[2]/div/div[2]/ul/li[2]/ul/li[3]/a')
-    report_list_loc = (By.XPATH,'/html/body/div[2]/div/div[2]/ul/li[2]/ul/li[4]/a')
-    installer_list_loc = (By.XPATH,'/html/body/div[2]/div/div[2]/ul/li[2]/ul/li[5]/a')
-    myob_list_loc = (By.XPATH,'/html/body/div[2]/div/div[2]/ul/li[2]/ul/li[6]/a')
-    jobaccept_list_loc = (By.XPATH,'/html/body/div[2]/div/div[2]/ul/li[2]/ul/li[7]/a')
-    onhold_list_loc = (By.XPATH,'/html/body/div[2]/div/div[2]/ul/li[2]/ul/li[8]/a')
-    neworder_list_loc = (By.XPATH,'/html/body/div[2]/div/div[2]/ul/li[2]/ul/li[9]/a')
-    production_list_loc = (By.XPATH,'/html/body/div[2]/div/div[2]/ul/li[2]/ul/li[10]/a')
-    productionWA_list_loc = (By.XPATH, '/html/body/div[2]/div/div[2]/ul/li[2]/ul/li[11]/a')
-    schedule_list_loc = (By.XPATH,'/html/body/div[2]/div/div[2]/ul/li[2]/ul/li[12]/a')
-    pipeline_list_loc = (By.XPATH,'/html/body/div[2]/div/div[2]/ul/li[2]/ul/li[13]/a')
-    activepipeline_list_loc = (By.XPATH, '/html/body/div[2]/div/div[2]/ul/li[2]/ul/li[14]/a')
+    quote_list_loc = (By.ID,'quotelist)')
+    services_list_loc = (By.ID,'servicelist')
+    account_list_loc = (By.ID,'accountlist')
+    report_list_loc = (By.ID,'reportlist)
+    installer_list_loc = (By.ID,'installerlist')
+    myob_list_loc = (By.ID,'myoblist')
+    jobaccept_list_loc = (By.ID,'jobacceptlist')
+    onhold_list_loc = (By.ID,'onholdlist')
+    neworder_list_loc = (By.ID,'neworderlist')
+    production_list_loc = (By.ID,'productionlist')
+    productionWA_list_loc = (By.ID, 'walist')
+    schedule_list_loc = (By.ID,'schedulelist')
+    pipeline_list_loc = (By.ID,'pipelinelist')
+    activepipeline_list_loc = (By.ID, 'activepipelinelist')
 
     '''Account Menu'''
-    changepwd_loc = (By.XPATH,'/html/body/div[2]/div/div[2]/form/ul/li/ul/li[3]/a')
-    updateprofile_loc = (By.XPATH,'/html/body/div[2]/div/div[2]/form/ul/li/ul/li[4]/a')
-    updateemail_loc = (By.XPATH, '/html/body/div[2]/div/div[2]/form/ul/li/ul/li[5]/a')
-    usermanage_loc = (By.XPATH, '/html/body/div[2]/div/div[2]/form/ul/li/ul/li[7]/a')
-    travel_area_loc = (By.XPATH,'/html/body/div[2]/div/div[2]/form/ul/li/ul/li[9]/a')
-    rollcycle_loc = (By.XPATH, '/html/body/div[2]/div/div[2]/form/ul/li/ul/li[10]/a')
-    rollcycle_panellift_loc = (By.XPATH,'/html/body/div[2]/div/div[2]/form/ul/li/ul/li[10]/ul/li[1]/a')
-    rollcycle_rollerdoors_loc = (By.XPATH,'/html/body/div[2]/div/div[2]/form/ul/li/ul/li[10]/ul/li[2]/a')
-    rollcycle_optiliftdoors_loc = (By.XPATH,'/html/body/div[2]/div/div[2]/form/ul/li/ul/li[10]/ul/li[3]/a')
-    rollcycle_optirolldoors_loc = (By.XPATH, '/html/body/div[2]/div/div[2]/form/ul/li/ul/li[10]/ul/li[4]/a')
-    sms_loc = (By.XPATH,'/html/body/div[2]/div/div[2]/form/ul/li/ul/li[11]/a')
-    logoff_loc = (By.XPATH, '/html/body/div[2]/div/div[2]/form/ul/li/ul/li[13]/a')
+    changepwd_loc = (By.ID,'pwdchange')
+    updateprofile_loc = (By.ID,'profileupdate)
+    updateemail_loc = (By.ID, 'emailupdate)
+    usermanage_loc = (By.ID, 'usermanager')
+    travel_area_loc = (By.ID,'travelarea')
+    rollcycle_loc = (By.ID 'rollcycle')
+    rollcycle_panellift_loc = (By.ID,'rollcyclepanel')
+    rollcycle_rollerdoors_loc = (By.ID,'rollcycleroll')
+    rollcycle_optiliftdoors_loc = (By.ID,'rollcycleoptilift')
+    rollcycle_optirolldoors_loc = (By.ID, 'rollcycleoptiroll')
+    sms_loc = (By.ID,'sms)
+    logoff_loc = (By.ID, 'logoff')
 
 
     @property

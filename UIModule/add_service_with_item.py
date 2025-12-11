@@ -19,27 +19,26 @@ from selenium.webdriver.common.action_chains import ActionChains
 class Add_Service_With_Items():
 
     invoice_no_box1 = (By.ID,'serviceInvoiceNo')   #get the proposal number for the edit box
-    list_loc = (By.XPATH,'/html/body/div[2]/div/div[2]/ul/li[2]/a')
-    list_menu_loc = (By.XPATH,'/html/body/div[2]/div/div[2]/ul/li[2]/ul')
-    services_list_loc = (By.XPATH,'/html/body/div[2]/div/div[2]/ul/li[2]/ul/li[2]/a')
-    search_service_loc = (By.XPATH, '/html/body/div[2]/div/div[2]/ul/li[2]/ul/li[2]/ul/li[1]/a')
+    list_loc = (By.ID,'list')
+    list_menu_loc = (By.ID,'listmenu')
+    services_list_loc = (By.ID,'servicelist')
+    search_service_loc = (By.ID, 'searchservice')
     invoice_no_box2 = (By.ID, 'ServiceSearchModel_InvoiceNo')
-    searchservice_btn_loc = (By.XPATH, '/html/body/div[3]/div[2]/div/div/div/form/div/div/div[2]/div/div[4]/div/input')
-    searched_invoiceno_loc = (
-    By.XPATH, '/html/body/div[3]/div[2]/div/div/div/div/div/div/div/div/table/tbody/tr/td[2]/a')
-    searched_client_name = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/div/div/div/div/div/table/tbody/tr/td[4]')
+    searchservice_btn_loc = (By.ID, 'btnSearch')
+    searched_invoiceno_loc = (By.CSS_SELECTOR, "[aria-label='invoiceid']")
+    searched_client_name = (By.ID, 'clientname')
 
     '''new added service item section'''
-    quantity_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div[1]/form/div[4]/div/div/div[1]/table/tbody/tr/td[2]')
-    service_type_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div[1]/form/div[4]/div/div/div[1]/table/tbody/tr/td[3]')
-    name_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div[1]/form/div[4]/div/div/div[1]/table/tbody/tr/td[4]')
-    original_price_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div[1]/form/div[4]/div/div/div[1]/table/tbody/tr/td[5]')
-    item_discount_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div[1]/form/div[4]/div/div/div[1]/table/tbody/tr/td[6]')
-    final_price_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div[1]/form/div[4]/div/div/div[1]/table/tbody/tr/td[7]')
+    quantity_loc = (By.XPATH,'//*[@id="quantity"]/div/div[2]/span')
+    service_type_loc = (By.XPATH,'//*[@id="servicetype"]/div/div[2]/span')
+    name_loc = (By.XPATH,'//*[@id="name"]/div/div[2]/span')
+    original_price_loc = (By.XPATH,'//*[@id="originalprice"]/div/div[2]/span')
+    item_discount_loc = (By.XPATH,'//*[@id="discount"]/div/div[2]/span')
+    final_price_loc = (By.XPATH,'//*[@id="finalprice"]/div/div[2]/span')
     total_price_loc = (By.ID,'totalPriceServiceItem')
 
-    upload_doc_loc = (By.XPATH, '/html/body/div[3]/div[2]/div[1]/div[1]/form/div[5]/div/div[2]/div/div/div/div[2]')
-    service_doc_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div[1]/form/div[5]/div/div[2]/div/div[2]/div/div[2]')
+    upload_doc_loc = (By.XPATH,'//*[@id="upload"]/div/div[1]/span')
+    service_doc_loc = (By.XPATH,'//*[@id="servicedoc"]/div/div[2]/span')
 
 
 

@@ -20,16 +20,16 @@ from selenium.common.exceptions import ElementNotInteractableException
 from selenium.webdriver.common.keys import Keys
 
 class Change_Quote_Status():
+
     '''loc for the status dropdown'''
-    setting_btn_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/div/div/div/div/div/table/tbody/tr/td[12]/div/button/i')
-    status_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/div/div/div/div/div/table/tbody/tr/td[12]/div/ul/li[2]/a')
+    setting_btn_loc = (By.ID,'btnSetting')
+    status_loc = (By.XPATH, '//*[@id="statusquote"]/div/span')
 
     '''The search result by proposal number in MYOB screen'''
-    proposal_num_myob_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div[1]/div/div[1]/div/table/tbody/tr/td[2]/a')
+    proposal_num_myob_loc = (By.NAME,'pronum')
 
     '''loc for the elements in Status page'''
     status_select_loc = (By.ID,'JobStatusId')
-    # date_box_loc = (By.ID,'ExpectedDeliveryDate271233')
     date_box_loc = (By.NAME,'ExpectedDeliveryDate')
     save_btn_loc = (By.ID,'saveStatuses')
 

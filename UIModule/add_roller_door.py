@@ -13,11 +13,10 @@ from selenium.webdriver.common.keys import Keys
 
 class Add_Roller_Door(Standard_Door):
 
-    new_door_page_loc = (By.ID,'quickDoorAddModalBody')
-    new_door_title= (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/fieldset/div/div/div[1]/div/div/div/div[1]')
-    new_door_duplicate = (By.XPATH, '/html/body/div[3]/div[2]/div[1]/div/fieldset/div/div/div[1]/div/div/div/div[3]/a[1]')
-    new_door_delete = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/fieldset/div/div/div[1]/div/div/div/div[3]/a[2]')
-
+    new_door_page_loc = (By.ID, 'quickDoorAddModalBody')
+    new_door_title = (By.NAME, 'DoorTitle')
+    new_door_duplicate = (By.CSS_SELECTOR, "[aria-label='duplicate']")
+    new_door_delete = (By.ID, 'deletedoor')
     default_track_box_loc = (By.ID,'DefaultTrack')
 
     '''Input the necesary details for a roller door'''

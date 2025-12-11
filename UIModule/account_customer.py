@@ -4,7 +4,6 @@
 
 import selenium
 from selenium import webdriver
-from time import sleep
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
@@ -15,18 +14,16 @@ from selenium.webdriver.support import expected_conditions as EC
 
 class Account_Customer(Admin_Page):
     '''loc for the Account Customer page'''
-    account_title_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/h1')
-    account_searchbtn_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/form/div/div/span/button')
+    account_title_loc = (By.CSS_SELECTOR, "[data-test='login-submit']")
+    account_searchbtn_loc = (By.CSS_SELECTOR, ".btn.btn-search")
     account_searchbox_loc = (By.ID,'searchCustomerName')
 
-    customer_name_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/div/div/div[2]/div/div/table/thead/tr/th[1]/div/span')
-    contact_name_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/div/div/div[2]/div/div/table/thead/tr/th[2]/div/span')
-    address_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/div/div/div[2]/div/div/table/thead/tr/th[3]/div/span')
-    email_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/div/div/div[2]/div/div/table/thead/tr/th[4]/div/span')
-    suburb_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/div/div/div[2]/div/div/table/thead/tr/th[5]/div/span')
-
-    search_result_name_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/div/div/div[2]/div/div/table/tbody/tr/td[1]/a')
-
+    customer_name_loc = (By.ID,'customername')
+    contact_name_loc = (By.XPATH,"//div[contains(@class,'cname')]")
+    address_loc = (By.NAME,"address")
+    email_loc = (By.NAME,"email")
+    suburb_loc = (By.NAME,"suburb")
+    search_result_name_loc = (By.ID,"searchCustomerResult")
 
     def goto_account_customer(self):
         '''Go to account customer screen'''

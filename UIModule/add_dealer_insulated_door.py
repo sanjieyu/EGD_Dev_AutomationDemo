@@ -13,8 +13,8 @@ from UIModule.dealer_insulated_door import *
 class Add_DP_Insulated(Dealer_Insulated_Door):
     new_door_page_loc = (By.ID,'quickDoorAddModalBody')
     new_door_title= (By.XPATH,'//*[@id="btnShowDoor"]')
-    new_door_duplicate = (By.XPATH, '/html/body/div[3]/div[2]/div[1]/div/fieldset/div/div/div[1]/div/div/div/div[3]/a[1]')
-    new_door_delete = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/fieldset/div/div/div[1]/div/div/div/div[3]/a[2]')
+    new_door_duplicate = (By.CSS_SELECTOR, "[aria-label='duplicate']")
+    new_door_delete = (By.NAME,'doordelete')
 
     '''loc for validation'''
     validation_msgbox_loc = (By.ID,'doorerrormsgs_body')

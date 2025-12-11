@@ -21,9 +21,9 @@ class Add_Quote_With_OptiRoll_Door():
     find_quote_input = (By.ID,'search-quote')
     find_quote_btn = (By.ID,'search-btn')
 
-    searched_proposal_no_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/div/div/div/div/div/table/tbody/tr/td[2]/a')
-    searched_door_no_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/div/div/div/div/div/table/tbody/tr/td[7]/span')
-    searched_door_status_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/div/div/div/div/div/table/tbody/tr/td[11]/span')
+    searched_proposal_no_loc = (By.NAME, 'searchedid')
+    searched_door_no_loc = (By.NAME, 'doorid')
+    searched_door_status_loc = (By.NAME, 'doorstatus')
 
     def __init__(self,driver):
         self.driver = driver

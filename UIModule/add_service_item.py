@@ -4,7 +4,6 @@
 
 import selenium
 from selenium import webdriver
-from time import sleep
 from selenium.webdriver.common.by import By
 from UIModule.add_service import *
 from selenium.webdriver.support.ui import Select
@@ -13,21 +12,20 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 
 class Add_Service_Item(Add_Service):
+
     '''loc for each section in this page'''
-    item_title_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div[2]/div/div/div/div[1]/h1')
+    item_title_loc = (By.NAME,'itemtitle')
     item_search_box = (By.ID,'searchTextInputServiceItem')
-    view_more_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div[2]/div/div/div/div[2]/div[2]/table/thead/tr/th[1]')
-    item_type_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div[2]/div/div/div/div[2]/div[2]/table/thead/tr/th[2]')
+    view_more_loc = (By.CSS_SELECTOR, "[aria-label='viewmore']")
+    item_type_loc = (By.CSS_SELECTOR, "[aria-label='itemtype']")
     item_select_btn = (By.ID,'btnSelectServiceItem')
     item_close_btn = (By.ID,'btnCloseServiceItem')
 
-    service_charges_radiobox = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div[2]/div/div/div/div[2]/div[2]/table/tbody/'
-                                         'tr[1]/td[1]/button/span')
-    res_rt_checkbox = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div[2]/div/div/div/div[2]/div[2]/table/tbody/tr[2]/td/'
-                                'div/table/tbody/tr[1]/td[1]/input')
+    service_charges_radiobox = (By.ID,'radioCharge')
+    res_rt_checkbox = (By.ID,'boxRes')
 
     '''after service "S-Res-ST" added'''
-    added_item_name = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div[1]/div/div[4]/div/div/div[1]/table/tbody/tr/td[4]')
+    added_item_name = (By.XPATH,'//*[@id="tiemname"]/div/div[2]/span')
     discount_loc = (By.NAME,'discount')
 
     def go_service_item(self):

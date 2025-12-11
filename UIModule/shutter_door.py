@@ -11,151 +11,126 @@ from selenium.webdriver.support import expected_conditions as EC
 from UIModule.add_quote import *
 
 class Shutter_Door(Add_Quote):
+
     add_door_menu_loc = (By.ID,'btnDoorSectionadd')
     add_shutter_btn_loc = (By.ID,'add-door-shutter')
-    door_main_page_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div')
+    door_main_page_loc = (By.XPATH, '//*[@id="main"]/div/span')
     add_btn_loc = (By.ID,'shutterAdd')
     close_btn_loc = (By.ID, 'shutterClose')
-    door_main_page = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div')
-
 
     '''loc for each element for install details'''
-    title_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/h1')
-    unit_no_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[2]/div[1]/label')
+    title_loc = (By.NAME, 'QuoteTitle')
+    unit_no_loc = (By.NAME, 'UnitNum')
     unit_no_inputbox_loc = (By.ID,'UnitNumberSutter')
-    packaging_type_loc =(By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[2]/div[3]/label')
+    packaging_type_loc = (By.NAME,'PackagingType')
     packaging_type_select_loc = (By.ID,'PackagingTypeShutter')
 
-    install_type_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[4]/div[1]/fieldset/label')
+    install_type_loc = (By.NAME,'InstallTypeEdit')
     install_type_select_loc = (By.ID,'InstallTypeSutter')
-    door_duty_cycle_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[4]/div[2]/fieldset/'
-                                    'label')
+    door_duty_cycle_loc = (By.NAME,'DoorDuty')
     door_duty_cycle_select_loc = (By.ID,'DutyCycle')
-    slat_type_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[5]/div[1]/fieldset/label')
+    slat_type_loc = (By.NAME,'SlatTypeEdit')
     slat_type_select_loc = (By.ID,'SlatType')
-    slat_design_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[5]/div[2]/fieldset/label')
+    slat_design_loc = (By.NAME,'SlatDesignEdit')
     slat_design_select_loc = (By.ID,'SlatDesign')
-    slat_ventilation_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[5]/div[3]/fieldset/'
-                                     'label')
+    slat_ventilation_loc = (By.NAME,'SlatVentilationEdit')
     slat_ventilation_select_loc = (By.ID,'SlatVentilation')
-    slat_material_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[5]/div[4]/fieldset/label')
+    slat_material_loc = (By.NAME,'SlatMaterialEdit')
     slat_material_select_loc = (By.ID,'SlatMaterial')
-    slat_finish_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[5]/div[5]/fieldset/label')
+    slat_finish_loc = (By.NAME,'SlatFinishEdit')
     slat_finish_select_loc = (By.ID,'SlatFinish')
-    slat_finish_custom_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[5]/div[6]/fieldset/'
-                                       'label')
+    slat_finish_custom_loc = (By.NAME,'SlatFinishCustomEdit')
     slat_finish_custom_box_loc = (By.ID,'SlatFinishCustom')
-    technician_measure_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[5]/div[8]/fieldset/'
-                                       'div/label')
+    technician_measure_loc = (By.NAME,'IsTechnicianMeasureShutterEdit')
     technician_measure_checkbox_loc = (By.ID,'IsTechnicianMeasureShutter')
-    measure_required_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[5]/div[9]/fieldset/'
-                                     'div/label')
+    measure_required_loc = (By.NAME,'IsMeasureRequiredShutterEdit')
     measure_required_checkbox_loc = (By.ID,'IsMeasureRequiredShutter')
 
     '''loc for each element for SIZE details'''
-    opensize_lh_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[5]/div[11]/fieldset/label')
+    opensize_lh_loc = (By.NAME,'OpeningSizeLHEdit')
     opensize_lh_select_loc = (By.ID,'OpeningSizeLHShutter')
-    opensize_rh_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[5]/div[12]/fieldset/label')
+    opensize_rh_loc = (By.NAME,'OpeningSizeRHEdit')
     opensize_rh_select_loc = (By.ID,'OpeningSizeRHShutter')
-    opensize_width_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[5]/div[13]/fieldset/'
-                                   'label')
+    opensize_width_loc = (By.NAME,'OpeningSizeWidthEdit')
     opensize_width_select_loc =(By.ID,'OpeningSizeWidthShutter')
-    sr_left_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[5]/div[14]/fieldset/label')
+    sr_left_loc = (By.NAME,'SRLeftEdit')
     sr_left_select_loc =(By.ID,'SRLeftShutter')
-    hr_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[5]/div[15]/fieldset/label')
+    hr_loc = (By.NAME,'HREdit')
     hr_select_loc = (By.ID,'HRShutter')
-    sr_right_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[5]/div[16]/fieldset/label')
+    sr_right_loc = (By.NAME,'SRRightEdit')
     sr_right_select_loc =(By.ID,'SRRightShutter')
-    additional_fabrication_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[5]/div[18]/'
-                                           'fieldset/label')
+    additional_fabrication_loc = (By.NAME,'HeavyAngleEdit')
     additional_fabrication_select_loc = (By.ID,'HeavyAngleShutter')
-    additional_fabrication_required_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[5]/'
-                                                    'div[19]/fieldset/label')
+    additional_fabrication_required_loc = (By.NAME,'HeavyAngleDetailsEdit')
     additional_fabrication_required_inputbox_loc = (By.ID,'HeavyAngleDetailsShutter')
-    shop_drawings_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[5]/div[20]/fieldset/label')
+    shop_drawings_loc = (By.NAME,'ShopDrawingsEdit')
     shop_drawings_select_loc = (By.ID,'ShopDrawingsShutter')
-    lifting_equipment_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[5]/div[21]/fieldset/'
-                                      'label')
-    lifting_equipment_btn_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[5]/div[21]/'
-                                          'fieldset/span/div')
+    lifting_equipment_loc = (By.NAME,'LiftEdit')
+    lifting_equipment_btn_loc = (By.ID,'btnLift')
 
     '''loc for each element for checkboxes details'''
-    induction_loop_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[5]/div[22]/fieldset/'
-                                   'div[1]/div[1]/label')
+    induction_loop_loc = (By.XPATH,'//*[@id="induction"]/div/div[1]')
     induction_loop_checkbox_loc = (By.ID,'IsInductionLoopShutter')
-    reverse_rollerdoor_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[5]/div[22]/fieldset/'
-                                       'div[2]/div[1]/label')
+    reverse_rollerdoor_loc = (By.XPATH,'//*[@id="reverse"]/div/div[1]/span')
     reverse_rollerdoor_checkbox_loc = (By.ID,'IsReverseRollShutter')
-    eco_wifi_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[5]/div[22]/fieldset/div[3]/'
-                             'div/label')
+    eco_wifi_loc = (By.XPATH,'//*[@id="ecowifi"]/div/div[2]/span')
     eco_wifi_checkbox_loc = (By.ID,'IsWiFiShutter')
-    taper_loc =(By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[5]/div[22]/fieldset/div[1]/'
-                         'div[2]/label')
+    taper_loc = (By.XPATH,'//*[@id="tape"]/div/div[2]/span')
     taper_checkbox_loc = (By.ID,'IsTaperShutter')
-    reverse_rollcolour_loc = (By.XPATH, '/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[5]/div[22]/'
-                                        'fieldset/div[2]/div[2]/label')
+    reverse_rollcolour_loc = (By.XPATH,'//*[@id="reversecolour"]/div/div[2]/span')
     reverse_rollcolour_checkbox_loc = (By.ID,'IsReverseRollColourShutter')
 
     '''loc for Operation Side details'''
-    operation_side_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[5]/div[23]/fieldset/'
-                                   'label[1]')
+    operation_side_loc = (By.CSS_SELECTOR,"label[for='OperationSide']")
     operation_side_select_loc = (By.ID,'OperationSide')
-    operation_type_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[5]/div[24]/fieldset/'
-                                   'label[2]')
+    operation_type_loc = (By.CSS_SELECTOR,"label[for='OperationType']")
     operation_type_select_loc = (By.ID,'OperationType')
-    battery_backup_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[5]/div[25]/fieldset/'
-                                   'label[2]')
+    battery_backup_loc = (By.CSS_SELECTOR,"label[for='BatteryBackup']")
     battery_backup_select_loc = (By.ID,'BatteryBackup')
 
     '''loc for Opener details'''
-    opener_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[5]/div[26]/fieldset/label')
+    opener_loc = (By.CSS_SELECTOR,"label[for='LhCover']")
     opener_select_loc = (By.ID,'OpenerShutter')
-    handsets_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[5]/div[27]/label')
+    handsets_loc = (By.CSS_SELECTOR,"label[for='LhCover']")
     handsets_select_loc = (By.ID,'NoOfHandsetsShutter')
-    wall_btn_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[5]/div[28]/label')
+    wall_btn_loc = (By.CSS_SELECTOR,"label[for='LhCover']")
     wall_btn_select_loc = (By.ID,'WallButtonShutter')
-
-    opener_detail_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[5]/div[29]/fieldset/'
-                                  'label')
+    opener_detail_loc = (By.XPATH,'//*[@id="opener"]/div/div[1]/div[2]/span')
     opener_detail_box_loc = (By.ID,'OpenerDetailsShutter')
-    digital_keypad_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[5]/div[30]/fieldset/'
-                                   'label')
+    digital_keypad_loc = (By.XPATH,'//*[@id="keypad"]/div/div[1]')
     digital_keypad_select_loc = (By.ID,'DigitalKeypadShutter')
-    internal_pushbtn_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[5]/div[31]/fieldset/'
-                                     'label')
+    internal_pushbtn_loc = (By.XPATH,'//*[@id="pushbtn"]/div/div[2]')
     internal_pushbtn_select_loc = (By.ID,'InternalPushButtonShutter')
-    pe_beam_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[5]/div[32]/label')
+    pe_beam_loc = (By.XPATH,'//*[@id="pe_beam"]/div/div[2]/span')
     pe_beam_select_loc = (By.ID,'PEBeam')
-    pe_beam_sets_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[5]/div[33]/label')
+    pe_beam_sets_loc = (By.XPATH,'//*[@id="beam_sets"]/div/div[2]/span')
     pe_beam_sets_select_loc = (By.ID,'PEBeamSets')
 
     '''loc for other elements details '''
-    windlock_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[5]/div[35]/fieldset/label')
+    windlock_loc = (By.CSS_SELECTOR,"label[for='Windlock']")
     windlock_select_loc = (By.ID,'Windlock')
-    track_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[5]/div[36]/fieldset/label')
+    track_loc = (By.CSS_SELECTOR,"label[for='Track']")
     track_select_loc = (By.ID,'Track')
-    remove_and_dispose_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[5]/div[37]/'
-                                       'fieldset/label')
+    remove_and_dispose_loc = (By.CSS_SELECTOR,"label[for='Remove']")
     remove_and_dispose_select_loc = (By.ID,'RemoveAndDisposeShutter')
-    seals_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[5]/div[38]/label')
+    seals_loc = (By.CSS_SELECTOR,"label[for='Seals']")
     seals_select_loc = (By.ID,'SealsShutter')
-    hang_door_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[5]/div[39]/fieldset/label')
+    hang_door_loc = (By.CSS_SELECTOR,"label[for='HangDoor']")
     hang_door_select_loc = (By.ID,'HangDoorFromShutter')
-    lintel_type_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[5]/div[40]/fieldset/label')
+    lintel_type_loc = (By.CSS_SELECTOR,"label[for='LintelType']")
     lintel_type_select_loc = (By.ID,'LintelTypeShutter')
-    fixing_type_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[5]/div[41]/fieldset/label')
+    fixing_type_loc = (By.CSS_SELECTOR,"label[for='FixingType']")
     fixing_type_select_loc = (By.ID,'FixingTypeShutter')
-    door_area_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[5]/div[42]/fieldset/label')
+    door_area_loc = (By.CSS_SELECTOR,"label[for='Area']")
     door_area_select_loc = (By.ID,'DoorArea')
-    door_status_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[5]/div[43]/label')
+    door_status_loc = (By.CSS_SELECTOR,"label[for='JobStatusId']")
     door_status_select_loc = (By.ID,'JobStatusIdShutter')
-    expected_deliverydate_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[5]/div[44]/'
-                                          'fieldset/label')
+    expected_deliverydate_loc = (By.CSS_SELECTOR,"label[for='ExpectedDeliveryDate']")
     expected_deliverydate_box = (By.ID,'ExpectedDeliveryDateShutter')
 
     '''loc for other extras details '''
-    other_extras_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[6]/div[1]/label')
-    value_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[6]/div[2]/label')
+    other_extras_loc = (By.CSS_SELECTOR,"label[for='OtherExtras']")
+    value_loc = (By.CSS_SELECTOR,"label[for='Value']")
     edit_box1_loc = (By.ID,'OtherExtrasName1')
     value_box1_loc = (By.NAME,'OtherExtrasAmount1')
     edit_box2_loc = (By.ID, 'OtherExtrasName2')
@@ -168,73 +143,52 @@ class Shutter_Door(Add_Quote):
     value_box5_loc = (By.NAME, 'OtherExtrasAmount5')
 
     '''loc for additional infomation details '''
-    additional_info_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[7]/fieldset/div/label')
+    additional_info_loc = (By.CSS_SELECTOR,"label[for='Additional']")
     additional_info_box = (By.ID,'NotesShutter')
-    production_notes_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[8]/fieldset/div/label')
+    production_notes_loc = (By.CSS_SELECTOR,"label[for='Production']")
     production_notes_box = (By.ID,'ProductionNotesShutter')
 
     '''loc for Extra and Site Pictures'''
-    extras_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[9]/div/div/div[1]/button')
-    site_picture_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[10]/div/div/div[1]/button')
+    extras_loc = (By.CSS_SELECTOR,"label[for='Extras']")
+    site_picture_loc = (By.CSS_SELECTOR,"label[for='SitePicture']")
 
     '''loc for each element in Extra'''
-    lh_jamb_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[9]/div/div/div[2]/div/div/'
-                            'div[1]/div[1]/label[1]')
-    lh_jamb_select_loc = (By.ID,'LH_JambTypeShutter')
-    lh_size_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[9]/div/div/div[2]/div/div/'
-                            'div[1]/div[1]/label[2]')
-    lh_size_width_btn_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[9]/div/div/div[2]/'
-                                      'div/div/div[1]/div[2]/div[2]/span/a')
-    lh_size_depth_btn_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[9]/div/div/div[2]/'
-                                      'div/div/div[1]/div[2]/div[3]/span/a')
+    lh_jamb_loc = (By.CSS_SELECTOR,"label[for='LhJamb']")
+    lh_jamb_select_loc = (By.CSS_SELECTOR,"label[for='LhCover']")
+    lh_size_loc = (By.CSS_SELECTOR,"label[for='LhSize']")
+    lh_size_width_btn_loc = (By.ID,'btnWidth')
+    lh_size_depth_btn_loc = (By.ID,'btnDepth')
     lh_size_width_select_loc = (By.ID,'ui-id-34')
     lh_size_depth_select_loc = (By.ID, 'ui-id-35')
-    rh_jamb_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[9]/div/div/div[2]/div/div/'
-                            'div[2]/div[1]/label[1]')
+    rh_jamb_loc = (By.CSS_SELECTOR,"label[for='RhJamb']")
     rh_jamb_select_loc = (By.ID,'RH_JambTypeShutter')
-    rh_size_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[9]/div/div/div[2]/div/div/'
-                            'div[2]/div[1]/label[2]')
-    rh_size_width_btn_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[9]/div/div/div[2]/'
-                                      'div/div/div[2]/div[2]/div[2]/span/a')
-    rh_size_depth_btn_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[9]/div/div/div[2]/'
-                                      'div/div/div[2]/div[2]/div[3]/span/a/span[1]')
+    rh_size_loc = (By.CSS_SELECTOR,"label[for='RhSize']")
+    rh_size_width_btn_loc = (By.CSS_SELECTOR,"label[for='RhWidth']")
+    rh_size_depth_btn_loc = (By.CSS_SELECTOR,"label[for='RhDepth']")
     rh_size_width_select_loc = (By.ID,'ui-id-36')
     rh_size_depth_select_loc = (By.ID,'ui-id-37')
-    pelmet_type_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[9]/div/div/div[2]/div/'
-                                'div/div[3]/div[1]/label[1]')
+    pelmet_type_loc = (By.CSS_SELECTOR,"label[for='PelmetType']")
     pelmet_type_select_loc = (By.ID,'PelmetTypeShutter')
-    pelmet_size_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[9]/div/div/div[2]/div/'
-                                'div/div[3]/div[1]/label[2]')
-    pelmet_height_btn_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[9]/div/div/div[2]/'
-                                      'div/div/div[3]/div[2]/div[2]/span/a')
+    pelmet_size_loc = (By.CSS_SELECTOR,"label[for='PelmetSize']")
+    pelmet_height_btn_loc = (By.CSS_SELECTOR,"label[for='PelmetHeight']")
     pelmet_height_select_loc = (By.ID,'ui-id-38')
-    pelmet_depth_btn_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[9]/div/div/div[2]/'
-                                     'div/div/div[3]/div[2]/div[3]/span/a')
+    pelmet_depth_btn_loc = (By.ID,'btnPelmetDepth')
     pelmet_depth_select_loc = (By.ID,'ui-id-39')
-    pelmet_colour_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[9]/div/div/div[2]/div/'
-                                  'div/div[3]/div[1]/label[3]')
+    pelmet_colour_loc = (By.CSS_SELECTOR,"label[for='LhCover']")
     pelmet_colour_select_loc = (By.ID,'PelmetColourShutter')
-
-    hardware_colour_category_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[9]/div/div/'
-                                             'div[2]/div/div/div[5]/fieldset/div/div[1]/label')
+    hardware_colour_category_loc = (By.CSS_SELECTOR,"label[for='HardwareCategory']")
     hardware_colour_category_select_loc = (By.ID,'HardwareCategoryShutter')
-    hardware_colour_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[9]/div/div/div[2]/'
-                                    'div/div/div[5]/fieldset/div/div[2]/label')
+    hardware_colour_loc = (By.CSS_SELECTOR,"label[for='Hardware']")
     hardware_colour_select_loc = (By.ID,'HardwareColourShutter')
-    track_colour_category_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[9]/div/div/'
-                                          'div[2]/div/div/div[6]/fieldset/div/div[1]/label')
+    track_colour_category_loc = (By.CSS_SELECTOR,"label[for='TrackCategory']")
     track_colour_category_select_loc = (By.ID,'TrackCategoryShutter')
-    track_colour_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[9]/div/div/div[2]/'
-                                 'div/div/div[6]/fieldset/div/div[2]/label')
+    track_colour_loc = (By.CSS_SELECTOR,"label[for='TrackColour']")
     track_colour_select_loc = (By.ID, 'TrackColourShutter')
-    hang_door_other_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[9]/div/div/div[2]/'
-                                    'div/div/div[7]/fieldset/div/div[1]/label')
+    hang_door_other_loc = (By.CSS_SELECTOR,"label[for='HangDoor']")
     hang_door_other_box_loc = (By.ID,'HangDoorOtherShutter')
-    fixing_type_other_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[9]/div/div/div[2]/'
-                                      'div/div/div[7]/fieldset/div/div[2]/label')
+    fixing_type_other_loc = (By.CSS_SELECTOR,"label[for='FixingType']")
     finxing_type_other_box_loc = (By.ID,'FixingTypeOtherShutter')
-    noggins_other_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[4]/div/div/form/div/div[1]/div[9]/div/div/div[2]/div/'
-                                  'div/div[7]/fieldset/div/div[3]/label')
+    noggins_other_loc = (By.CSS_SELECTOR,"label[for='Noggins']")
     noggins_other_box_loc = (By.ID,'NogginsOtherShutter')
 
     def go_add_shutter_door(self):

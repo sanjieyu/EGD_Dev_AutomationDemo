@@ -13,21 +13,22 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 
 class Deal_Portal(Admin_Page):
+
     '''loc for the dealer portal page'''
     find_quote_box = (By.XPATH,'//*[@id="search-quote"]')
     find_quote_btn = (By.XPATH,'//*[@id="search-btn"]/span')
     account_dealer_loc = (By.XPATH,'//*[@id="logoutForm"]/ul/li/a')
 
     '''loc for Add btn'''
-    add_dealer_quote_loc = (By.XPATH,'/html/body/div[2]/div/div[2]/div[1]/a[1]')
+    add_dealer_quote_loc = (By.CSS_SELECTOR,"label[for='AddDealer']")
 
     '''loc for Search btn'''
-    list_dealer_quote_loc = (By.XPATH,'/html/body/div[2]/div/div[2]/div[1]/a[2]')
+    list_dealer_quote_loc = (By.CSS_SELECTOR,"label[for='ListDealer']")
 
 
     '''loc for Account menu'''
-    account_name_loc  = (By.XPATH,'//*[@id="logoutForm"]/ul/li/ul/li[1]')
-    log_off_loc = (By.XPATH,'/html/body/div[2]/div/div[2]/form/ul/li/ul/li[5]/a')
+    account_name_loc  = (By.CSS_SELECTOR,"label[for='AccountName']")
+    log_off_loc = (By.CSS_SELECTOR,"label[for='LogOff']")
 
 
     @property

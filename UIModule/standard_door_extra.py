@@ -12,107 +12,72 @@ from selenium.webdriver.support import expected_conditions as EC
 from UIModule.standard_door import *
 
 class Standard_Door_Extra(Standard_Door):
+
     '''loc for Extra and Site Pictures'''
-    extras_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[9]/div/div/div[1]/button/span')
-    site_picture_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[10]/div/div/div[1]/'
-                                 'button/span')
+    extras_loc = (By.CSS_SELECTOR,"label[for='OtherExtras']")
+    site_picture_loc = (By.CSS_SELECTOR,"label[for='SitePicture']")
 
     '''loc for each element in Extra'''
-    lh_jamb_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[9]/div/div/div[2]/div/div/'
-                            'div[1]/div[1]/label[1]')
+    lh_jamb_loc = (By.CSS_SELECTOR,"label[for='LhJamb']")
     lh_jamb_select = (By.ID,'LH_JambTypeStandard')
-    lh_size_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[9]/div/div/div[2]/div/div/'
-                            'div[1]/div[1]/label[2]')
-    lh_size_width_btn = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[9]/div/div/div[2]/div/'
-                                  'div/div[1]/div[2]/div[2]/span[1]/a')
-    lh_size_depth_btn = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[9]/div/div/div[2]/div/'
-                                  'div/div[1]/div[2]/div[3]/span[1]/a/span[1]')
+    lh_size_loc = (By.CSS_SELECTOR,"label[for='LhSize']")
+    lh_size_width_btn = (By.ID,'btnWidth')
+    lh_size_depth_btn = (By.ID,'btnDepth')
     lh_size_width_select = (By.XPATH,'//*[@id="ui-id-5"]')
     lh_size_depth_select = (By.ID, 'ui-id-6')
-    rh_jamb_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[9]/div/div/div[2]/div/div/'
-                            'div[2]/div[1]/label[1]')
+    rh_jamb_loc = (By.CSS_SELECTOR,"label[for='RhJamb']")
     rh_jamb_select = (By.ID,'RH_JambTypeStandard')
-    rh_size_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[9]/div/div/div[2]/div/div/'
-                            'div[2]/div[1]/label[2]')
-    rh_size_width_btn = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[9]/div/div/div[2]/div/'
-                                  'div/div[2]/div[2]/div[2]/span[1]/a/span[1]')
-    rh_size_depth_btn = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[9]/div/div/div[2]/div/'
-                                  'div/div[2]/div[2]/div[3]/span[1]/a/span[1]')
+    rh_size_loc = (By.CSS_SELECTOR,"label[for='RhSize']")
+    rh_size_width_btn = (By.CSS_SELECTOR,"label[for='RhWidth']")
+    rh_size_depth_btn = (By.CSS_SELECTOR,"label[for='RhDepth']")
     rh_size_width_select = (By.ID,'ui-id-7')
     rh_size_depth_select = (By.ID,'ui-id-8')
-
-    lh_cover_type_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[7]/div/div/div[2]/div/'
-                                  'div/div[3]/div[1]/label[1]')
+    lh_cover_type_loc = (By.CSS_SELECTOR,"label[for='LhCover']")
     lh_cover_select = (By.ID,'LH_CoverTypeStandard')
-    lh_cover_width_size_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[7]/div/div/div[2]/'
-                                        'div/div/div[3]/div[1]/label[2]')
-
-    lh_cover_width_btn = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[9]/div/div/div[2]/div/'
-                                   'div/div[3]/div[2]/div[2]/span[1]/a')
-    lh_cover_depth_btn = (By.XPATH,
-                          '/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[9]/div/div/div[2]/div/div/div[3]/'
-                          'div[2]/div[3]/span[1]/a')
+    lh_cover_width_size_loc = (By.CSS_SELECTOR,"label[for='LhCoverWidth']")
+    lh_cover_width_btn = (By.ID,"btnLhWidth")
+    lh_cover_depth_btn = (By.ID,"btnLhDepth")
     lh_cover_width_select = (By.ID,'ui-id-9')
     lh_cover_depth_select = (By.ID, 'ui-id-10')
-    lh_cover_colour_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[9]/div/div/div[2]/div/'
-                                    'div/div[3]/div[1]/label[3]')
+    lh_cover_colour_loc = (By.CSS_SELECTOR,"label[for='LhCoverColour']")
     lh_cover_colour_select = (By.ID,'LHCoverColour')
-    rh_cover_type_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[9]/div/div/div[2]/div/'
-                                  'div/div[4]/div[1]/label[1]')
+    rh_cover_type_loc = (By.CSS_SELECTOR,"label[for='rhCoverType']")
     rh_cover_select = (By.ID,'RH_CoverTypeStandard')
-    rh_cover_width_size_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[9]/div/div/div[2]/'
-                                        'div/div/div[4]/div[1]/label[2]')
-    rh_cover_width_btn = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[9]/div/div/div[2]/div/'
-                                   'div/div[4]/div[2]/div[2]/span[1]/a')
+    rh_cover_width_size_loc = (By.CSS_SELECTOR,"label[for='RhCoverWidth']")
+    rh_cover_width_btn = (By.ID,"btnRhWidth")
     rh_cover_width_select = (By.ID,'ui-id-11')
     rh_cover_depth_select = (By.ID, 'ui-id-12')
-    rh_cover_colour_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[9]/div/div/div[2]/div/'
-                                    'div/div[4]/div[1]/label[3]')
+    rh_cover_colour_loc = (By.CSS_SELECTOR,"label[for='RhCoverColour']")
     rh_cover_colour_select = (By.ID,'RHCoverColour')
 
     '''new added at 12th Dec 2024'''
     pelmet_type_select_loc = (By.ID,'PelmetTypeStandard')
-    pelmet_height_btn_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[9]/div/div/div[2]/'
-                                      'div/div/div[5]/div[2]/div[2]/span[1]/a')
+    pelmet_height_btn_loc = (By.CSS_SELECTOR,"label[for='PelmetHeight']")
     pelmet_height_select_loc = (By.ID,'ui-id-13')
-    pelmet_depth_btn_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[9]/div/div/div[2]/'
-                                     'div/div/div[5]/div[2]/div[3]/span[1]/a/span[1]')
+    pelmet_depth_btn_loc = (By.ID,'btnPelmetDepth')
     pelmet_depth_select_loc = (By.ID,'ui-id-14')
     pelmet_colour_select_loc = (By.ID,'Pelmet')
-
-    windows_type_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[9]/div/div/div[2]/div/'
-                                 'div/div[7]/fieldset/div/div[1]/label')
+    windows_type_loc = (By.CSS_SELECTOR,"label[for='WindowsType']")
     windows_type_select_loc = (By.ID,'WindowType')
-    no_windoes_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[9]/div/div/div[2]/div/div/'
-                               'div[7]/fieldset/div/div[2]/label')
+    no_windoes_loc = (By.CSS_SELECTOR,"label[for='NoWindows']")
     no_windows_box_loc = (By.ID,'Windows')
-    windows_colour_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[9]/div/div/div[2]/div/'
-                                   'div/div[7]/fieldset/div/div[3]/label')
+    windows_colour_loc = (By.CSS_SELECTOR,"label[for='WindowsColour']")
     windows_colour_select_loc = (By.ID,'window_color_standard_part')
-    windows_position_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[9]/div/div/div[2]/'
-                                     'div/div/div[8]/fieldset/div/div[1]/label')
+    windows_position_loc = (By.CSS_SELECTOR,"label[for='WindowsPosition']")
     windows_position_select_loc = (By.ID,'WindowPosition')
-    windows_custom_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[9]/div/div/div[2]/div/'
-                                   'div/div[8]/fieldset/div/div[2]/label')
+    windows_custom_loc = (By.CSS_SELECTOR,"label[for='WindowsCustom']")
     windows_custom_box_loc = (By.ID,'WindowPositionCustom')
-
-    hardware_colour_cate_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[9]/div/div/div[2]/'
-                                         'div/div/div[9]/fieldset/div/div[1]/label')
+    hardware_colour_cate_loc = (By.CSS_SELECTOR,"label[for='HardwareColourCate']")
     hardware_colour_cate_select_loc = (By.ID,'HardwareColourCategoryStandard')
-    hardware_colour_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[9]/div/div/div[2]/div/'
-                                    'div/div[9]/fieldset/div/div[2]/label')
+    hardware_colour_loc = (By.CSS_SELECTOR,"label[for='HardwareColour']")
     hardware_colour_select_loc = (By.ID,'HardwareColourStandard')
-    window_frame_colour_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[9]/div/div/div[2]/'
-                                        'div/div/div[9]/fieldset/div/div[3]/label')
+    window_frame_colour_loc = (By.CSS_SELECTOR,"label[for='WindowsFrame']")
     window_frame_colour_select_loc = (By.ID,'WindowFrameColour')
-    hang_door_other_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[9]/div/div/div[2]/div/'
-                                    'div/div[10]/fieldset/label')
+    hang_door_other_loc = (By.CSS_SELECTOR,"label[for='HangDoor']")
     hang_door_other_box_loc = (By.ID,'HangDoorOther')
-    fixing_type_other_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[9]/div/div/div[2]/'
-                                      'div/div/div[11]/fieldset/label')
+    fixing_type_other_loc = (By.CSS_SELECTOR,"label[for='FixingType']")
     fixing_type_other_box_loc = (By.ID,'FixingTypeOther')
-    noggins_other_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[9]/div/div/div[2]/div/'
-                                  'div/div[12]/fieldset/label')
+    noggins_other_loc = (By.CSS_SELECTOR,"label[for='Noggins']")
     noggins_other_box_loc = (By.ID,'NogginsOther')
 
     @property

@@ -14,17 +14,18 @@ from UIModule.account_customer import *
 from selenium.webdriver.support import expected_conditions as EC
 
 class Edit_Account_Customer(Account_Customer):
+
     '''loc for general elements'''
-    edit_customer_title_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/form/h1')
+    edit_customer_title_loc = (By.CSS_SELECTOR, "[aria-label='edit']")
     active_loc = (By.ID,'IsActiveText')
-    active_switch_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/form/div[1]/div[1]/div[1]/h3/label[1]/span')
+    active_switch_loc = (By.CSS_SELECTOR,"label[for='ActiveSwitch']")
     access_loc = (By.ID,'accessToDealerPortalText')
-    access_switch_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/form/div[1]/div[1]/div[2]/h3/label[1]/span')
-    customer_name_des_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/form/div[1]/div[2]/div[1]/label')
-    first_name_des_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/form/div[1]/div[2]/div[2]/label')
+    access_switch_loc = (By.CSS_SELECTOR,"label[for='AccessSwitch']")
+    customer_name_des_loc = (By.CSS_SELECTOR,"label[for='CustomerName']")
+    first_name_des_loc = (By.CSS_SELECTOR,"label[for='FirstName']")
     customer_name_box_loc = (By.ID,'CustomerName')
     first_name_box_loc = (By.ID,'FirstName')
-    back_btn_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/form/div[2]/div[1]/a')
+    back_btn_loc = (By.ID, "btnBack")
     save_btn_loc = (By.ID,'btnSaveCustomer')
 
     '''loc for Address Details section'''

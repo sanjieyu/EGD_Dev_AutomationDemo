@@ -14,15 +14,15 @@ from selenium.webdriver.common.action_chains import ActionChains
 
 class Production(Admin_Page):
 
-    production_title_loc = (By.XPATH, '/html/body/div[3]/div[2]/div[1]/h1')
+    production_title_loc = (By.CSS_SELECTOR, "[aria-label='title']")
 
     '''loc for each section in this page'''
-    roller_doors_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div[3]/ul/li[1]/a')
-    panel_lift_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div[3]/ul/li[2]/a')
-    insulated_doors_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div[3]/ul/li[3]/a')
-    custom_doors_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div[3]/ul/li[4]/a')
-    roller_shutters_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div[3]/ul/li[5]/a')
-    all_doors_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div[3]/ul/li[6]/a')
+    roller_doors_loc = (By.XPATH, '//*[@id="roller"]/div/span')
+    panel_lift_loc = (By.XPATH, '//*[@id="panelift"]/div/span')
+    insulated_doors_loc = (By.XPATH, '//*[@id="insulated"]/div/span')
+    custom_doors_loc = (By.XPATH, '//*[@id="custom"]/div/span')
+    roller_shutters_loc = (By.XPATH, '//*[@id="shutter"]/div/span')
+    all_doors_loc = (By.XPATH, '//*[@id="alldoors"]/div/span')
 
     def go_production(self):
         '''Switch to Production from LIST Menu'''

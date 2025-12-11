@@ -12,25 +12,25 @@ from UIModule.admin_portal import *
 
 class Rolling_Cycle_Management(Admin_Page):
 
-    rolling_title_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div[1]/h1')
+    rolling_title_loc = (By.NAME,'rollingdoors')
 
     '''default section'''
-    general_settings_loc  = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div[1]/div/ul/li[1]/a')
-    colour_cycle_settings_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div[1]/div/ul/li[2]/a')
-    temp_closed_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div[1]/div/ul/li[3]/a')
-    history_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div[1]/div/ul/li[4]/a')
+    general_settings_loc  = (By.CSS_SELECTOR, "[aria-label='general']")
+    colour_cycle_settings_loc = (By.CSS_SELECTOR, "[aria-label='colour_cycle']")
+    temp_closed_loc = (By.CSS_SELECTOR, "[aria-label='temp_closed']")
+    history_loc = (By.CSS_SELECTOR, "[aria-label='history']")
 
     '''General Settings tab'''
-    split_doors_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div[1]/div/div/div[1]/form/h3[1]/span')
-    lockout_settings_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div[1]/div/div/div[1]/form/h3[2]/span')
-    default_shift_settings_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div[1]/div/div/div[1]/form/h3[4]/span')
+    split_doors_loc = (By.CSS_SELECTOR, "label[for='Split']")
+    lockout_settings_loc = (By.CSS_SELECTOR, "label[for='Lockout']")
+    default_shift_settings_loc = (By.CSS_SELECTOR, "label[for='Shift_']")
 
     '''Colour Cycles Settings screen'''
-    coil_settings_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div[1]/div/div/div[2]/h3/span')
+    coil_settings_loc = (By.CSS_SELECTOR, "label[for='Coil']")
     save_coil_btn_loc = (By.ID,'submitColourSettings')
 
     '''Temp closed screen'''
-    temp_closed_cycles_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div[1]/div/div/div[3]/h3/span')
+    temp_closed_cycles_loc = (By.CSS_SELECTOR, "label[for='TempCLosed']")
     update_cycles_btn_loc = (By.ID,'submitClosedCycles')
 
     def go_rolling(self):

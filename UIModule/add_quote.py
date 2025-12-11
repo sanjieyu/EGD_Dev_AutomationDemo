@@ -4,7 +4,6 @@
 
 import selenium
 from selenium import webdriver
-from time import sleep
 from selenium.webdriver.common.by import By
 from UIModule.admin_portal import *
 from selenium.webdriver.support.ui import Select
@@ -13,54 +12,53 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import ElementNotInteractableException
 
 class Add_Quote(Admin_Page):
-    main_page_loc1 = (By.XPATH,'//*[@id="main"]')
-    main_page_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]')
+
+    main_page_loc = (By.XPATH,'//*[@id="main"]')
+
     '''loc for each section in this page'''
-    proposal_details_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/form/div/h1[1]')
-    contact_details_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/form/div/h1[2]')
-    site_details_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/form/div/h1[3]')
-    doors_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/fieldset/h1')
-    add_door_btn = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/fieldset/div/div/div[3]/div/button')
+    proposal_details_loc = (By.NAME,'proposalinfo')
+    contact_details_loc = (By.NAME,'contactinfo')
+    site_details_loc = (By.NAME,'siteinfo')
+    doors_loc = (By.CSS_SELECTOR, "[aria-label='doors']")
+    add_door_btn = (By.ID,'btnAddQuote')
     save_quote_btn = (By.ID,'btnSaveQuote')
     proceed_quote_btn = (By.ID,'btnProceedFinal')
 
     '''Quote Sucessfully modified popup'''
-    proceed_ok_btn_loc = (By.XPATH,'/html/body/div[84]/div/div[6]/button[1]')
-    save_ok_btn_loc = (By.XPATH, '/html/body/div[86]/div/div[6]/button[1]')
+    proceed_ok_btn_loc = (By.ID,'btnProceedOk')
+    save_ok_btn_loc = (By.ID,'btnSaveOk')
 
     '''loc for each element in "Proposal Details" section'''
-    proposal_num_loc =(By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/form/div/div[1]/fieldset/div[1]/div[1]/label')
-    pricing_cate_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/form/div/div[1]/fieldset/div[1]/div[2]/fieldset/label')
-    user_quote_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/form/div/div[1]/fieldset/div[1]/div[3]/label')
-    account_type_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/form/div/div[1]/fieldset/div[2]/div[1]/label')
-    order_date_loc =(By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/form/div/div[1]/fieldset/div[2]/div[2]/label')
-    quote_status_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/form/div/div[1]/fieldset/fieldset/div/div[3]/label')
-    account_customer_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/form/div/div[1]/fieldset/fieldset/div/div[1]/label')
-    supply_type_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/form/div/div[1]/fieldset/fieldset/div/div[2]/label')
+    proposal_num_loc =(By.NAME,'proposalnum')
+    pricing_cate_loc = (By.NAME,'pricingcate')
+    user_quote_loc = (By.NAME,'userquote')
+    account_type_loc = (By.NAME,'accounttype')
+    order_date_loc =(By.NAME,'orderdate')
+    quote_status_loc = (By.NAME,'quotestatus')
+    account_customer_loc = (By.NAME,'accountname')
+    supply_type_loc = (By.NAME,'supplytype')
     proplsal_num_box = (By.ID,'ProposalNo')
     pricing_cate_select = (By.ID,'PricingCategoryId')
     user_quote_select = (By.ID,'UserAssignedId')
     account_type_select = (By.ID,'PaymentTypeId')
     order_date_select = (By.ID,'OrderDate')
     quote_status_select = (By.ID,'QuoteStatusId')
-    account_customer_btn = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/form/div/div[1]/fieldset/fieldset/div/div[1]/span/a')
-    # propertygroup_customer_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/form/div/div[1]/fieldset/fieldset/div/div[1]/ul/li[4]/a')
-    propertygroup_customer_loc = (
-    By.XPATH, '/html/body/div[3]/div[2]/div[1]/div/form/div/div[1]/fieldset/fieldset/div/div[1]/ul/li[864]/a')
+    account_customer_btn = (By.ID,'btnAccountk')
+    propertygroup_customer_loc = ((By.CSS_SELECTOR, "[aria-label='group']"))
     account_customer_select1 = (By.ID,'account_customer_list_part')
     account_customer_select = (By.XPATH,'//*[@id="accountCustomerData"]/div/div[1]/span')
     supply_type_select = (By.ID,'SupplyTypeId')
 
     '''loc for each element in "Client Contact Details" section'''
-    client_contact_details_loc =(By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/form/div/div[2]/h3[1]/span')
-    client_name_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/form/div/div[2]/fieldset/div[1]/div[1]/label')
-    customer_purchase_order_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/form/div/div[2]/fieldset/div[1]/div[2]/label')
-    contact_name_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/form/div/div[2]/fieldset/div[2]/div[1]/label')
-    contact_mobile_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/form/div/div[2]/fieldset/div[2]/div[2]/label')
-    contact_email_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/form/div/div[2]/fieldset/div[2]/div[3]/label')
-    contact_address_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/form/div/div[2]/fieldset/div[3]/div[1]/label')
-    contact_suburb_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/form/div/div[2]/fieldset/div[3]/div[2]/label')
-    contact_postcode_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/form/div/div[2]/fieldset/div[3]/div[3]/label')
+    client_contact_details_loc = (By.XPATH,'//*[@id="clientContact"]/div/div[2]/span')
+    client_name_loc = (By.XPATH,'//*[@id="clientName"]/div/div[3]/span')
+    customer_purchase_order_loc = (By.XPATH,'//*[@id="purchaseOrder"]/div/div[4]/span')
+    contact_name_loc = (By.XPATH,'//*[@id="contactName"]/div/div[5]/span')
+    contact_mobile_loc = (By.XPATH,'//*[@id="contactMobile"]/div/div[6]/span')
+    contact_email_loc = (By.XPATH,'//*[@id="contactEmail"]/div/div[7]/span')
+    contact_address_loc = (By.XPATH,'//*[@id="contactAddress"]/div/div[8]/span')
+    contact_suburb_loc = (By.XPATH,'//*[@id="contactSuburb"]/div/div[9]/span')
+    contact_postcode_loc = (By.XPATH,'//*[@id="contactPostcode"]/div/div[10]/span')
 
     client_name_box = (By.ID,'ClientName')
     order_num_box = (By.ID,'ClientPurchaseOrderNumber')
@@ -72,14 +70,14 @@ class Add_Quote(Admin_Page):
     contact_postcode_box = (By.ID,'ContactPostcode')
 
     '''loc for each element in "Site Contact Details" section'''
-    site_contact_details_loc =(By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/form/div/div[2]/h3[2]/span')
-    copy_client_details = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/form/div/div[2]/div/div[1]/div/label/b')
-    site_contact_name = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/form/div/div[2]/div/div[2]/fieldset/div[1]/label')
-    site_phone_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/form/div/div[2]/div/div[2]/fieldset/div[2]/div[1]/label')
-    site_email_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/form/div/div[2]/div/div[2]/fieldset/div[2]/div[2]/label')
-    site_address_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/form/div/div[2]/div/div[2]/fieldset/div[3]/label')
-    site_suburb_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/form/div/div[2]/div/div[2]/fieldset/div[4]/div[1]/label')
-    site_postcode_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/form/div/div[2]/div/div[2]/fieldset/div[4]/div[2]/label')
+    site_contact_details_loc = (By.XPATH,'//*[@id="siteContact"]/div/div[2]/span')
+    copy_client_details = (By.XPATH,'//*[@id="siteDetail"]/div/div[3]/span')
+    site_contact_name = (By.XPATH,'//*[@id="siteName"]/div/div[4]/span')
+    site_phone_loc = (By.XPATH,'//*[@id="siteMobile"]/div/div[5]/span')
+    site_email_loc = (By.XPATH,'//*[@id="sitetEmail"]/div/div[6]/span')
+    site_address_loc = (By.XPATH,'//*[@id="siteAddress"]/div/div[7]/span')
+    site_suburb_loc = (By.XPATH,'//*[@id="siteSuburb"]/div/div[9]/span')
+    site_postcode_loc = (By.XPATH,'//*[@id="sitePostcode"]/div/div[10]/span')
 
     copy_checkbox_loc = (By.ID,'chkcopyclientdetails')
     site_contactname_box = (By.ID,'SiteContactName')
@@ -87,12 +85,10 @@ class Add_Quote(Admin_Page):
     site_email_box = (By.ID,'SiteEmail')
     site_address_box = (By.ID,'SiteAddress')
     site_suburb_box = (By.ID,'SiteSuburb')
-    # site_postcode_box = (By.ID,'SitePostcode')
     site_postcode_box = (By.ID,'SitePostcode')
 
     '''loc for Doors'''
-    add_door_btn = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/fieldset/div/div/div[3]/div/button')
-    # add_door_menu = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/fieldset/div/div/div[3]/div/ul')
+    add_door_btn = (By.ID,'btnAddDoor')
     add_door_menu = (By.CLASS_NAME,'dropdown-menu')
 
     '''loc for Valication page'''

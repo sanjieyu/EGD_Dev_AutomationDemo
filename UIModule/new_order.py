@@ -12,14 +12,14 @@ from UIModule.admin_portal import *
 
 class New_Order(Admin_Page):
 
-    new_order_title_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/h1')
-    proposal_no_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div[1]/div[1]/div/table/thead/tr/th[2]/div/span')
-    create_date_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div[1]/div[1]/div/table/thead/tr/th[3]/div/a')
-    client_name_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div[1]/div[1]/div/table/thead/tr/th[4]/div/a')
-    door_number_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div[1]/div[1]/div/table/thead/tr/th[5]/div/span')
-    order_date_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div[1]/div[1]/div/table/thead/tr/th[6]/div/span')
-    door_status_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div[1]/div[1]/div/table/thead/tr/th[7]/div/span')
-    document_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div[1]/div[1]/div/table/thead/tr/th[8]/div/span')
+    new_order_title_loc = (By.CSS_SELECTOR,"label[for='OrderTitle']")
+    proposal_no_loc = (By.CSS_SELECTOR,"label[for='ProposalId']")
+    create_date_loc = (By.CSS_SELECTOR,"label[for='CreateDate']")
+    client_name_loc = (By.CSS_SELECTOR,"label[for='ClientName']")
+    door_number_loc = (By.CSS_SELECTOR,"label[for='DoorId']")
+    order_date_loc = (By.CSS_SELECTOR,"label[for='OrderDate']")
+    door_status_loc = (By.CSS_SELECTOR,"label[for='DoorStatus']")
+    document_loc = (By.CSS_SELECTOR,"label[for='Document']")
     save_btn_loc = (By.ID,'saveListData')
 
     def go_new_order(self):

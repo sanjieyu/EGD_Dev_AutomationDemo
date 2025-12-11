@@ -19,8 +19,7 @@ from selenium.common.exceptions import ElementNotInteractableException
 
 class Discount():
 
-    for_automation_test_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/form/div/div[1]/fieldset/fieldset/div/'
-                                        'div[1]/ul/li/a')
+    for_automation_test_loc = (By.CSS_SELECTOR, "[aria-label='testautomation']")
 
     def __init__(self,driver):
         self.driver = driver

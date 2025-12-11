@@ -22,8 +22,8 @@ from selenium.webdriver.common.keys import Keys
 
 class Move_100_Doors():
     '''loc for the status dropdown'''
-    copy_quote_option_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div[1]/div/div/div/div/div/div/table/tbody/tr/td[12]/div/ul/li[5]/a')
-    new_job_number_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div[1]/div/div/div/div/div/div/table/tbody/tr[1]/td[2]/a')
+    copy_quote_option_loc = (By.CSS_SELECTOR, "label[for='CopyQuote']")
+    new_job_number_loc = (By.CSS_SELECTOR, "label[for='JobId']")
 
     '''loc for the Status screen'''
     status_dropdown_loc = (By.ID,'JobStatusId')

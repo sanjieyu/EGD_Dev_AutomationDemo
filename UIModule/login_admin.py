@@ -13,19 +13,6 @@ class Admin_Portal(WebDriver):
     username_loc = (By.XPATH,'//*[@id="Email"]')
     password_loc = (By.XPATH,'//*[@id="Password"]')
     login_loc = (By.XPATH,'//*[@id="loginForm"]/form/div[4]/div/input')
-    '''forget password,submit username page'''
-    # forgetpwd_loc = (By.XPATH,'/html/body/div/div/div[2]/div[2]/div[1]/button')
-    # forgetusername_loc = (By.XPATH,'/html/body/div/div/div[2]/div/p')
-    # forgetsubmit_loc = (By.XPATH,'/html/body/div/div/div[2]/button')
-    # forgetdescription_loc = (By.XPATH,'/html/body/div/div/div[2]/div/p')
-    # wrongemailwaring_loc = (By.XPATH,'/html/body/div/div/div[2]/div[1]')
-    # inputemail_loc = (By.XPATH,'/html/body/div/div/div[2]/div/input')
-    '''forget password,submit code page'''
-    # forgetusernamesubmit_loc = (By.XPATH,'/html/body/div/div/div[2]/div[2]/input[1]')
-    # forgetentercode_loc = (By.XPATH,'/html/body/div/div/div[2]/div[2]/input[2]')
-    # forgetenternew_loc = (By.XPATH,'/html/body/div/div/div[2]/div[2]/input[3]')
-    # passwordrequire_loc = (By.XPATH,'/html/body/div/div/div[2]/div[2]/p')
-    # forgetsubmitbutton_loc = (By.XPATH,'/html/body/div/div/div[2]/button')
 
 
     def typeUserName(self,username):
@@ -78,18 +65,6 @@ class Admin_Portal(WebDriver):
         error_string = self.driver.find_element(*self.wrongemailwaring_loc).text
         print('pwdrequire is:',error_string)
         return error_string
-
-    def submitusername(self):
-        '''Forget password, submit username page'''
-        self.driver.find_element(*self.inputemail_loc).send_keys('tim@itrazotracetech.com')
-        self.driver.find_element(*self.forgetsubmit_loc).click()
-
-    @property
-    def submitcode_pwdrequire(self):
-        '''Forget password, submit code page, pwd require check'''
-        pwdrequire_string = self.driver.find_element(*self.passwordrequire_loc).text
-        # print('pwdrequire is:',pwdrequire_string)
-        return pwdrequire_string
 
 
 

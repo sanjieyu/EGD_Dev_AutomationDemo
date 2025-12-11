@@ -14,19 +14,19 @@ from selenium.webdriver.common.alert import Alert
 
 
 class Search_Door(Admin_Page):
+
     '''loc for default values in this page'''
-    door_btn_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/form/ul/li[2]/a')
-    searchdoor_title_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/h1')
-    door_status_loc =(By.XPATH,'/html/body/div[3]/div[2]/div/div/div/form/div/div/div[2]/div/div[1]/div[1]')
-    other_para_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/form/div/div/div[2]/div/div[2]/div[1]')
-    filter_date_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/form/div/div/div[2]/div/div[1]/div[2]/label')
-    door_status_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/form/div/div/div[2]/div/div[2]/div[2]/label')
-    user_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/form/div/div/div[2]/div/div[2]/div[3]/label')
-    search_door_btn_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/form/div/div/div[2]/div/div[3]/div/input')
+    door_btn_loc = (By.ID,'btnDoor')
+    searchdoor_title_loc = (By.NAME,'searchdoors')
+    door_status_loc = (By.CSS_SELECTOR, "[aria-label='door_status']")
+    other_para_loc = (By.CSS_SELECTOR, "[aria-label='other_para']")
+    filter_date_loc = (By.CSS_SELECTOR, "[aria-label='filter_date']")
+    door_status_loc = (By.CSS_SELECTOR, "[aria-label='door_status']")
+    user_loc = (By.CSS_SELECTOR, "[aria-label='user']")
+    search_door_btn_loc = (By.ID,'btnSearch')
 
     '''Input box for each filter'''
-    door_status_select_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/form/div/div/div[2]/div/div[2]/div[2]/'
-                                       'div/span/a')
+    door_status_select_loc = (By.CSS_SELECTOR, "[aria-label='status']")
     user_select_loc =(By.ID,'DoorSearchModel_UserAssignedId')
 
     def go_searchquotes(self):

@@ -12,34 +12,34 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 class Search_Quote(Admin_Page):
+
     '''loc for default values in this page'''
-    searchquote_title_loc =(By.XPATH,'/html/body/div[3]/div[2]/div/div/h1')
-    quotes_sub_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/form/ul/li[1]/a')
-    doors_sub_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/form/ul/li[2]/a')
-    searchresult_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/div/div/h4')
+    searchquote_title_loc = (By.NAME,'searchquote')
+    quotes_sub_loc = (By.CSS_SELECTOR, "[aria-label='quotes_sub']")
+    doors_sub_loc = (By.CSS_SELECTOR, "[aria-label='doors_sub']")
+    searchresult_loc = (By.CSS_SELECTOR, "[aria-label='search_result']")
 
     '''loc for default values in "Quotes" section'''
-    date_range_loc =(By.XPATH,'/html/body/div[3]/div[2]/div/div/div/form/div/div/div[1]/div/div[1]/div[1]/h4')
-    client_details_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/form/div/div/div[1]/div/div[2]/div[1]/h4')
-    quote_info_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/form/div/div/div[1]/div/div[3]/div[1]/h4')
-    # searchquotes_btn_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/form/div/div/div[1]/div/div[4]/div/input')
+    date_range_loc = (By.CSS_SELECTOR, "[aria-label='date_range']")
+    client_details_loc = (By.CSS_SELECTOR, "[aria-label='client_details']")
+    quote_info_loc = (By.CSS_SELECTOR, "[aria-label='quote_info']")
     searchquotes_btn_loc = (By.ID,'btnSearchQuote')
 
-    filter_date_loc =(By.XPATH,'/html/body/div[3]/div[2]/div/div/div/form/div/div/div[1]/div/div[1]/div[2]/label')
-    user_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/form/div/div/div[1]/div/div[1]/div[3]/label')
+    filter_date_loc = (By.CSS_SELECTOR, "[aria-label='filter_date']")
+    user_loc = (By.CSS_SELECTOR, "[aria-label='user']")
     user_box_loc = (By.XPATH,'//*[@id="UserAssignedId"]')
-    quote_status_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/form/div/div/div[1]/div/div[1]/div[4]/label')
+    quote_status_loc = (By.CSS_SELECTOR, "[aria-label='quote_status']")
 
-    client_name_loc =(By.XPATH,'/html/body/div[3]/div[2]/div/div/div/form/div/div/div[1]/div/div[2]/div[2]/label')
-    contact_number_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/form/div/div/div[1]/div/div[2]/div[3]/label')
-    suburb_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/form/div/div/div[1]/div/div[2]/div[4]/label')
-    postcode_loc = (By.XPATH, '/html/body/div[3]/div[2]/div/div/div/form/div/div/div[1]/div/div[2]/div[5]/label')
+    client_name_loc = (By.CSS_SELECTOR, "[aria-label='client_name']")
+    contact_number_loc = (By.CSS_SELECTOR, "[aria-label='contact_number']")
+    suburb_loc = (By.CSS_SELECTOR, "[aria-label='suburb']")
+    postcode_loc = (By.CSS_SELECTOR, "[aria-label='postcode']")
 
-    proposal_no_loc =(By.XPATH,'/html/body/div[3]/div[2]/div/div/div/form/div/div/div[1]/div/div[3]/div[2]/label')
-    door_design_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/form/div/div/div[1]/div/div[3]/div[3]/label')
-    colour_category_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/form/div/div/div[1]/div/div[3]/div[4]/label')
-    door_colour_loc = (By.XPATH, '/html/body/div[3]/div[2]/div/div/div/form/div/div/div[1]/div/div[3]/div[5]/label')
-    site_address_loc = (By.XPATH, '/html/body/div[3]/div[2]/div/div/div/form/div/div/div[1]/div/div[3]/div[6]/label')
+    proposal_no_loc = (By.CSS_SELECTOR, "[aria-label='proposal_no']")
+    door_design_loc = (By.CSS_SELECTOR, "[aria-label='door_design']")
+    colour_category_loc = (By.CSS_SELECTOR, "[aria-label='colour_category']")
+    door_colour_loc = (By.CSS_SELECTOR, "[aria-label='door_colour']")
+    site_address_loc = (By.CSS_SELECTOR, "[aria-label='site_address']")
 
     '''Input box for each filter'''
     clientname_box_loc = (By.ID, 'ClientName')
@@ -53,7 +53,7 @@ class Search_Quote(Admin_Page):
     site_address_box_loc = (By.ID,'SiteAddress')
 
     '''search by client name'''
-    proposalno_searched_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/div/div/div/div/div/table/tbody/tr/td[2]/a')
+    proposalno_searched_loc = (By.CSS_SELECTOR, "[aria-label='proposalno_searched']")
 
     def go_list(self):
         '''Switch to LIST Menu'''

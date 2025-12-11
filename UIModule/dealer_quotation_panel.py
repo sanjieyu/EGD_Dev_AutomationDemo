@@ -15,28 +15,26 @@ from UIModule.add_dealer_quote_with_panel_door import Add_Dealer_Quote_With_Pane
 class Dealer_Quotation_Panel():
 
     '''the quotation option in the drop down list'''
-    setting_btn_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/div/div/div/div/div/table/tbody/tr/td[12]/div/'
-                                'button')
-    quotation_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/div/div/div/div/div/table/tbody/tr/td[12]/div/ul/'
-                              'li[1]/a')
+    setting_btn_loc = (By.ID,'btnSettings')
+    quotation_loc = (By.CSS_SELECTOR,"label[for='Quotation']")
 
     '''Major sections on Quotation screen'''
-    quotation_section_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/form/h1[1]')
-    job_summary_section_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/form/h1[2]')
-    total_cost_loc  = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/form/h1[3]')
-    proposal_doc_section_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/form/h1[5]')
-    door1_section_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/form/div[5]/div[2]/h3')
+    quotation_section_loc = (By.CSS_SELECTOR,"label[for='QuotationSec']")
+    job_summary_section_loc = (By.CSS_SELECTOR,"label[for='JobSummary']")
+    total_cost_loc  = (By.CSS_SELECTOR,"label[for='TotalCost']")
+    proposal_doc_section_loc = (By.CSS_SELECTOR,"label[for='ProposalDoc']")
+    door1_section_loc = (By.CSS_SELECTOR,"label[for='DoorSection']")
     back_btn_loc = (By.XPATH,'//*[@id="backlink"]')
     save_btn_loc = (By.ID,'btnSaveFinal')
-    send_email_btn_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/form/div[6]/div[3]/a')
+    send_email_btn_loc = (By.ID, 'btnSendEmail')
     submit_quote_btn_loc = (By.ID, 'btnSubmitQuoteFinal')
 
     '''Each element in Quotation section'''
-    client_name_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/form/div[1]/fieldset/div[1]/div[1]/label')
-    mobile_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/form/div[1]/fieldset/div[1]/div[2]/label')
-    proposal_num_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/form/div[1]/fieldset/div[1]/div[3]/label')
-    contact_full_adds_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/form/div[1]/fieldset/div[2]/div[1]/div[1]/label')
-    salesperson_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/form/div[1]/fieldset/div[2]/div[2]/label')
+    client_name_loc = (By.CSS_SELECTOR,"label[for='ClientName']")
+    mobile_loc = (By.CSS_SELECTOR,"label[for='Mobile']")
+    proposal_num_loc = (By.CSS_SELECTOR,"label[for='ProposalNum']")
+    contact_full_adds_loc = (By.CSS_SELECTOR,"label[for='ContactAddress']")
+    salesperson_loc = (By.CSS_SELECTOR,"label[for='SalesPerson']")
 
     client_name_box_loc = (By.ID,'ClientName')
     mobile_box_loc = (By.ID, 'ContactMobile')
@@ -45,46 +43,37 @@ class Dealer_Quotation_Panel():
     salesperson_box_loc = (By.ID, 'SalesPerson')
 
     '''Each element in Job Summary section'''
-    door1_summary_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/form/div[2]/fieldset/div/div/div[1]/div[1]/h3/span')
-    door1_setting_btn_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/form/div[2]/fieldset/div/div/div[1]/div[1]/h3/'
-                                      'span/a')
-
-    door_type_value_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/form/div[2]/fieldset/div/div/div[2]/div[1]/table/'
-                                    'tbody/tr[1]/td[2]')
-    actual_height_value_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/form/div[2]/fieldset/div/div/div[2]/div[2]/'
-                                        'table/tbody/tr[1]/td[2]')
-    door_design_value_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/form/div[2]/fieldset/div/div/div[2]/div[1]/table/'
-                                      'tbody/tr[2]/td[2]/span[1]')
-    actual_width_value_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/form/div[2]/fieldset/div/div/div[2]/div[2]/table/'
-                                       'tbody/tr[2]/td[2]')
-    door_finish_value_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/form/div[2]/fieldset/div/div/div[2]/div[1]/table/'
-                                      'tbody/tr[3]/td[2]')
-    category_value_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/form/div[2]/fieldset/div/div/div[2]/div[1]/table/'
-                                   'tbody/tr[4]/td[2]')
-    opening_sizeLH_value_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/form/div[2]/fieldset/div/div/div[3]/div[1]')
-    opening_sizeRH_value_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/form/div[2]/fieldset/div/div/div[3]/div[2]')
-    opening_sizeWidth_value_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/form/div[2]/fieldset/div/div/div[3]/div[3]')
-    opener_value_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/form/div[2]/fieldset/div/div/div[4]/div')
+    door1_summary_loc = (By.CSS_SELECTOR,"label[for='DoorSummary']")
+    door1_setting_btn_loc = (By.ID, 'btnDoorSettings')
+    door_type_value_loc = (By.CSS_SELECTOR,"label[for='DoorType']")
+    actual_height_value_loc = (By.CSS_SELECTOR,"label[for='ActualHeight']")
+    door_design_value_loc = (By.CSS_SELECTOR,"label[for='DoorDesign']")
+    actual_width_value_loc = (By.CSS_SELECTOR,"label[for='ActualWidth']")
+    door_finish_value_loc = (By.CSS_SELECTOR,"label[for='DoorFinish']")
+    category_value_loc = (By.CSS_SELECTOR,"label[for='Category']")
+    opening_sizeLH_value_loc = (By.CSS_SELECTOR,"label[for='OpeningLH']")
+    opening_sizeRH_value_loc = (By.CSS_SELECTOR,"label[for='OpeningRH']")
+    opening_sizeWidth_value_loc = (By.CSS_SELECTOR,"label[for='OpeningWidth']")
+    opener_value_loc = (By.CSS_SELECTOR,"label[for='Opener']")
 
     '''Each element in Condition of Contract section'''
-    condition_contract_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/form/div[3]/fieldset/div[1]/div/label')
+    condition_contract_loc = (By.CSS_SELECTOR,"label[for='Contract']")
     condition_contract_box_loc = (By.ID,'ConditionsOfContract')
 
     '''Each element in Cost section'''
-    sale_amount_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/form/div[3]/fieldset/div[2]/div[1]/div/div[2]/div[1]')
+    sale_amount_loc = (By.CSS_SELECTOR,"label[for='SaleAmount']")
     sale_amount_box_loc = (By.ID,'SaleAmount')
-    gst_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/form/div[3]/fieldset/div[2]/div[1]/div/div[3]/label')
+    gst_loc = (By.CSS_SELECTOR,"label[for='GST']")
     gst_box_loc = (By.ID,'GST')
-    total_sales_amount_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/form/div[3]/fieldset/div[2]/div[1]/div/div[4]/'
-                                       'div[1]')
+    total_sales_amount_loc = (By.CSS_SELECTOR,"label[for='TotalSale']")
     total_sales_amount_box_loc = (By.ID,'SaleAmountIncGST')
 
     '''Each element in Proposal Documents section'''
     sign_off_des_loc = (By.XPATH,'//*[@id="IsSignOffAddedText"]')
-    sign_off_btn_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/form/div[6]/div[1]/div[1]/h3/span/label[1]')
-    add_replace_des_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/form/div[5]/div[1]/div[2]/fieldset[1]/div/label')
+    sign_off_btn_loc = (By.CSS_SELECTOR,"label[for='SignOff']")
+    add_replace_des_loc = (By.CSS_SELECTOR,"label[for='AddressReplace']")
     sheet_select_loc = (By.ID,'docTypeQuote')
-    print_btn_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/form/div[5]/div[1]/div[2]/fieldset[2]/button')
+    print_btn_loc = (By.ID,"btnPrint")
     add_signoff_btn_loc = (By.ID,'signOffnewfiles')
     add_attach_btn_loc = (By.ID,'quotenewfiles')
 

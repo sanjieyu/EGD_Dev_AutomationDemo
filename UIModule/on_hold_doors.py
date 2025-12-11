@@ -13,34 +13,34 @@ from selenium.common.exceptions import TimeoutException
 
 class On_Hold(Admin_Page):
 
-    on_hold_title_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/h1')
+    on_hold_title_loc = (By.CSS_SELECTOR,"label[for='OnholdTitle']")
 
     '''elements in Client Details section'''
-    client_details_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div[1]/form/div/div/div[1]/div[1]/div[1]/h4')
-    client_name_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div[1]/form/div/div/div[1]/div[1]/div[2]/label')
+    client_details_loc = (By.CSS_SELECTOR,"label[for='details']")
+    client_name_loc = (By.CSS_SELECTOR,"label[for='name']")
     client_name_box_loc = (By.ID,'ClientName')
-    contact_num_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div[1]/form/div/div/div[1]/div[1]/div[3]/label')
+    contact_num_loc = (By.CSS_SELECTOR,"label[for='mobile']")
     contact_num_box_loc = (By.ID,'ContactNumber')
-    location_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div[1]/form/div/div/div[1]/div[2]/div[1]/h4')
-    suburb_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div[1]/form/div/div/div[1]/div[2]/div[2]/label')
+    location_loc = (By.CSS_SELECTOR,"label[for='Location']")
+    suburb_loc = (By.CSS_SELECTOR,"label[for='Suburb']")
     suburb_box_loc = (By.ID,'Suburb')
-    site_address_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div[1]/form/div/div/div[1]/div[2]/div[3]/label')
+    site_address_loc = (By.CSS_SELECTOR,"label[for='Address']")
     site_address_box_loc = (By.ID,'SiteAddress')
-    quote_info_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div[1]/form/div/div/div[1]/div[3]/div[1]/h4')
-    proposal_no_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div[1]/form/div/div/div[1]/div[3]/div[2]/label')
+    quote_info_loc = (By.CSS_SELECTOR,"label[for='QuoteInfo']")
+    proposal_no_loc = (By.CSS_SELECTOR,"label[for='ProposalId']")
     proposal_no_box_loc = (By.ID,'ProposalNo')
-    user_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div[1]/form/div/div/div[1]/div[3]/div[3]/label')
+    user_loc = (By.CSS_SELECTOR,"label[for='User']")
     user_select_loc = (By.ID,'UserAssignedId')
-    search_quotes_btn_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div[1]/form/div/div/div[2]/div/input')
+    search_quotes_btn_loc = (By.CSS_SELECTOR,"label[for='Search']")
 
     '''elements in Results section'''
-    results_found_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div[1]/div/h4')
-    proposal_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div[1]/div/div[1]/div/table/thead/tr/th[1]/div/span')
-    created_date_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div[1]/div/div[1]/div/table/thead/tr/th[2]/div/a')
-    client_name1_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div[1]/div/div[1]/div/table/thead/tr/th[3]/div/a')
-    order_date_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div[1]/div/div[1]/div/table/thead/tr/th[4]/div/span')
-    door_no_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div[1]/div/div[1]/div/table/thead/tr/th[5]/div/span')
-    door_status_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div[1]/div/div[1]/div/table/thead/tr/th[6]/div/span')
+    results_found_loc = (By.XPATH,"//select[contains(@id, '_results')]")
+    proposal_loc = (By.CSS_SELECTOR,"label[for='JobId']")
+    created_date_loc = (By.CSS_SELECTOR,"label[for='CreateDate']")
+    client_name1_loc = (By.CSS_SELECTOR,"label[for='UserName']")
+    order_date_loc = (By.CSS_SELECTOR,"label[for='OrderDate']")
+    door_no_loc = (By.CSS_SELECTOR,"label[for='DoorId']")
+    door_status_loc = (By.CSS_SELECTOR,"label[for='DoroStatus']")
     save_changes_btn_loc = (By.ID,'saveOnHoldListData')
 
     def go_hold_doors(self):

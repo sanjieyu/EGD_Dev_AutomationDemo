@@ -14,11 +14,11 @@ from selenium.webdriver.common.action_chains import ActionChains
 
 class Production_WA(Admin_Page):
 
-    production_wa_title_loc = (By.XPATH, '/html/body/div[3]/div[2]/div[1]/h1')
+    production_wa_title_loc = (By.CSS_SELECTOR, "[aria-label='title']")
 
     '''loc for each section in this page'''
-    optiroll_doors_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div[3]/ul/li[1]/a')
-    optilift_doors_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div[3]/ul/li[2]/a')
+    optiroll_doors_loc = (By.XPATH, '//*[@id="optiroll"]/div/span')
+    optilift_doors_loc = (By.XPATH, '//*[@id="optilift"]/div/span')
 
     def go_production_wa(self):
         '''Switch to Production WA from LIST Menu'''

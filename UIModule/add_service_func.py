@@ -16,7 +16,7 @@ class Add_Service_Func(Add_Service):
 
 
     '''loc for each section in this page'''
-    doors_section_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div[1]/div/h1[1]')
+    doors_section_loc = (By.CSS_SELECTOR, "[aria-label='doorsection']")
 
     def go_addservice(self):
         '''Switch to Add Service from LIST Menu'''

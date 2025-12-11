@@ -12,18 +12,18 @@ from UIModule.admin_portal import *
 
 class SMS_Notification(Admin_Page):
 
-    sms_title_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/h1')
+    sms_title_loc = (By.CSS_SELECTOR,"label[for='SMSTitle']")
     apikey_box_loc =(By.ID,'APIKEYInput')
     pwd_box_loc = (By.ID,'PasswordInput')
     from_box_loc = (By.ID,'FromNumberinput')
 
-    mlb_tab_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/form/ul/li[1]/a')
-    syd_tab_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/form/ul/li[2]/a')
+    mlb_tab_loc = (By.CSS_SELECTOR, "[aria-label='mlb']")
+    syd_tab_loc = (By.CSS_SELECTOR, "[aria-label='syd']")
 
     '''mlb install tab'''
-    production_enter_loc = (By.CSS_SELECTOR,'#MLBInstallTab > div:nth-child(1) > div:nth-child(2) > label:nth-child(1)')
-    production_rollforming_loc = (By.CSS_SELECTOR,'#MLBInstallTab > div:nth-child(4) > div:nth-child(2) > label:nth-child(1)')
-    production_qc_loc = (By.CSS_SELECTOR,'#MLBInstallTab > div:nth-child(7) > div:nth-child(2) > label:nth-child(1)')
+    production_enter_loc = (By.CSS_SELECTOR,"label[for='Enter']")
+    production_rollforming_loc = (By.CSS_SELECTOR,"label[for='Rollforming']")
+    production_qc_loc = (By.CSS_SELECTOR,"label[for='QC']")
 
     def go_sms_notification(self):
         '''Switch to SMS Notification Page from Account Menu'''

@@ -12,93 +12,82 @@ from UIModule.add_dealer_quote import *
 
 class Dealer_Roller_Door(Add_Dealer_Quote):
 
-    details_title_loc  = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/h1')
-    add_rollerdoor_btn_loc = (By.ID,'btnDoorAdd')
-    close_rollerdoor_btn_loc = (By.ID,'btnDoorClose')
-    door_details_page_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form')
+    details_title_loc = (By.NAME, 'details')
+    add_paneldoor_btn_loc = (By.ID, 'btnDoorAdd')
+    close_paneldoor_btn_loc = (By.ID, 'btnDoorClose')
+    door_details_page_loc = (By.ID, 'standardDoorForm')
 
     '''loc for each element for install details'''
-    door_type_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[3]/div[1]/fieldset/label')
-    design_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[3]/div[2]/fieldset/label')
-    colour_category_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[3]/div[3]/fieldset/'
-                                    'label')
-    door_colour_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[3]/div[4]/fieldset/label')
-    door_finish_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[3]/div[5]/fieldset/label')
-    custom_colour_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[3]/div[6]/fieldset/label')
-    door_type_box_loc = (By.ID,'DoorType')
-    design_select_loc = (By.ID,'Door_Design')
-    colour_category_select_loc = (By.ID,'Door_Color_Category')
-    door_colour_select_loc = (By.ID,'DoorColor')
-    door_finish_select_loc = (By.ID,'DoorFinish')
-    custom_colour_box_loc = (By.ID,'Door_Custom_Color')
+    door_type_loc = (By.CSS_SELECTOR, "label[for='DoorType']")
+    design_loc = (By.CSS_SELECTOR, "label[for='Design']")
+    colour_category_loc = (By.CSS_SELECTOR, "label[for='ColourCate']")
+    door_colour_loc = (By.CSS_SELECTOR, "label[for='DoorColour']")
+    door_finish_loc = (By.CSS_SELECTOR, "label[for='DoorFinish']")
+    custom_colour_loc = (By.CSS_SELECTOR, "label[for='CustomColour']")
+    door_type_box_loc = (By.ID, 'DoorType')
+    design_select_loc = (By.ID, 'Door_Design')
+    colour_category_select_loc = (By.ID, 'Door_Color_Category')
+    door_colour_select_loc = (By.ID, 'DoorColor')
+    door_finish_select_loc = (By.ID, 'DoorFinish')
+    custom_colour_box_loc = (By.ID, 'Door_Custom_Color')
 
 
     '''loc for each element for SIZE details'''
-    size_lh_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[3]/div[9]/fieldset/label')
-    size_lh_box_loc = (By.ID,'OpeningSizeLH')
-    size_rh_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[3]/div[10]/fieldset/label')
-    size_rh_box_loc = (By.ID,'OpeningSizeRH')
-    size_width_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[3]/div[11]/fieldset/label')
-    size_width_box_loc = (By.ID,'OpeningSizeWidth')
-    lhrk_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[3]/div[15]/div/div[1]/fieldset/'
-                         'label')
-    lhrk_select_loc = (By.ID,'LHRK')
-    taper_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[3]/div[15]/div/div[2]/label')
-    taper_select_loc = (By.ID,'Taper')
-    seals_2500_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[3]/div[15]/div/div[3]/label')
-    dealer_seals_select_loc = (By.ID,'DealerSeals')
-    seals_3000_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[3]/div[15]/div/div[4]/label')
-    seals_quantity_select_loc = (By.ID,'DealerSealsQuantity')
-    seals_quantity_2500_loc = (By.ID,'DealerSeals2500mmQuantity')
+    size_lh_loc = (By.CSS_SELECTOR, "label[for='SizeLh']")
+    size_lh_box_loc = (By.ID, 'OpeningSizeLH')
+    size_rh_loc = (By.CSS_SELECTOR, "label[for='SizeRh']")
+    size_rh_box_loc = (By.ID, 'OpeningSizeRH')
+    size_width_loc = (By.CSS_SELECTOR, "label[for='SizeWidth']")
+    size_width_box_loc = (By.ID, 'OpeningSizeWidth')
+    lhrk_loc = (By.CSS_SELECTOR, "label[for='LHRK']")
+    lhrk_select_loc = (By.ID, 'LHRK')
+    taper_loc = (By.CSS_SELECTOR, "label[for='Taper']")
+    taper_select_loc = (By.ID, 'Taper')
+    seals_2500_loc = (By.CSS_SELECTOR, "label[for='Seals2500']")
+    dealer_seals_select_loc = (By.ID, 'DealerSeals')
+    seals_3000_loc = (By.CSS_SELECTOR, "label[for='Seals3000']")
+    seals_quantity_select_loc = (By.ID, 'DealerSealsQuantity')
+    seals_quantity_2500_loc = (By.ID, 'DealerSeals2500mmQuantity')
     seals_quantity_3000_loc = (By.ID, 'DealerSeals3000mmQuantity')
 
     '''loc for each element for checkboxes details'''
-    emergency_key_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[4]/fieldset/div[1]/'
-                                  'div[1]/label')
-    emergency_box_loc = (By.ID,'PriceEmergencyKeyRelease')
-    reverse_colour_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[4]/fieldset/div[2]/'
-                                   'div[1]/label')
-    reverse_box_loc = (By.ID,'IsReverseColourStandard')
-    battery_backup_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[4]/fieldset/div[3]/'
-                                   'div[1]/label')
-    battery_box_loc = (By.ID,'IsBatteryBackupStandard')
-    eco_wifi_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[4]/fieldset/div[1]/div[2]/'
-                             'label')
-    eco_wifi_box_loc = (By.ID,'IsWiFi')
-    swifit_sms_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[4]/fieldset/div[2]/div[2]/'
-                               'label')
-    swifit_sms_box_loc = (By.ID,'IsSwiFitSMSBracket')
-    lsr_kit_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[4]/fieldset/div[3]/div[2]/label')
-    lsr_kit_box_loc = (By.ID,'IsLSRKit')
+    emergency_key_loc = (By.CSS_SELECTOR, "label[for='EmergencyKey']")
+    emergency_box_loc = (By.ID, 'PriceEmergencyKeyRelease')
+    reverse_colour_loc = (By.CSS_SELECTOR, "label[for='ReverseColour']")
+    reverse_box_loc = (By.ID, 'IsReverseColourStandard')
+    battery_backup_loc = (By.CSS_SELECTOR, "label[for='Battery']")
+    battery_box_loc = (By.ID, 'IsBatteryBackupStandard')
+    eco_wifi_loc = (By.CSS_SELECTOR, "label[for='EcoWIFI']")
+    eco_wifi_box_loc = (By.ID, 'IsWiFi')
+    swifit_sms_loc = (By.CSS_SELECTOR, "label[for='SwiftSMS']")
+    swifit_sms_box_loc = (By.ID, 'IsSwiFitSMSBracket')
+    lsr_kit_loc = (By.CSS_SELECTOR, "label[for='LsrKit']")
+    lsr_kit_box_loc = (By.ID, 'IsLSRKit')
 
     '''loc for Opener details'''
-    opener_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[3]/div[17]/fieldset/label')
-    handsets_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[3]/div[18]/label')
-    wall_button_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[3]/div[19]/label')
-    pe_beam_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[3]/div[21]/fieldset/label')
-    beam_sets_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[3]/div[22]/fieldset/label')
-    keypad_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[3]/div[23]/fieldset/label')
-    open_box_loc = (By.ID,'Motors')
+    opener_loc = (By.CSS_SELECTOR, "label[for='Opener']")
+    opener_select_loc = (By.ID, 'Motors')
+    handsets_loc = (By.CSS_SELECTOR, "label[for='Handsets']")
+    wall_button_loc = (By.CSS_SELECTOR, "label[for='Wallbtn']")
+    pe_beam_loc = (By.CSS_SELECTOR, "label[for='PeBeam']")
+    beam_sets_loc = (By.CSS_SELECTOR, "label[for='BeamSets']")
+    keypad_loc = (By.CSS_SELECTOR, "label[for='KeyPad']")
 
     '''loc for additional infomation details '''
-    additional_info_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[6]/div/fieldset/label')
+    additional_info_loc = (By.CSS_SELECTOR,"label[for='AdditionalInfo']")
     additional_info_box_loc = (By.ID,'AdditionalInfo')
 
     '''loc for Extra'''
-    extras_loc = (By.XPATH, '/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[8]/div/div/div[1]/button/span')
+    extras_loc = (By.CSS_SELECTOR,"label[for='Extras']")
 
     '''loc for each element in Extra'''
-    windows_type_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[8]/div/div/div[2]/div/div/'
-                                 'div/fieldset/div/div[1]/label')
-    windows_type_select_loc = (By.ID,'WindowType')
-    no_windows_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[8]/div/div/div[2]/div/div/'
-                               'div/fieldset/div/div[2]/label')
-    no_windows_box_loc = (By.ID,'Windows')
-    windows_colour_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[8]/div/div/div[2]/div/'
-                                   'div/div/fieldset/div/div[3]/label')
-    windows_colour_btn_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div/form/div[1]/div[6]/div/div/div[2]/'
-                                       'div/div/div/fieldset/div/div[3]/span/a/span[1]')
-    windows_colour_dropdown_loc = (By.XPATH,'//*[@id="window_color_standard"]')
+    windows_type_loc = (By.CSS_SELECTOR, "label[for='WindowsType']")
+    windows_type_select_loc = (By.ID, 'WindowType')
+    no_windows_loc = (By.CSS_SELECTOR, "label[for='NoWindows']")
+    no_windows_box_loc = (By.ID, 'Windows')
+    windows_colour_loc = (By.CSS_SELECTOR, "label[for='WindowsColour']")
+    windows_colour_btn_loc = (By.ID, "btnWindowsColour")
+    windows_colour_dropdown_loc = (By.XPATH, '//*[@id="ui-id-1"]')
 
     def go_roller_door(self):
         '''Open the Add Roller Door from Dealer Quote Page'''

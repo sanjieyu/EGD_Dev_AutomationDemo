@@ -12,32 +12,33 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 class Search_Quote_DP(Deal_Portal):
+
     '''loc for default values in this page'''
-    search_title_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/h1')
-    quotes_sub_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/form/ul/li[1]/a')
-    doors_sub_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/form/ul/li[2]/a')
-    searchresult_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/div/div/h4')
+    search_title_loc = (By.CSS_SELECTOR,"label[for='SearchTitle']")
+    quotes_sub_loc = (By.CSS_SELECTOR,"label[for='QuoteSub']")
+    doors_sub_loc = (By.CSS_SELECTOR,"label[for='DoorSub']")
+    searchresult_loc = (By.CSS_SELECTOR,"label[for='SearchResult']")
 
     '''loc for default values in "Quotes" section'''
-    date_range_loc =(By.XPATH,'/html/body/div[3]/div[2]/div/div/div/form/div/div/div[1]/div/div[1]/div[1]/h4')
-    client_details_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/form/div/div/div[1]/div/div[2]/div[1]/h4')
-    quote_info_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/form/div/div/div[1]/div/div[3]/div[1]/h4')
-    searchquotes_btn_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/form/div/div/div[1]/div/div[4]/div/input')
+    date_range_loc = (By.CSS_SELECTOR,"label[for='DateRange']")
+    client_details_loc = (By.CSS_SELECTOR,"label[for='ClientDetails']")
+    quote_info_loc = (By.CSS_SELECTOR,"label[for='QuoteDetails']")
+    searchquotes_btn_loc = (By.CSS_SELECTOR,"label[for='SearchQuote']")
 
-    filter_date_loc =(By.XPATH,'/html/body/div[3]/div[2]/div/div/div/form/div/div/div[1]/div/div[1]/div[2]/label')
-    user_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/form/div/div/div[1]/div/div[1]/div[3]/label')
+    filter_date_loc = (By.CSS_SELECTOR,"label[for='FilterDate']")
+    user_loc = (By.CSS_SELECTOR,"label[for='UserId']")
     user_box_loc = (By.XPATH,'//*[@id="UserAssignedId"]')
-    quote_status_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/form/div/div/div[1]/div/div[1]/div[4]/label')
+    quote_status_loc = (By.CSS_SELECTOR,"label[for='QuoteStatus']")
 
-    client_name_loc =(By.XPATH,'/html/body/div[3]/div[2]/div/div/div/form/div/div/div[1]/div/div[2]/div[2]/label')
-    contact_number_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/form/div/div/div[1]/div/div[2]/div[3]/label')
-    suburb_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/form/div/div/div[1]/div/div[2]/div[4]/label')
-    postcode_loc = (By.XPATH, '/html/body/div[3]/div[2]/div/div/div/form/div/div/div[1]/div/div[2]/div[5]/label')
+    client_name_loc = (By.CSS_SELECTOR,"label[for='ClientName']")
+    contact_number_loc = (By.CSS_SELECTOR,"label[for='ContactNumber']")
+    suburb_loc = (By.CSS_SELECTOR,"label[for='Suburb']")
+    postcode_loc = (By.CSS_SELECTOR,"label[for='Postcode']")
 
-    proposal_no_loc =(By.XPATH,'/html/body/div[3]/div[2]/div/div/div/form/div/div/div[1]/div/div[3]/div[2]/label')
-    door_design_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/form/div/div/div[1]/div/div[3]/div[3]/label')
-    colour_category_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/form/div/div/div[1]/div/div[3]/div[4]/label')
-    door_colour_loc = (By.XPATH, '/html/body/div[3]/div[2]/div/div/div/form/div/div/div[1]/div/div[3]/div[5]/label')
+    proposal_no_loc = (By.CSS_SELECTOR,"label[for='ProposalId']")
+    door_design_loc = (By.CSS_SELECTOR,"label[for='DoorDesign']")
+    colour_category_loc = (By.CSS_SELECTOR,"label[for='ColourCate']")
+    door_colour_loc = (By.CSS_SELECTOR,"label[for='DoorColour']")
 
     '''Input box for each filter'''
     clientname_box_loc = (By.ID, 'ClientName')
@@ -51,7 +52,7 @@ class Search_Quote_DP(Deal_Portal):
     site_address_box_loc = (By.ID,'SiteAddress')
 
     '''search by client name'''
-    proposalno_searched_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/div/div/div/div/div/table/tbody/tr/td[2]/a')
+    proposalno_searched_loc = (By.CSS_SELECTOR,"label[for='ProposalResult']")
 
     def go_search_quotes(self):
         '''go to search quotes page'''

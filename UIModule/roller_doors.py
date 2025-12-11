@@ -16,89 +16,66 @@ from selenium.webdriver.support.ui import WebDriverWait
 class Roller_Doors(Production):
 
     '''loc for each section in this page'''
-    order_tab_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div[1]/div/div[1]/ul/li[1]/a')
-    rollforming_tab_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div[1]/div/div[1]/ul/li[2]/a')
-    assembly_tab_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div[1]/div/div[1]/ul/li[3]/a')
-    modifications_tab_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div[1]/div/div[1]/ul/li[4]/a')
-    extras_orders_tab_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div[1]/div/div[1]/ul/li[5]/a')
-    qc_tab_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div[1]/div/div[1]/ul/li[6]/a')
+    order_tab_loc = (By.CSS_SELECTOR, "[aria-label='order']")
+    rollforming_tab_loc = (By.CSS_SELECTOR, "[aria-label='rollforming']")
+    assembly_tab_loc = (By.CSS_SELECTOR, "[aria-label='assembly']")
+    modifications_tab_loc = (By.CSS_SELECTOR, "[aria-label='modifications']")
+    extras_orders_tab_loc = (By.CSS_SELECTOR, "[aria-label='extrasorders']")
+    qc_tab_loc = (By.CSS_SELECTOR, "[aria-label='qc']")
 
     '''loc for "Order" section in this page'''
-    number_doors_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div[1]/div/div[1]/div/div[1]/div[1]/div/h5/b[1]')
-    proposal_no_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div[1]/div/div[1]/div/div[1]/div[2]/div[2]/div/div/'
-                                'table/thead/tr/th[1]/div')
-    client_name_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div[1]/div/div[1]/div/div[1]/div[2]/div[2]/div/div/'
-                                'table/thead/tr/th[2]/div/span')
-    supply_type_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div[1]/div/div[1]/div/div[1]/div[2]/div[2]/div/div/'
-                                'table/thead/tr/th[3]/div/span')
-    door_no_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div[1]/div/div[1]/div/div[1]/div[2]/div[2]/div/div/table/'
-                            'thead/tr/th[4]/div')
-    status_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div[1]/div/div[1]/div/div[1]/div[2]/div[2]/div/div/table/'
-                           'thead/tr/th[5]')
-    extraorders_doc_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div[1]/div/div[1]/div/div[1]/div[2]/div[2]/div/'
-                                    'div/table/thead/tr/th[6]/div/span')
-    save_changes_order_btn = (By.ID,'saveRollerDoorsData')
-    first_orderid_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div[1]/div/div[1]/div/div[1]/div[2]/div[2]/div/div/'
-                                  'table/tbody/tr[1]/td[1]/a')
-    search_order_box_loc = (By.ID,'RollerDoorsOrdersSearchInput')
-    searched_order_status_loc =  (By.XPATH,"//select[contains(@id, '_status')]")
+    number_doors_loc = (By.CSS_SELECTOR, "label[for='DoorNumber']")
+    proposal_no_loc = (By.CSS_SELECTOR, "label[for='ProposalId']")
+    client_name_loc = (By.CSS_SELECTOR, "label[for='Name']")
+    supply_type_loc = (By.CSS_SELECTOR, "label[for='SupplyType']")
+    door_no_loc = (By.CSS_SELECTOR, "label[for='DoorId']")
+    status_loc = (By.CSS_SELECTOR, "label[for='Status']")
+    extraorders_doc_loc = (By.CSS_SELECTOR, "label[for='Location']")
+    save_changes_order_btn_loc = (By.ID, 'saveSingleSkinOrderData')
+    first_orderid_loc = (By.CSS_SELECTOR, "label[for='OrderId']")
+    search_order_box_loc = (By.ID, 'SingleSkinOrderSearchInput')
+    searched_order_status_loc = (By.XPATH, "//select[contains(@id, '_search')]")
 
     '''loc for "Rollforming" section in this page'''
-    number_doors_roll_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div[1]/div/div[1]/div/div[2]/h5/b[1]')
-    reschedule_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div[1]/div/div[1]/div/div[2]/div[1]/div[1]/div/label')
-    date_filter_loc = (By.ID,'reschedule-roller-from')
-    apply_btn = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div[1]/div/div[1]/div/div[2]/div[1]/div[1]/div/input')
-    search_job_box = (By.ID,'search-roller-door')
-    search_job_btn = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div[1]/div/div[1]/div/div[2]/div[1]/div[2]/div/div/'
-                               'button')
-    save_changes_rollforming_btn = (By.ID,'saveRollerRollformingDoorsData')
-    table_frame_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div[1]/div/div[1]/div/div[2]/div[2]/div[2]/div/div[1]')
+    number_doors_roll_loc = (By.CSS_SELECTOR, "label[for='DoorNumber']")
+    reschedule_loc = (By.CSS_SELECTOR, "label[for='reschedule']")
+    date_filter_loc = (By.ID, 'reschedule-from')
+    apply_btn = (By.ID, "btnApply")
+    search_job_box = (By.ID, 'search-door')
+    search_job_btn = (By.ID, "btnSearch")
+    save_changes_rollforming_btn = (By.ID, 'saveSingleSkinRollingData')
+    table_frame_loc = (By.CSS_SELECTOR, "label[for='Table']")
 
     '''loc for "Assembly" section in this page'''
-    number_doors_assembly_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div[1]/div/div[1]/div/div[3]/div[1]/div/h5/'
-                                          'b[1]')
-    prop_no_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div[1]/div/div[1]/div/div[3]/div[2]/div[2]/div/div/table/'
-                            'thead/tr/th[1]/div')
-    door_no_assembly_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div[1]/div/div[1]/div/div[3]/div[2]/div[2]/div/'
-                                     'div/table/thead/tr/th[2]/div/span')
-    status_assembly_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div[1]/div/div[1]/div/div[3]/div[2]/div[2]/div/'
-                                    'div/table/thead/tr/th[13]/div/span')
-    save_assembly_btn_loc = (By.ID,'saveRollerAssemblyDoorsData')
+    number_doors_assembly_loc = (By.CSS_SELECTOR, "label[for='DoorNumber']")
+    prop_no_loc = (By.CSS_SELECTOR, "label[for='ProposalId']")
+    door_no_assembly_loc = (By.CSS_SELECTOR, "label[for='DoorNumber']")
+    status_assembly_loc = (By.CSS_SELECTOR, "label[for='Status']")
+    save_assembly_btn_loc = (By.ID, 'saveSingleSkinAssemblyData')
 
     '''loc for "Modification" section in this page'''
-    number_doors_modification_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div[1]/div/div[1]/div/div[4]/div[1]/'
-                                              'div/h5/b[1]')
-    prop_no_modification_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div[1]/div/div[1]/div/div[4]/div[2]/div[2]/'
-                                         'div/div/table/thead/tr/th[1]/div/span')
-    door_colour_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div[1]/div/div[1]/div/div[4]/div[2]/div[2]/div/div/'
-                                'table/thead/tr/th[4]/div/span')
-    extradoc_modification_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div[1]/div/div[1]/div/div[4]/div[2]/div[2]/'
-                                          'div/div/table/thead/tr/th[12]/div/span')
-    save_modification_btn_loc = (By.ID,'saveRollerModificationsDoorsData')
+    number_doors_modification_loc = (By.CSS_SELECTOR, "label[for='DoorNumber']")
+    prop_no_modification_loc = (By.CSS_SELECTOR, "label[for='Modification']")
+    door_colour_loc = (By.CSS_SELECTOR, "label[for='DoorColour']")
+    extradoc_modification_loc = (By.CSS_SELECTOR, "label[for='Extradoc']")
+    save_modification_btn_loc = (By.ID, 'saveSingleSkinModificationData')
 
     '''loc for "Extra Orders" section in this page'''
-    number_doors_extra_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div[1]/div/div[1]/div/div[5]/div[1]/div/h5/b[1]')
-    prop_no_extra_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div[1]/div/div[1]/div/div[5]/div[2]/div[2]/div/div/'
-                                  'table/thead/tr/th[1]/div/span')
-    colour_category_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div[1]/div/div[1]/div/div[5]/div[2]/div[2]/div/div/'
-                                    'table/thead/tr/th[5]/div/span')
-    extradoc_extra_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div[1]/div/div[1]/div/div[5]/div[2]/div[2]/div/div/'
-                                   'table/thead/tr/th[13]/div/span')
-    save_extrasorders_btn_loc = (By.ID,'saveRollerExtraOrdersDoorsData')
+    number_doors_extra_loc = (By.CSS_SELECTOR, "label[for='DoorNumber']")
+    prop_no_extra_loc = (By.CSS_SELECTOR, "label[for='ProposalId']")
+    colour_category_loc = (By.CSS_SELECTOR, "label[for='ColourCate']")
+    extradoc_extra_loc = (By.CSS_SELECTOR, "label[for='Extradoc']")
+    save_extrasorders_btn_loc = (By.ID, 'saveSingleSkinExtrasData')
 
     '''loc for "QC" section in this page'''
-    number_doors_qc_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div[1]/div/div[1]/div/div[6]/div[1]/div/h5/b[1]')
-    prop_no_qc_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div[1]/div/div[1]/div/div[6]/div[2]/div[2]/div/div/'
-                               'table/thead/tr/th[1]/div/span')
-    actual_width_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div[1]/div/div[1]/div/div[6]/div[2]/div[2]/div/div/'
-                                 'table/thead/tr/th[5]/div/span')
-    status_qc_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div[1]/div/div[1]/div/div[6]/div[2]/div[2]/div/div/'
-                              'table/thead/tr/th[11]/div/span')
-    save_qc_btn_loc = (By.ID,'saveRollerQCDoorsData')
-    qc_fail_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div[1]/div/div[1]/div/div[6]/div[1]/div[2]/div/label')
-    qc_pass_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div[1]/div/div[1]/div/div[6]/div[1]/div[3]/div/label')
-    qc_fail_radiobox_loc = (By.ID,'QCFailRadiobutton')
-    qc_pass_radiobox_loc = (By.ID, 'QCPassRadiobutton')
+    number_doors_qc_loc = (By.CSS_SELECTOR, "label[for='DoorNumber']")
+    prop_no_qc_loc = (By.CSS_SELECTOR, "label[for='ProposalId']")
+    actual_width_loc = (By.CSS_SELECTOR, "label[for='Width']")
+    status_qc_loc = (By.CSS_SELECTOR, "label[for='Status']")
+    qc_fail_loc = (By.CSS_SELECTOR, "label[for='StatusFail']")
+    qc_pass_loc = (By.CSS_SELECTOR, "label[for='StatusPass']")
+    qc_fail_radiobox_loc = (By.ID, 'SSQCFailRadiobutton')
+    qc_pass_radiobox_loc = (By.ID, 'SSQCPassRadiobutton')
 
 
 

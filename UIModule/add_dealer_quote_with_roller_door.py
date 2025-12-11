@@ -4,7 +4,6 @@
 
 import selenium
 from selenium import webdriver
-from time import sleep
 from selenium.webdriver.common.by import By
 from UIModule.login_admin import Admin_Portal
 from UIModule.add_dealer_quote import Add_Dealer_Quote
@@ -20,14 +19,14 @@ class Add_Dealer_Quote_With_Roller_Door():
     find_quote_input = (By.ID,'search-quote')
     find_quote_btn = (By.ID,'search-btn')
 
-    searched_proposal_no_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/div/div/div/div/div/table/tbody/tr/td[2]/a')
-    searched_door_no_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/div/div/div/div/div/table/tbody/tr/td[7]/span')
-    searched_door_status_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/div/div/div/div/div/table/tbody/tr/td[11]/span')
+    searched_proposal_no_loc = (By.NAME, 'proposalid')
+    searched_door_no_loc = (By.NAME, 'doorid')
+    searched_door_status_loc = (By.NAME, 'doorstatus')
 
-    setting_btn_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/div/div/div/div/div/table/tbody/tr/td[12]/div/button')
-    quotation_loc = (By.XPATH,'/html/body/div[3]/div[2]/div/div/div/div/div/div/div/div/table/tbody/tr/td[12]/div/ul/li[1]/a')
+    setting_btn_loc = (By.ID,'Settings')
+    quotation_loc = (By.CSS_SELECTOR,'div.col-md-4:nth-child(2) > div:nth-child(6) > label:nth-child(1)')
     submit_quote_btn_loc = (By.ID,'btnSubmitQuoteFinal')
-    submit_msg_btn_loc = (By.XPATH,'/html/body/div[57]/div/div[6]/button[1]')
+    submit_msg_btn_loc = (By.ID,'SubmitMsg')
 
     def __init__(self,driver):
         self.driver = driver

@@ -12,23 +12,22 @@ from UIModule.admin_portal import *
 
 class Travel_Area_Management(Admin_Page):
 
-    travel_area_title_loc = (By.XPATH, '/html/body/div[3]/div[2]/div[1]/div/h3/span/span')
+    travel_area_title_loc = (By.NAME,'travel')
     new_btn_loc = (By.ID,'btnAddArea')
     search_box_loc = (By.ID,'travelAreaSearchInput')
-    search_result_suburb_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/div/div/div[2]/div/div/table/tbody/tr/'
-                                         'td[3]')
+    search_result_suburb_loc = (By.CSS_SELECTOR, "[aria-label='suburbs']")
 
     '''new page'''
-    new_title_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div[1]/h1')
-    new_postcode_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div[2]/div/form/div[1]/div[1]/div/label')
-    new_suburb_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div[2]/div/form/div[1]/div[2]/div/label')
-    new_state_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div[2]/div/form/div[2]/div[1]/div/label')
-    new_comments_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div[2]/div/form/div[2]/div[2]/div/label')
-    new_category_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div[2]/div/form/div[3]/div[1]/div/label')
-    new_delivery_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div[2]/div/form/div[3]/div[2]/div/label')
+    new_title_loc = (By.CSS_SELECTOR, "label[for='Title']")
+    new_postcode_loc = (By.CSS_SELECTOR, "label[for='Postcode']")
+    new_suburb_loc = (By.CSS_SELECTOR, "label[for='Suburb']")
+    new_state_loc = (By.CSS_SELECTOR, "label[for='State']")
+    new_comments_loc = (By.CSS_SELECTOR, "label[for='Comments']")
+    new_category_loc = (By.CSS_SELECTOR, "label[for='Category']")
+    new_delivery_loc = (By.CSS_SELECTOR, "label[for='Delivery']")
 
     new_save_btn_loc = (By.ID,'btnAreaSave')
-    new_close_btn_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[2]/div/div/div[3]/input[2]')
+    new_close_btn_loc = (By.ID, 'btnClose')
 
     def go_travel_area_management(self):
         '''Switch to Travel Area Management Page from Account Menu'''
