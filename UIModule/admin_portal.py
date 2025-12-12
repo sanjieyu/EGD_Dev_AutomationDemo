@@ -27,10 +27,10 @@ class Admin_Page(Admin_Portal):
     terms_loc = (By.CSS_SELECTOR, "[aria-label='terms']")
 
     '''Add Menu'''
-    quote_add_loc = (By.CSS_SELECTOR,'.open > ul:nth-child(2) > li:nth-child(1) > a:nth-child(1)')
-    lead_add_loc = (By.CSS_SELECTOR,'.open > ul:nth-child(2) > li:nth-child(2) > a:nth-child(1)')
-    account_add_loc = (By.CSS_SELECTOR,'.open > ul:nth-child(2) > li:nth-child(3) > a:nth-child(1)')
-    installer_add_loc = (By.CSS_SELECTOR,'.open > ul:nth-child(2) > li:nth-child(4) > a:nth-child(1)')
+    quote_add_loc = (By.CSS_SELECTOR,"[aria-label='quote_add']")
+    lead_add_loc = (By.CSS_SELECTOR,"[aria-label='lead_add']")
+    account_add_loc = (By.CSS_SELECTOR,"[aria-label='account_add']")
+    installer_add_loc = (By.CSS_SELECTOR,"[aria-label='installer_add']")
 
     '''List Menu'''
     quote_list_loc = (By.ID,'quotelist)')
@@ -51,7 +51,7 @@ class Admin_Page(Admin_Portal):
     '''Account Menu'''
     changepwd_loc = (By.ID,'pwdchange')
     updateprofile_loc = (By.ID,'profileupdate)
-    updateemail_loc = (By.ID, 'emailupdate)
+    updateemail_loc = (By.ID, 'emailupdate')
     usermanage_loc = (By.ID, 'usermanager')
     travel_area_loc = (By.ID,'travelarea')
     rollcycle_loc = (By.ID 'rollcycle')
@@ -59,7 +59,7 @@ class Admin_Page(Admin_Portal):
     rollcycle_rollerdoors_loc = (By.ID,'rollcycleroll')
     rollcycle_optiliftdoors_loc = (By.ID,'rollcycleoptilift')
     rollcycle_optirolldoors_loc = (By.ID, 'rollcycleoptiroll')
-    sms_loc = (By.ID,'sms)
+    sms_loc = (By.ID,'sms')
     logoff_loc = (By.ID, 'logoff')
 
 
