@@ -13,8 +13,8 @@ from UIModule.dealer_panel_door import *
 class Add_DP_PanelLift(Dealer_Panel_Door):
     new_door_page_loc = (By.ID,'quickDoorAddModalBody')
     new_door_title= (By.XPATH,'//*[@id="btnShowDoor"]')
-    new_door_duplicate = (By.CSS_SELECTOR, "[aria-label='duplicate']")
-    new_door_delete = (By.NAME, 'doordelete')
+    new_door_duplicate = (By.CSS_SELECTOR, 'a.glyphicon.glyphicon-duplicate')
+    new_door_delete = (By.CSS_SELECTOR, 'a.glyphicon.glyphicon-remove.aware-btn.left-padding')
 
     '''loc for validation'''
     validation_msgbox_loc = (By.ID,'doorerrormsgs_body')
@@ -94,9 +94,10 @@ if __name__ == '__main__':
         login.typeUserName('aa@ecogaragedoors.com')
         login.typePassword('aabb')
         login.clickLogin()
-        login.creat_quote
+        login.creat_quote()
         login.go_panel_door()
-        login.validation_input
-        # login.add_dealer_panel_door
+        # login.validation_input
+        login.add_dealer_panel_door()
         # login.new_added_door
-        # login.duplicate_btn
+        login.duplicate_btn
+        login.delete_btn

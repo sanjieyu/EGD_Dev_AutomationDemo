@@ -14,16 +14,15 @@ from selenium.webdriver.support import expected_conditions as EC
 
 class Account_Customer(Admin_Page):
     '''loc for the Account Customer page'''
-    account_title_loc = (By.CSS_SELECTOR, "[data-test='login-submit']")
-    account_searchbtn_loc = (By.CSS_SELECTOR, ".btn.btn-search")
-    account_searchbox_loc = (By.ID,'searchCustomerName')
-
-    customer_name_loc = (By.ID,'customername')
-    contact_name_loc = (By.XPATH,"//div[contains(@class,'cname')]")
-    address_loc = (By.NAME,"address")
-    email_loc = (By.NAME,"email")
-    suburb_loc = (By.NAME,"suburb")
-    search_result_name_loc = (By.ID,"searchCustomerResult")
+    account_title_loc = (By.CSS_SELECTOR, 'h1.header')
+    account_searchbtn_loc = (By.CSS_SELECTOR, 'button.btn-primary')
+    account_searchbox_loc = (By.ID, 'searchCustomerName')
+    customer_name_loc = (By.XPATH, "//span[text()='Customer Name']")
+    contact_name_loc = (By.XPATH, "//span[text()='Contact Name']")
+    address_loc = (By.XPATH, "//span[text()='Address']")
+    email_loc = (By.XPATH, "//span[text()='Email']")
+    suburb_loc = (By.XPATH, "//span[text()='Suburb']")
+    search_result_name_loc = (By.CSS_SELECTOR, "a[href*='/Customer/Edit/']")
 
     def goto_account_customer(self):
         '''Go to account customer screen'''

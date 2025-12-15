@@ -14,8 +14,8 @@ class Add_Custom_Door(Custom_Door):
 
     new_door_page_loc = (By.ID,'customDoorForm')
     new_door_title= (By.ID,'btnShowDoor')
-    new_door_duplicate = (By.CSS_SELECTOR, "[aria-label='duplicate']")
-    new_door_delete = (By.NAME,'doordelete')
+    new_door_duplicate = (By.CSS_SELECTOR, 'a.glyphicon.glyphicon-duplicate')
+    new_door_delete = (By.CSS_SELECTOR, 'a.glyphicon.glyphicon-remove.aware-btn.left-padding')
 
     '''loc for validation'''
     validation_msgbox_loc = (By.ID,'customErrorsBody')
