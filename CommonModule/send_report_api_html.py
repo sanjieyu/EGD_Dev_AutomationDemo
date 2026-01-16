@@ -57,8 +57,8 @@ def send_mail(file_new):
         print('Mail send error')
 
 if __name__ == "__main__":
-    test_dir_ui = "C:\\Users\\Yi Sun\\PycharmProjects\\EGD\\APITestCase"
-    test_report_ui = "C:\\Users\\Yi Sun\\PycharmProjects\\EGD\\Report"
+    test_dir_ui = "xxxx\\APITestCase"
+    test_report_ui = "xxxx\\Report"
     discover = unittest.defaultTestLoader.discover(test_dir_api, pattern='test_*.py')
     now = time.strftime("%Y-%m-%d_%H_%M_%S")
     filename = test_report_api + '\\' + now + '_result.html'

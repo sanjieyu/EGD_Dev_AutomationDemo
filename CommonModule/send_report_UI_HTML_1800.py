@@ -33,7 +33,8 @@ class send_report_ui:
         '''mail body'''
         msg = MIMEMultipart('mixed')
         msg_html1 = MIMEText(
-            'Automation Test starts at 18:00 everyday, and the Report automatically sent,DO NOT reply.You can check details from the attachment,thank you!')
+            'Automation Test starts at 18:00 everyday, and the Report automatically sent,DO NOT reply.'
+            'You can check details from the attachment,thank you!')
         msg.attach(msg_html1)
         '''mail attachement'''
         m = MIMEText(mail_body, "html", "utf-8")
@@ -69,8 +70,8 @@ class send_report_ui:
                     print(f"error: {e}")
 
 if __name__ == "__main__":
-    test_dir_ui = "C:\\Users\\Yi Sun\\PycharmProjects\\EGD\\UITestCase"
-    test_report_ui = "C:\\Users\\Yi Sun\\PycharmProjects\\EGD\\Report\\UI"
+    test_dir_ui = "xxxx\\UITestCase"
+    test_report_ui = "xxxx\\Report\\UI"
 
     discover = unittest.defaultTestLoader.discover(test_dir_ui, pattern='test_*.py')
     now = time.strftime("%Y-%m-%d_%H_%M_%S")

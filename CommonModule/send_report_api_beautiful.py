@@ -61,14 +61,14 @@ class send_report_api:
 
 if __name__ == "__main__":
     # '''for API automation'''
-    test_dir_api = "C:\\Users\\Yi Sun\\PycharmProjects\\EGD\\UITestCase"
-    test_report_api = "C:\\Users\\Yi Sun\\PycharmProjects\\EGD\\Report"
+    test_dir_api = "xxxxx"
+    test_report_api = "xxxx"
     discover = unittest.defaultTestLoader.discover(test_dir_api, pattern='test_*.py')
     now = time.strftime("%Y-%m-%d_%H_%M_%S")
     filename1 = '\\' + now + '_result.html'
     runner = BeautifulReport(discover)
     runner.report(description='EGD_Automation_API_Test_Report', filename=filename1,
-                  log_path='C:\\Users\\Yi Sun\\PycharmProjects\\EGD\\Report')
+                  log_path='xxxxx')
     new_report1 = send_report_api.new_report_api(test_report_api)
     send_report_api.send_mail_api(new_report1)
 

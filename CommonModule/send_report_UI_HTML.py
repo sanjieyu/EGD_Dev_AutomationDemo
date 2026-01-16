@@ -61,14 +61,15 @@ class send_report_ui:
             print('Mail send error', e)
 
 if __name__ == "__main__":
-    test_dir_ui = "C:\\Users\\Yi Sun\\PycharmProjects\\EGD\\UITestCase"
-    test_report_ui = "C:\\Users\\Yi Sun\\PycharmProjects\\EGD\\Report\\UI"
+    test_dir_ui = "xxxx\\UITestCase"
+    test_report_ui = "xxxx\\Report\\UI"
 
     discover = unittest.defaultTestLoader.discover(test_dir_ui, pattern='test_*.py')
     now = time.strftime("%Y-%m-%d_%H_%M_%S")
     filename1 = test_report_ui + '\\' + now + '_result.html'
     runner = HTMLTestReport(file_path=filename1,title='EGD_Dev_UI_Automation_Test_Report',
-                            description='Automation Test Report automatically sent,DO NOT reply.You can check details from the attachment,thank you!')
+                            description='Automation Test Report automatically sent,DO NOT reply.You can check details '
+                                        'from the attachment,thank you!')
     runner.run(discover)
 
     new_report1 = send_report_ui.new_report_ui(test_report_ui)
