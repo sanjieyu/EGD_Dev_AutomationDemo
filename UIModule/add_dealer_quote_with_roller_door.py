@@ -1,4 +1,4 @@
-# Author:Yi Sun(Tim) 2025-2-11
+# Author:Yi Sun(Tim) 2023-2-11
 
 '''Add a Dealer Quote with a roller door function'''
 
@@ -15,7 +15,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import ElementNotInteractableException
 
 class Add_Dealer_Quote_With_Roller_Door():
-    proposal_number_loc = (By.ID,'ProposalNo')   #get the proposal number for the edit box
+    proposal_number_loc = (By.ID,'ProposalNo')
     find_quote_input = (By.ID,'search-quote')
     find_quote_btn = (By.ID,'search-btn')
 
@@ -37,23 +37,20 @@ class Add_Dealer_Quote_With_Roller_Door():
         self.add_dealer_quote.creat_quote()
         self.add_dealer_roller_door.go_roller_door()
         self.add_dealer_roller_door.add_dealer_roller_door()
-        sleep(2)
         self.add_dealer_quote.check_add_dealer_quote_success
 
     @property
     def get_proposal_number(self):
         global proposal_number
-        proposal_number = self.driver.find_element(*self.proposal_number_loc).get_attribute('value')    #取对话框里面的job nubmer的值
+        proposal_number = self.driver.find_element(*self.proposal_number_loc).get_attribute('value')
         print('number is:',proposal_number)
         return proposal_number
 
     def search_new_quote(self):
         self.driver.refresh()
-        sleep(1)
         self.driver.find_element(*self.find_quote_input).send_keys(proposal_number)
-        sleep(2)
         self.driver.find_element(*self.find_quote_btn).click()
-        WebDriverWait(self.driver,10).until(EC.visibility_of_element_located(self.searched_door_no_loc))      #new add
+        WebDriverWait(self.driver,10).until(EC.visibility_of_element_located(self.searched_door_no_loc))
 
     @property
     def verify_new_quote(self):
@@ -67,13 +64,9 @@ class Add_Dealer_Quote_With_Roller_Door():
         self.driver.find_element(*self.setting_btn_loc).click()
         self.driver.find_element(*self.quotation_loc).click()
         self.driver.find_element(*self.submit_quote_btn_loc).click()
-        sleep(1)
         self.driver.find_element(*self.submit_msg_btn_loc).click()
-        sleep(2)
         self.driver.refresh()
-        sleep(1)
         self.driver.find_element(*self.find_quote_input).send_keys(proposal_number)
-        sleep(2)
         self.driver.find_element(*self.find_quote_btn).click()
         WebDriverWait(self.driver,10).until(EC.visibility_of_element_located(self.searched_door_no_loc))
 
@@ -87,12 +80,12 @@ class Add_Dealer_Quote_With_Roller_Door():
 if __name__ == '__main__':
     driver = webdriver.Firefox()
     driver.maximize_window()
-    driver.get("http://egd2.sighte.com/")
+    driver.get("http://xxxxx/")
     driver.implicitly_wait(10)
 
     login = Admin_Portal(driver)
-    login.typeUserName('tim2@tim.com')
-    login.typePassword('Aa123!')
+    login.typeUserName('xx@xxx.com')
+    login.typePassword('xxxx')
     login.clickLogin()
     login1 = Add_Dealer_Quote_With_Roller_Door(driver)
     login1.add_dealer_rollerdoor_fun()

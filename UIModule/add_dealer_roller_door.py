@@ -1,4 +1,4 @@
-# Author:Yi Sun(Tim) 2025-2-11
+# Author:Yi Sun(Tim) 2023-2-11
 
 '''Add a Dealer Roller Door'''
 
@@ -24,16 +24,13 @@ class Add_DP_Roller(Dealer_Roller_Door):
     def validation_input(self):
         new_door_page = self.driver.find_element(*self.new_door_page_loc)
         self.driver.execute_script("arguments[0].scrollIntoView(false);", new_door_page)  # 滚动条拉到Form最下面
-        sleep(3)
         self.driver.find_element(*self.add_rollerdoor_btn_loc).click()
-        sleep(1)
         msg_error = self.driver.find_element(*self.validation_msgbox_loc).text
         print(msg_error)
         return msg_error
 
     '''Input the necesary details for a door'''
     def add_dealer_roller_door(self):
-        sleep(5)
         wait = WebDriverWait(self.driver, 5)
         design_select = Select(wait.until(EC.presence_of_element_located(self.design_select_loc)))
         design_select.select_by_visible_text('ExoRoll eS')
@@ -86,12 +83,12 @@ class Add_DP_Roller(Dealer_Roller_Door):
 if __name__ == '__main__':
         driver = webdriver.Firefox()
         driver.maximize_window()
-        driver.get("http://egd2.sighte.com/")
+        driver.get("http://xxxxx/")
         driver.implicitly_wait(10)
 
         login = Add_DP_Roller(driver)
-        login.typeUserName('tim2@tim.com')
-        login.typePassword('Aa123!')
+        login.typeUserName('xxx@xxx.com')
+        login.typePassword('xxxx!')
         login.clickLogin()
         login.creat_quote()
         login.go_roller_door()

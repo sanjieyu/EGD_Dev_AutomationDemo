@@ -1,4 +1,4 @@
-# Author:Yi Sun(Tim) 2025-10-14
+# Author:Yi Sun(Tim) 2023-10-14
 
 '''Add a OptiRoll Door'''
 
@@ -20,7 +20,6 @@ class Add_OptiRoll_Door(Standard_Door):
 
     '''Input the necesary details for a OptiLift door'''
     def add_optiroll_door(self):
-        # self.driver.find_element(*self.install_type_select).click()
         wait = WebDriverWait(self.driver,5)
         install_type_select = Select(self.driver.find_element(*self.install_type_select))
         install_type_select.select_by_visible_text('Commercial Cat 1')
@@ -81,12 +80,12 @@ class Add_OptiRoll_Door(Standard_Door):
 if __name__ == '__main__':
     driver = webdriver.Firefox()
     driver.maximize_window()
-    driver.get("http://egd2.sighte.com/")
+    driver.get("http://xxxx/")
     driver.implicitly_wait(10)
 
     login = Add_OptiRoll_Door(driver)
-    login.typeUserName('ysun@ecogaragedoors.com.au')
-    login.typePassword('Tims@123')
+    login.typeUserName('xx@xx.com.au')
+    login.typePassword('xx@xxx')
     login.clickLogin()
     login.go_addquote()
     login.go_addstandarddoor()

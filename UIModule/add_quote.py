@@ -135,10 +135,8 @@ class Add_Quote(Admin_Page):
         '''check the save quote buton in Add Quotes page'''
         savequote_btn = self.driver.find_element(*self.save_quote_btn)
         if savequote_btn:
-            # print('exist')
             return  True
         else:
-            # print("not exist")
             return False
     @property
     def check_proposal_details(self):
@@ -212,32 +210,6 @@ class Add_Quote(Admin_Page):
         default_quotestatus_value = Select(self.driver.find_element(*self.quote_status_select)).first_selected_option.text
         print(default_quotestatus_value)
         return default_quotestatus_value
-
-    @property
-    def check_account_customer_select(self):
-        '''check the default value for "Account Customer'''
-        wait = WebDriverWait(self.driver,10)
-        account_customer_dropdown = wait.until(EC.presence_of_element_located(self.account_customer_select))
-
-        # script = 'return document.getElementById("account_customer_list_part").disabled;'
-        # is_disabled = self.driver.execute_script(script)
-
-
-        # try:
-        #     account_customer_dropdown.click()
-        #     print('is enable')
-        # except ElementNotInteractableException:
-        #     print('is disable')
-        print('attribute is:',account_customer_dropdown.get_attribute)
-        is_disabled = account_customer_dropdown.get_attribute("disabled")
-        if is_disabled:
-            print("Dropdown is disabled")
-        else:
-            print("Dropdown is enabled")
-        # if account_customer_dropdown.get_attribute("disable") == "true":
-        #     print("it's disalbe by default.",True)
-        # else:
-        #     print("it's enable.",False)
 
     @property
     def check_supplytype_value(self):
@@ -485,12 +457,12 @@ class Add_Quote(Admin_Page):
         door_item = []
         self.driver.implicitly_wait(3)
         # main_page = self.driver.find_element(*self.main_page_loc)
-        # self.driver.execute_script("arguments[0].scrollTop = arguments[0].scrollHeight",main_page)  #滚动条拉到最下面,但是这个只能拉到4/5的位置
-        # self.driver.execute_script("arguments[0].scrollTop += 100",main_page)  #滚动条拉到最下面,但是这个只能拉到4/5的位置
-        self.driver.execute_script("window.scrollTo(0,document.body.scrollHeight);")  #滚动条拉到最下面
+        # self.driver.execute_script("arguments[0].scrollTop = arguments[0].scrollHeight",main_page)
+        # self.driver.execute_script("arguments[0].scrollTop += 100",main_page)
+        self.driver.execute_script("window.scrollTo(0,document.body.scrollHeight);")
         self.driver.find_element(*self.add_door_btn).click()
         add_door_menu = self.driver.find_element(*self.add_door_menu)
-        menu_element = add_door_menu.find_elements(By.XPATH,"/html/body/div[3]/div[2]/div[1]/div/fieldset/div/div/div[3]/div/ul")     #locate to the menu page itself
+        menu_element = add_door_menu.find_elements(By.XPATH,"/html/body/div[3]/div[2]/div[1]/div/fieldset/div/div/div[3]/div/ul")
         for item in menu_element:
             # print('menu item is:',item.text)
             door_item.append(item.text)
@@ -501,7 +473,6 @@ class Add_Quote(Admin_Page):
     def check_validation(self):
         '''check the validation for Add Quote page'''
         self.driver.find_element(*self.save_quote_btn).click()
-        sleep(1)
         self.driver.switch_to.window(self.driver.window_handles[-1])
         validation_error = self.driver.find_element(*self.validation_error_loc).text
         validation_1 = self.driver.find_element(*self.validation_1_loc).text
@@ -514,20 +485,15 @@ class Add_Quote(Admin_Page):
     def check_add_quote_success(self):
         '''check Add Quote Successfully'''
         select_supplytype = Select(self.driver.find_element(*self.supply_type_select))
-        sleep(1)
         select_supplytype.select_by_index(1)
         self.driver.find_element(*self.contact_email_box).send_keys('ysun@ecogaragedoors.com.au')
         select_accounttype = Select(self.driver.find_element(*self.account_type_select))
-        sleep(1)
         select_accounttype.select_by_visible_text("Account")
-        sleep(2)
         self.driver.find_element(*self.account_customer_btn).click()
         self.driver.find_element(*self.propertygroup_customer_loc).click()
-        self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")  # 滚动条拉到最下面
+        self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
         self.driver.find_element(*self.save_quote_btn).click()
-        sleep(2)
-
-        self.driver.execute_script("window.scrollTo(0, 0);")   # 滚动条拉到最上面
+        self.driver.execute_script("window.scrollTo(0, 0);")
         quote_success_created = WebDriverWait(self.driver,3).until(EC.visibility_of_element_located
                                                                    (self.quote_success_created_loc)).text
         print(quote_success_created)
@@ -536,42 +502,30 @@ class Add_Quote(Admin_Page):
     def change_quote_detail(self):
         '''Change quote details from Account Cusomter to Cash sale, use for "add quote with door.py"'''
         select_supplytype = Select(self.driver.find_element(*self.supply_type_select))
-        sleep(1)
         select_supplytype.select_by_index(2)
         select_accounttype = Select(self.driver.find_element(*self.account_type_select))
-        sleep(1)
         select_accounttype.select_by_visible_text("Cash sale")
-        sleep(2)
         self.driver.find_element(*self.client_name_box).send_keys("Add by Automation")
         self.driver.find_element(*self.contact_name_box).send_keys("Add by Automation")
         self.driver.find_element(*self.contact_mobile_box).send_keys("0469000000")
         self.driver.find_element(*self.contact_email_box).send_keys("ysun@ecogaragedoors.com.au")
-        self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")  # 滚动条拉到最下面
+        self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
         self.driver.find_element(*self.save_quote_btn).click()
-        # sleep(2)
         # self.driver.find_element(*self.save_ok_btn_loc).click()
         # self.driver.find_element(*self.success_btn_loc).click()
-        sleep(3)
         self.driver.find_element(*self.proceed_quote_btn).click()
-
-        # sleep(2)
         alert = self.driver.switch_to.alert
         alert.accept()
-
-
-
-
-
 
 if __name__ == '__main__':
     driver = webdriver.Firefox()
     driver.maximize_window()
-    driver.get("http://egd2.sighte.com/")
+    driver.get("http://xxxx/")
     driver.implicitly_wait(10)
 
     login = Add_Quote(driver)
-    login.typeUserName('ysun@ecogaragedoors.com.au')
-    login.typePassword('Tims@123')
+    login.typeUserName('xxxx@xxxx.com.au')
+    login.typePassword('xxxxxx')
     login.clickLogin()
     login.go_addquote()
     # login.check_addquote_url

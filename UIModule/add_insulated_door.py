@@ -1,4 +1,4 @@
-# Author:Yi Sun(Tim) 2025-3-31
+# Author:Yi Sun(Tim) 2024-3-31
 
 '''Add a Insulated Door'''
 
@@ -21,7 +21,6 @@ class Add_Insulated_Door(Standard_Door):
 
 
     def add_insulated_door(self):
-        # self.driver.find_element(*self.install_type_select).click()
         wait = WebDriverWait(self.driver,5)
         install_type_select = Select(self.driver.find_element(*self.install_type_select))
         install_type_select.select_by_visible_text('Commercial Cat 1')
@@ -80,12 +79,12 @@ class Add_Insulated_Door(Standard_Door):
 if __name__ == '__main__':
         driver = webdriver.Firefox()
         driver.maximize_window()
-        driver.get("http://egd2.sighte.com/")
+        driver.get("http://xxxxx/")
         driver.implicitly_wait(10)
 
         login = Add_Insulated_Door(driver)
-        login.typeUserName('ysun@ecogaragedoors.com.au')
-        login.typePassword('Tims@123')
+        login.typeUserName('xx@xxx.com.au')
+        login.typePassword('Txxxxx')
         login.clickLogin()
         login.go_addquote()
         login.go_addstandarddoor()

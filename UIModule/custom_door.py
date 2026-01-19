@@ -262,7 +262,6 @@ class Custom_Door(Add_Quote):
     @property
     def check_door_colour_oilcolour(self):
         '''check the Door Colour dropdown for OilColour Colour Category'''
-        # colour_category = Select(self.driver.find_element(*self.colour_category_select))
         custom_colour = colour_category.select_by_visible_text('OilColour')
         door_colour_list1 = self.driver.find_element(*self.door_colour_select).text
         print(door_colour_list1)
@@ -564,7 +563,6 @@ class Custom_Door(Add_Quote):
     def check_lhrk_list(self):
         '''check the LHRK dropdown list'''
         self.driver.find_element(*self.lhrk_select).click()
-        sleep(1)
         lhrk_list = self.driver.find_element(*self.lhrk_select).text
         print(lhrk_list)
         return  lhrk_list
@@ -673,7 +671,6 @@ class Custom_Door(Add_Quote):
     @property
     def lh_width_size(self):
         '''check the list for LH JAMB Width Size'''
-        sleep(2)
         self.driver.find_element(*self.extras_loc).click()
         form_element = self.driver.find_element(*self.door_main_page)
         self.driver.execute_script("arguments[0].scrollIntoView(false);", form_element)
@@ -686,7 +683,6 @@ class Custom_Door(Add_Quote):
     @property
     def lh_depth_size(self):
         '''check the list for LH JAMB Depth Size'''
-        sleep(2)
         self.driver.find_element(*self.extras_loc).click()
         form_element = self.driver.find_element(*self.door_main_page)
         self.driver.execute_script("arguments[0].scrollIntoView(false);", form_element)
@@ -699,7 +695,6 @@ class Custom_Door(Add_Quote):
     @property
     def rh_jamb_type(self):
         '''check the list for RH JAMB Type'''
-        sleep(2)
         self.driver.find_element(*self.extras_loc).click()
         form_element = self.driver.find_element(*self.door_main_page)
         self.driver.execute_script("arguments[0].scrollIntoView(false);", form_element)
@@ -712,7 +707,6 @@ class Custom_Door(Add_Quote):
     @property
     def rh_width_size(self):
         '''check the list for RH JAMB Width Size'''
-        sleep(2)
         self.driver.find_element(*self.extras_loc).click()
         form_element = self.driver.find_element(*self.door_main_page)
         self.driver.execute_script("arguments[0].scrollIntoView(false);", form_element)
@@ -725,7 +719,6 @@ class Custom_Door(Add_Quote):
     @property
     def rh_depth_size(self):
         '''check the list for RH JAMB Depth Size'''
-        sleep(2)
         self.driver.find_element(*self.extras_loc).click()
         form_element = self.driver.find_element(*self.door_main_page)
         self.driver.execute_script("arguments[0].scrollIntoView(false);", form_element)
@@ -738,7 +731,6 @@ class Custom_Door(Add_Quote):
     @property
     def check_cover_type(self):
         '''check the details for Cover Type in Extras section'''
-        sleep(2)
         self.driver.find_element(*self.extras_loc).click()
         form_element = self.driver.find_element(*self.door_main_page)
         self.driver.execute_script("arguments[0].scrollIntoView(false);", form_element)
@@ -756,7 +748,6 @@ class Custom_Door(Add_Quote):
     @property
     def lh_cover_width_size(self):
         '''check the list for LH Cover Width Size'''
-        sleep(2)
         self.driver.find_element(*self.extras_loc).click()
         form_element = self.driver.find_element(*self.door_main_page)
         self.driver.execute_script("arguments[0].scrollIntoView(false);", form_element)
@@ -769,7 +760,6 @@ class Custom_Door(Add_Quote):
     @property
     def lh_cover_depth_size(self):
         '''check the list for LH Cover Depth Size'''
-        sleep(2)
         self.driver.find_element(*self.extras_loc).click()
         form_element = self.driver.find_element(*self.door_main_page)
         self.driver.execute_script("arguments[0].scrollIntoView(false);", form_element)
@@ -782,7 +772,6 @@ class Custom_Door(Add_Quote):
     @property
     def lh_cover_type(self):
         '''check the list for LH Cover Type'''
-        sleep(2)
         self.driver.find_element(*self.extras_loc).click()
         form_element = self.driver.find_element(*self.door_main_page)
         self.driver.execute_script("arguments[0].scrollIntoView(false);", form_element)

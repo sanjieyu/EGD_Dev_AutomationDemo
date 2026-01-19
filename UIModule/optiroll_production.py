@@ -1,4 +1,4 @@
-# Author:Yi Sun(Tim) 2025-10-14
+# Author:Yi Sun(Tim) 2023-11-14
 
 '''OptiRoll Doors Production Page'''
 
@@ -300,8 +300,8 @@ if __name__ == '__main__':
     driver.implicitly_wait(10)
 
     login = OptiRoll_Production(driver)
-    login.typeUserName('aa@ecogaragedoors.com')
-    login.typePassword('aabb')
+    login.typeUserName('aa@xxxx.com')
+    login.typePassword('xxxx')
     login.clickLogin()
     login.go_production_wa()
     # login.check_roller_doors_section
