@@ -37,8 +37,6 @@ class Change_Quote_Status():
 
     def __init__(self,driver):
         self.driver = driver
-        self.production = Production(self.driver)
-        self.production_panel = Panel_lift_Safe(self.driver)
         self.add_quote_door = Add_Quote_With_Door(self.driver)
         self.go_myob = MYOB_Quotes(self.driver)
         self.go_production = Production(self.driver)
