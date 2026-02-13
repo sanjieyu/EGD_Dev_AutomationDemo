@@ -37,7 +37,7 @@ class TestSalesAPI(unittest.TestCase):
         if response.status_code != 200:
             raise Exception(f"Login failed! Status code: {response.status_code}")
 
-@classmethod
+    @classmethod
     def tearDownClass(cls) -> None:
         cls.session.close()
 
