@@ -1,4 +1,4 @@
-# Author:Yi Sun(Tim) 2023-1-03
+# Author:Yi Sun(Tim) 2022-10-03
 
 '''Test Login page for Mobile app for Gforce'''
 
@@ -7,7 +7,6 @@ import uiautomator2 as u2
 class LoginPage():
     def __init__(self):
         # self.d = u2.connect_usb('R9JT10GK63H')
-        # self.d = u2.connect('R9JT10GK63H')  # Same as above
         self.d = u2.connect('192.168.1.125:5555')
         self.d.unlock()
         self.d.screen_on()
@@ -41,5 +40,5 @@ class LoginPage():
 if __name__ == '__main__':
     login = LoginPage()
     login.typeUserName('yisun')
-    login.typePassword('aabb!')
+    login.typePassword('aabb')
     login.clickLogin
