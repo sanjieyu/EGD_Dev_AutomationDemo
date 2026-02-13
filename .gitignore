@@ -1,0 +1,29 @@
+# --- Python temp files---
+__pycache__/
+*.py[cod]
+*$py.class
+.coverage
+htmlcov/
+
+# --- venu ---
+venv/
+.venv/
+env/
+ENV/
+pyvenv.cfg
+
+# --- reports ---
+report/
+reports/
+allure-results/
+allure-report/
+
+# screenshots
+tests/screenshots/
+*.log
+
+# --- system config ---
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

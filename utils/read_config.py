@@ -1,0 +1,66 @@
+# Author:Yi Sun(Tim) 2022-09-13
+
+'''Read Config function'''
+
+import configparser
+import os
+
+class ReadConfig():
+    def __init__(self):
+        current_path = os.path.abspath("..")   # get the 上一级目录
+        configfile_path = os.path.join(current_path,'Config\\config.ini')  # get the config file
+        self.cf = configparser.ConfigParser()
+        self.cf.read(configfile_path)
+
+
+    def get_url(self):
+        url = self.cf.get('config','url')
+        return url
+
+    def admin_username(self):
+        username_admin = self.cf.get('admin','username')
+        # print(username_admin)
+        return username_admin
+
+    def admin_password(self):
+        password_admin = self.cf.get('admin','password')
+        # print(password_admin)
+        return password_admin
+
+    def dealer_username(self):
+        username_dealer = self.cf.get('dealer','username')
+        # print(username_rep)
+        return username_dealer
+
+    def dealer_password(self):
+        password_dealer = self.cf.get('dealer','password')
+        # print(password_rep)
+        return password_dealer
+
+    def supplier_username(self):
+        username_supplier = self.cf.get('supplier','username')
+        # print(username_supplier)
+        return username_supplier
+
+    def supplier_password(self):
+        password_supplier = self.cf.get('supplier','password')
+        # print(password_supplier)
+        return password_supplier
+
+
+
+if __name__ == '__main__':
+    config1 = ReadConfig()
+    config1.get_url()
+    config1.admin_username()
+    config1.admin_password()
+    config1.supplier_username()
+    config1.supplier_password()
+    config1.app_username()
+    config1.app_password()
+
+
+
+
+
+
