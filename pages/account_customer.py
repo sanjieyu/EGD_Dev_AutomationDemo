@@ -13,16 +13,18 @@ from pages.admin_portal import *
 from selenium.webdriver.support import expected_conditions as EC
 
 class Account_Customer(Admin_Page):
+    """
+        Note: For security and confidentiality, specific XPath/CSS selectors
+        have been replaced with 'test_sample', and additional private locators
+        have been omitted from this public sample.
+    """
+
     '''loc for the Account Customer page'''
-    account_title_loc = (By.CSS_SELECTOR, 'h1.header')
-    account_searchbtn_loc = (By.CSS_SELECTOR, 'button.btn-primary')
-    account_searchbox_loc = (By.ID, 'searchCustomerName')
-    customer_name_loc = (By.XPATH, "//span[text()='Customer Name']")
-    contact_name_loc = (By.XPATH, "//span[text()='Contact Name']")
-    address_loc = (By.XPATH, "//span[text()='Address']")
-    email_loc = (By.XPATH, "//span[text()='Email']")
-    suburb_loc = (By.XPATH, "//span[text()='Suburb']")
-    search_result_name_loc = (By.CSS_SELECTOR, "a[href*='/Customer/Edit/']")
+    account_title_loc = (By.CSS_SELECTOR, 'test_sample')
+    account_searchbtn_loc = (By.CSS_SELECTOR, 'test_sample')
+    account_searchbox_loc = (By.ID, 'test_sample')
+
+    # [Remaining 10+ locators redacted for confidentiality]
 
     def goto_account_customer(self):
         '''Go to account customer screen'''
@@ -94,12 +96,12 @@ class Account_Customer(Admin_Page):
 if __name__ == '__main__':
     driver = webdriver.Firefox()
     driver.maximize_window()
-    driver.get("http://aa")
+    driver.get("http://test_sample")
     driver.implicitly_wait(10)
 
     login = Account_Customer(driver)
-    login.typeUserName('aa@ecogaragedoors.com')
-    login.typePassword('aabb')
+    login.typeUserName('test_sample')
+    login.typePassword('test_sample')
     login.clickLogin()
     login.goto_account_customer
     # login.check_accountcustomer_url

@@ -31,17 +31,17 @@ class User_Management_Test(unittest.TestCase,User_Management):
     def test_usermanagement_ui_001(self):
         '''Verify the URL'''
         self.driver.implicitly_wait(2)
-        self.assertEqual('http://aabb/Manage/UserManagementPanel',self.check_user_url)
+        self.assertEqual('http://test_sample',self.check_user_url)
 
     def test_usermanagement_ui_002(self):
         '''Verify the Title'''
         self.driver.implicitly_wait(2)
-        self.assertEqual('User Management',self.check_user_title)
+        self.assertEqual('test_sample',self.check_user_title)
 
     def test_usermanagement_ui_003(self):
         '''Verify the Sections'''
         self.driver.implicitly_wait(2)
-        self.assertEqual( ('Roles Assigned','Registered Users'),self.check_section)
+        self.assertEqual( ('test_sample','test_sample'),self.check_section)
 
     def test_usermanagement_ui_004(self):
         '''Verify the New button'''
@@ -51,13 +51,13 @@ class User_Management_Test(unittest.TestCase,User_Management):
     def test_usermanagement_ui_005(self):
         '''Verify the New Add User Screen'''
         self.driver.implicitly_wait(2)
-        self.assertEqual( ('Add New User','First Name:','Last Name:','Email:'),self.check_add_user)
+        self.assertEqual( ('test_sample','test_sample','test_sample','test_sample'),self.check_add_user)
 
     @unittest.skip
     def test_usermanagement_ui_006(self):
         '''Verify the validation for adding the duplicate user'''
         self.driver.implicitly_wait(2)
-        self.assertIn( "User does not exists in the system.",self.validate_duplicate_user)
+        self.assertIn( "test_sample",self.validate_duplicate_user)
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)

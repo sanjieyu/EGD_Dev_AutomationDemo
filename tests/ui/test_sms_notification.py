@@ -30,16 +30,16 @@ class SMS_Notification_Test(unittest.TestCase, SMS_Notification):
     def test_sms_ui_001(self):
         '''Verify the URL'''
         self.driver.implicitly_wait(2)
-        self.assertEqual('http://aabb/Manage/SMSNotificationsSetting',self.check_sms_url)
+        self.assertEqual('http://test_sample',self.check_sms_url)
 
     def test_sms_ui_002(self):
         '''Verify the Title'''
         self.driver.implicitly_wait(2)
-        self.assertEqual('SMS Notification',self.check_sms_title)
+        self.assertEqual('test_sample',self.check_sms_title)
     def test_sms_ui_003(self):
         '''Verify the default values'''
         self.driver.implicitly_wait(2)
-        self.assertEqual(('ECO_API_KEY','Eco2023!','+61437167001'),self.check_default_value)
+        self.assertEqual(('test_sample','test_sample!','test_sample'),self.check_default_value)
 
     def test_sms_ui_004(self):
             '''Verify the apikey box status'''
@@ -59,21 +59,21 @@ class SMS_Notification_Test(unittest.TestCase, SMS_Notification):
     def test_sms_ui_007(self):
         '''Verify the tab screen'''
         self.driver.implicitly_wait(2)
-        self.assertEqual(('MLB-Install','SYD-Install'),self.check_tab)
+        self.assertEqual(('test_sample','test_sample'),self.check_tab)
 
     def test_sms_ui_008(self):
         '''Verify the Production Enter in MLB-Install tab screen'''
         self.driver.implicitly_wait(2)
-        self.assertIn('MLB Install - In Production Entered',self.check_mlb_enter)
+        self.assertIn('test_sample',self.check_mlb_enter)
     def test_sms_ui_009(self):
         '''Verify the Production Rollforming in MLB-Install tab screen'''
         self.driver.implicitly_wait(2)
-        self.assertIn('MLB Install - In Production Roll Forming',self.check_mlb_rollforming)
+        self.assertIn('test_sample',self.check_mlb_rollforming)
 
     def test_sms_ui_010(self):
             '''Verify the Production QC Pass in MLB-Install tab screen'''
             self.driver.implicitly_wait(2)
-            self.assertIn( 'MLB Install - In Production QC Pass',self.check_mlb_qcpass)
+            self.assertIn( 'test_sample',self.check_mlb_qcpass)
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)

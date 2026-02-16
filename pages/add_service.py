@@ -12,62 +12,22 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 
 class Add_Service(Admin_Page):
+    """
+        Note: For security and confidentiality, specific XPath/CSS selectors
+        have been replaced with 'test_sample', and additional private locators
+        have been omitted from this public sample.
+    """
 
-    search_service_title_loc = (By.XPATH,'//*[@id="serviceTitle"]/div/div[1]/span')     # new added
-    search_service_loc = (By.XPATH,'//*[@id="serviceId"]/div/div[2]/span')
-    add_new_service_btn = (By.ID,'btnServiceAdd')
-    success_confirm_btn = (By.ID,'btnServiceConfirm')
+    add_new_service_btn = (By.ID,'test_sample')
+    success_confirm_btn = (By.ID,'test_sample')
 
     '''loc for each section in this page'''
-    doors_section_loc = (By.CSS_SELECTOR, "[aria-label='doorsection']")
-    service_details_loc = (By.CSS_SELECTOR, "[aria-label='servicedetails']")
-    site_contact_details_loc = (By.CSS_SELECTOR, "[aria-label='sitecontact']")
-    service_item_loc = (By.CSS_SELECTOR, "[aria-label='serviceitem']")
-    service_documents_loc = (By.CSS_SELECTOR, "[aria-label='document']")
-    back_service_btn = (By.ID,'btnBackToQuote')
-    save_service_btn = (By.ID,'btnSaveService')
-    add_service_item_btn = (By.ID, 'btnServiceItem')
-    add_attachement_btn_loc = (By.ID,'servicenewfiles')
-
+    doors_section_loc = (By.CSS_SELECTOR, "test_sample")
+    # [Remaining 30+ locators redacted for confidentiality]
     '''loc for each element in "Doors" section"'''
-    door_type_loc = (By.CSS_SELECTOR, "[aria-label='doortype']")
-    door_type_select = (By.ID,'serviceDoorType')
-    additional_info_loc = (By.CSS_SELECTOR, "[aria-label='additionalinfo']")
-    additional_info_box = (By.ID,'serviceAdditionalDoorInfo')
-
     '''loc for each element in "Service Details" section"'''
-    service_type_loc = (By.CSS_SELECTOR, "[aria-label='servicetype']")
-    service_type_select = (By.ID,'serviceSupplyType')
-    service_area_loc = (By.CSS_SELECTOR, "[aria-label='servicearea']")
-    service_area_select = (By.ID,'serviceTypeValue')
-    service_status_loc = (By.CSS_SELECTOR, "[aria-label='status']")
-    service_status_select = (By.ID,'serviceStatusId')
-    invoice_no_loc = (By.CSS_SELECTOR, "[aria-label='invoice']")
-    invoice_no_box = (By.ID,'serviceInvoiceNo')
-    account_type_loc = (By.CSS_SELECTOR, "[aria-label='accountype']")
-    account_type_select = (By.ID,'servicePaymentTypeId')
-    account_customer_loc = (By.CSS_SELECTOR, "[aria-label='accountcustomer']")
-    account_customer_select = (By.ID,'serviceAccountCustomer')
-    order_date_loc = (By.CSS_SELECTOR, "[aria-label='orderdate']")
-    order_date_filter = (By.ID,'serviceOrderDate')
-    service_date_loc = (By.CSS_SELECTOR, "[aria-label='servicedate']")
-    service_date_filter = (By.ID,'serviceServiceDate')
-    customer_po_loc = (By.CSS_SELECTOR, "[aria-label='customerpo']")
-    customer_po_box = (By.ID,'serviceCustomerPO')
-    user_loc = (By.CSS_SELECTOR, "[aria-label='userid']")
-    user_select = (By.ID,'serviceUserAssigned')
-    service_tech_loc = (By.CSS_SELECTOR, "[aria-label='servicetech']")
-    service_tech_select = (By.ID,'serviceInstaller')
-    service_tech_name_loc = (By.CSS_SELECTOR, "[aria-label='techname']")
-    service_tech_name_box = (By.ID,'serviceTechName')
-    description_loc = (By.CSS_SELECTOR, "[aria-label='description']")
-    description_box = (By.ID,'serviceDescription')
-
     '''loc for each element in "Site Contact Details" section"'''
-    client_name_box = (By.ID,'ClientNameTextBox')
-    contact_address_box = (By.ID,'ContactAddressTextBox')
-    contact_suburbb_box = (By.ID,'ContactSuburbTextBox')
-    contact_mobile_box = (By.ID,'ContactMobileTextBox')
+
 
     def go_addservice(self):
         '''Switch to Add Service from LIST Menu'''
@@ -76,9 +36,9 @@ class Add_Service(Admin_Page):
         actions = ActionChains(self.driver)
         actions.move_to_element(service_item_menu).perform()   #move mouse to this menu item
         self.driver.find_element(*self.search_service_loc).click()
-        WebDriverWait(self.driver,15).until(EC.visibility_of_element_located(self.search_service_title_loc))   #new added
+        WebDriverWait(self.driver,15).until(EC.visibility_of_element_located(self.search_service_title_loc))
         self.driver.find_element(*self.add_new_service_btn).click()
-        WebDriverWait(self.driver,10).until(EC.visibility_of_element_located(self.service_details_loc))    #new added
+        WebDriverWait(self.driver,10).until(EC.visibility_of_element_located(self.service_details_loc))
         # sleep(2)
 
     @property
@@ -153,18 +113,16 @@ class Add_Service(Admin_Page):
         '''put details and add a new service'''
         wait = WebDriverWait(self.driver,5)
         door_type_select = Select(self.driver.find_element(*self.door_type_select))
-        door_type_select.select_by_visible_text('Custom Door')
-        self.driver.find_element(*self.additional_info_box).send_keys('Custom1000x3000 by Automation')
+        door_type_select.select_by_visible_text('test_sample')
+        self.driver.find_element(*self.additional_info_box).send_keys('test_sample')
         service_type_select = Select(self.driver.find_element(*self.service_type_select))
-        service_type_select.select_by_visible_text('Residential')
+        service_type_select.select_by_visible_text('test_sample')
         service_area_select = Select(self.driver.find_element(*self.service_area_select))
-        service_area_select.select_by_visible_text('Vic Metro')
-        self.driver.find_element(*self.client_name_box).send_keys('Add_by_Automation')
-        self.driver.find_element(*self.contact_address_box).send_keys('99 Auto added')
-        self.driver.find_element(*self.contact_suburbb_box).send_keys('Kew')
-        self.driver.find_element(*self.contact_mobile_box).send_keys('0400999999')
-        # invoice_no = self.driver.find_element(*self.invoice_no_box).get_attribute('value')
-        # return  invoice_no
+        service_area_select.select_by_visible_text('test_sample')
+        self.driver.find_element(*self.client_name_box).send_keys('test_sample')
+        self.driver.find_element(*self.contact_address_box).send_keys('test_sample')
+        self.driver.find_element(*self.contact_suburbb_box).send_keys('test_sample')
+        self.driver.find_element(*self.contact_mobile_box).send_keys('test_sample')
 
     def save_service(self):
         ''''click the save service'''
@@ -172,18 +130,15 @@ class Add_Service(Admin_Page):
         success_confirm = WebDriverWait(self.driver,20).until(EC.visibility_of_element_located(self.success_confirm_btn))
         success_confirm.click()
 
-
-
-
 if __name__ == '__main__':
     driver = webdriver.Firefox()
     driver.maximize_window()
-    driver.get("http:// ")
+    driver.get("http://test_sample ")
     driver.implicitly_wait(10)
 
     login = Add_Service(driver)
-    login.typeUserName('aa@ecogaragedoors.com')
-    login.typePassword('aabb')
+    login.typeUserName('test_sample')
+    login.typePassword('test_sample')
     login.clickLogin()
     login.go_addservice()
     login.check_add_service_url

@@ -32,12 +32,12 @@ class AccountCustomer_UI_Test(unittest.TestCase, Account_Customer):
     def test_account_customer_ui_001(self):
         '''Verify the url'''
         self.driver.implicitly_wait(2)
-        self.assertEqual('http://aabb/List',self.check_accountcustomer_url)
+        self.assertEqual('http://test_sample',self.check_accountcustomer_url)
 
     def test_account_customer_ui_002(self):
         '''Verify the title'''
         self.driver.implicitly_wait(2)
-        self.assertEqual('Account Customers Search',self.check_accountcustomer_title)
+        self.assertEqual('test_sample',self.check_accountcustomer_title)
 
     def test_account_customer_ui_003(self):
         '''Verify the search button'''
@@ -52,12 +52,12 @@ class AccountCustomer_UI_Test(unittest.TestCase, Account_Customer):
     def test_account_customer_ui_005(self):
         '''Verify each column on this screen'''
         self.driver.implicitly_wait(2)
-        self.assertEqual(('Customer Name','Contact Name','Address','Email','Suburb'),self.check_columns)
+        self.assertEqual(('test_sample','test_sample','test_sample','test_sample','test_sample'),self.check_columns)
 
     def test_account_customer_ui_006(self):
         '''Verify the Search function'''
         self.driver.implicitly_wait(2)
-        self.assertEqual('tim2 with priced items',self.check_search_result)
+        self.assertEqual('test_sample',self.check_search_result)
 
 
 

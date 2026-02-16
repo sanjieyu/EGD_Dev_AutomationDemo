@@ -37,12 +37,11 @@ class Track_Option():
 if __name__ == '__main__':
     driver = webdriver.Firefox()
     driver.maximize_window()
-    driver.get("http:// ")
+    driver.get("http://test_sample ")
     driver.implicitly_wait(10)
-
     login = Admin_Portal(driver)
-    login.typeUserName('aa@ecogaragedoors.com')
-    login.typePassword('aabb')
+    login.typeUserName('test_sample')
+    login.typePassword('test_sample')
     login.clickLogin()
     login1 = Track_Option(driver)
     login1.check_track_t35

@@ -32,7 +32,7 @@ class Discount_Check_Test(unittest.TestCase,Discount):
     def test_discount_ui_001(self):
         '''Verify the door price discount"'''
         self.driver.implicitly_wait(2)
-        self.assertEqual('Total Discount Amount: $35.70',self.discount.discount_panellift)
+        self.assertEqual('test_sample',self.discount.discount_panellift)
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

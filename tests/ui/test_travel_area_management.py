@@ -30,12 +30,12 @@ class TravelArea_UI_Test(unittest.TestCase,Travel_Area_Management):
     def test_travel_management_ui_001(self):
         '''Verify the url of Travel Area Management Page'''
         self.driver.implicitly_wait(2)
-        self.assertEqual( 'http://aabb/Manage/TravelAreaManagement',self.check_travel_area_url)
+        self.assertEqual( 'http://test_sample',self.check_travel_area_url)
 
     def test_travel_management_ui_002(self):
         '''Verify the title of Travel Area Management Page'''
         self.driver.implicitly_wait(2)
-        self.assertEqual( 'Travel Areas - Postal Codes',self.check_travel_area_title)
+        self.assertEqual( 'test_sample',self.check_travel_area_title)
 
     def test_travel_management_ui_003(self):
         '''Verify the New button'''
@@ -49,17 +49,17 @@ class TravelArea_UI_Test(unittest.TestCase,Travel_Area_Management):
     def test_travel_management_ui_005(self):
         '''Verify the Search Box Function'''
         self.driver.implicitly_wait(2)
-        self.assertEqual( 'Nanjing',self.check_search_result)
+        self.assertEqual( 'test_sample',self.check_search_result)
 
     def test_travel_management_ui_006(self):
             '''Verify the New screen'''
             self.driver.implicitly_wait(2)
-            self.assertEqual( 'Add New Area',self.check_new_screen)
+            self.assertEqual( 'test_sample',self.check_new_screen)
 
     def test_travel_management_ui_007(self):
             '''Verify each input in the Add New Area screen'''
             self.driver.implicitly_wait(2)
-            self.assertEqual( ('Postcode :','Suburb:','State :','Comment :','Category :','Delivery Category :'),
+            self.assertEqual( ('test_sample :','test_sample:','test_sample :','test_sample :','test_sample :'),
                               self.check_new_screen_input)
 
     def test_travel_management_ui_008(self):

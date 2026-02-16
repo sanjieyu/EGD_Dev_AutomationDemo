@@ -30,12 +30,12 @@ class Admin_UI_Test(unittest.TestCase,Admin_Page):
     def test_adminportal_ui_001(self):
         '''Verify the url of Admin login Page'''
         self.driver.implicitly_wait(2)
-        self.assertEqual('http://aabb',self.getURL)
+        self.assertEqual('http://test_sample',self.getURL)
 
     def test_adminportal_ui_002(self):
         '''Verify the default Sections in Admin login Page'''
         self.driver.implicitly_wait(2)
-        self.assertEqual(('ADD','LIST','ACCOUNT'),self.check_defaultmenu)
+        self.assertEqual(('test_sample','test_sample','test_sample'),self.check_defaultmenu)
 
     def test_adminportal_ui_003(self):
         '''Verify the Find Quote in Admin Login page'''
@@ -55,25 +55,21 @@ class Admin_UI_Test(unittest.TestCase,Admin_Page):
     def test_adminportal_ui_006(self):
         '''Verify the Add Menu'''
         self.driver.implicitly_wait(2)
-        self.assertEqual(('Quote','Lead','Account Customer','Installer'),self.add_menu)
+        self.assertEqual(('test_sample','test_sample','test_sample','test_sample'),self.add_menu)
     def test_adminportal_ui_007(self):
         '''Verify the List Menu'''
         self.driver.implicitly_wait(2)
-        self.assertEqual(('Quotes','Services                    »','Account Customers','Reports','Installers',
-                          'MYOB','Job Accepted Doors','On-Hold Doors','New Order','Production','Production – WA',
-                          'Schedule','Pipeline','Active Pipeline'),self.list_menu)
+        self.assertEqual(('test_sample'),self.list_menu)
 
     def test_adminportal_ui_008(self):
         '''Verify the Account Menu'''
         self.driver.implicitly_wait(2)
-        self.assertEqual(('Change my password','Update my profile','Update my email settings',
-                          'Users Management','Travel Area Management','Rolling Cycle Management     »',
-                          'SMS Notifications','Log off'),self.account_menu)
+        self.assertEqual(('test_sample'),self.account_menu)
 
     def test_adminportal_ui_009(self):
         '''Verify the Copyright and Terms'''
         self.driver.implicitly_wait(2)
-        self.assertEqual(('© 2025 - EcoGarageDoors','Terms and Policies'),self.check_copyright)
+        self.assertEqual(('test_sample'),self.check_copyright)
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)

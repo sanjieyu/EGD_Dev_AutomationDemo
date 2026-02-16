@@ -10,64 +10,26 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 class Admin_Page(Admin_Portal):
-
+    """
+        Note: For security and confidentiality, specific XPath/CSS selectors
+        have been replaced with 'test_sample', and additional private locators
+        have been omitted from this public sample.
+    """
     '''loc for default values in this page'''
-    eco_icon_loc = (By.XPATH,'/html/body/div[2]/div/div[1]/a/img')
-    add_loc = (By.XPATH,'/html/body/div[2]/div/div[2]/ul/li[1]/a')
-    list_loc = (By.XPATH,'/html/body/div[2]/div/div[2]/ul/li[2]/a')
-    findquote_box_loc = (By.ID,'search-quote')
-    findquote_button_loc= (By.ID, 'btnFindQuote')
-    findaddress_box_loc = (By.ID,'search-address')
-    findaddress_button_loc= (By.ID, 'btnFindAddress')
-    findclient_box_loc = (By.ID,'search-client')
-    findclient_button_loc= (By.ID, 'btnFindClient')
+    eco_icon_loc = (By.ID,'test_sample')
+    add_loc = (By.CSS_SELECTOR, 'test_sample')
+    list_loc = (By.NAME,'test_sample')
 
-    account_loc = (By.CSS_SELECTOR, "[aria-label='account']")
-    copyright_loc = (By.CSS_SELECTOR, "[aria-label='copyright']")
-    terms_loc = (By.CSS_SELECTOR, "[aria-label='terms']")
-
+    # [Remaining 30+ locators redacted for confidentiality]
     '''Add Menu'''
-    quote_add_loc = (By.CSS_SELECTOR,"[aria-label='quote_add']")
-    lead_add_loc = (By.CSS_SELECTOR,"[aria-label='lead_add']")
-    account_add_loc = (By.CSS_SELECTOR,"[aria-label='account_add']")
-    installer_add_loc = (By.CSS_SELECTOR,"[aria-label='installer_add']")
-
     '''List Menu'''
-    quote_list_loc = (By.ID,'quotelist)')
-    services_list_loc = (By.ID,'servicelist')
-    account_list_loc = (By.ID,'accountlist')
-    report_list_loc = (By.ID,'reportlist)
-    installer_list_loc = (By.ID,'installerlist')
-    myob_list_loc = (By.ID,'myoblist')
-    jobaccept_list_loc = (By.ID,'jobacceptlist')
-    onhold_list_loc = (By.ID,'onholdlist')
-    neworder_list_loc = (By.ID,'neworderlist')
-    production_list_loc = (By.ID,'productionlist')
-    productionWA_list_loc = (By.ID, 'walist')
-    schedule_list_loc = (By.ID,'schedulelist')
-    pipeline_list_loc = (By.ID,'pipelinelist')
-    activepipeline_list_loc = (By.ID, 'activepipelinelist')
-
     '''Account Menu'''
-    changepwd_loc = (By.ID,'pwdchange')
-    updateprofile_loc = (By.ID,'profileupdate)
-    updateemail_loc = (By.ID, 'emailupdate')
-    usermanage_loc = (By.ID, 'usermanager')
-    travel_area_loc = (By.ID,'travelarea')
-    rollcycle_loc = (By.ID 'rollcycle')
-    rollcycle_panellift_loc = (By.ID,'rollcyclepanel')
-    rollcycle_rollerdoors_loc = (By.ID,'rollcycleroll')
-    rollcycle_optiliftdoors_loc = (By.ID,'rollcycleoptilift')
-    rollcycle_optirolldoors_loc = (By.ID, 'rollcycleoptiroll')
-    sms_loc = (By.ID,'sms')
-    logoff_loc = (By.ID, 'logoff')
-
 
     @property
     def getURL(self):
         '''get the url of Admin login portal'''
         # sleep(2)
-        WebDriverWait(self.driver,15).until(EC.visibility_of_element_located(self.copyright_loc))    #new added
+        WebDriverWait(self.driver,15).until(EC.visibility_of_element_located(self.copyright_loc))
         print('url is:',self.driver.current_url)
         return self.driver.current_url
     @property
@@ -84,10 +46,8 @@ class Admin_Page(Admin_Portal):
         '''check the Find Quote in Admin Login page'''
         find_quote = self.driver.find_element(*self.findquote_box_loc)
         if find_quote.is_displayed():
-            print('true')
-            return  True
+            return True
         else:
-            # print('false')
             return False
 
     @property
@@ -95,10 +55,8 @@ class Admin_Page(Admin_Portal):
         '''check the Find Address in Admin Login page'''
         find_address = self.driver.find_element(*self.findaddress_box_loc)
         if find_address.is_displayed():
-            print('true')
             return  True
         else:
-            # print('false')
             return False
 
     @property
@@ -106,10 +64,8 @@ class Admin_Page(Admin_Portal):
             '''check the Find Client in Admin Login page'''
             find_client = self.driver.find_element(*self.findclient_box_loc)
             if find_client.is_displayed():
-                print('true')
                 return True
             else:
-                # print('false')
                 return False
 
     @property
@@ -127,8 +83,6 @@ class Admin_Page(Admin_Portal):
     def go_panel_rollforming(self):
         '''Go to panel lift rollforming screen'''
         self.driver.find_element(*self.list_loc).click()
-
-
 
     @property
     def list_menu(self):
@@ -148,8 +102,6 @@ class Admin_Page(Admin_Portal):
         schedule_list = self.driver.find_element(*self.schedule_list_loc).text
         pipeline_list = self.driver.find_element(*self.pipeline_list_loc).text
         activepipeline_list = self.driver.find_element(*self.activepipeline_list_loc).text
-        print(quote_list,services_list,account_list,report_list,installer_list,myob_list,jobaccept_list,
-              onhold_list,neworder_list,production_list,productionWA_list,schedule_list,pipeline_list,activepipeline_list)
         return (quote_list,services_list,account_list,report_list,installer_list,myob_list,jobaccept_list,
                 onhold_list,neworder_list,production_list,productionWA_list,schedule_list,pipeline_list,activepipeline_list)
 
@@ -165,7 +117,6 @@ class Admin_Page(Admin_Portal):
         rollcycle = self.driver.find_element(*self.rollcycle_loc).text
         sms = self.driver.find_element(*self.sms_loc).text
         logoff = self.driver.find_element(*self.logoff_loc).text
-        print(changepwd,updateprofile,updateemail,usermanage,travel_area,rollcycle,sms,logoff)
         return changepwd,updateprofile,updateemail,usermanage,travel_area,rollcycle,sms,logoff
 
     @property
@@ -173,30 +124,22 @@ class Admin_Page(Admin_Portal):
         '''check the Copyright and Terms'''
         copyright2023 = self.driver.find_element(*self.copyright_loc).text
         terms = self.driver.find_element(*self.terms_loc).text
-        print(copyright2023,terms)
         return copyright2023,terms
-
 
 
 if __name__ == '__main__':
     driver = webdriver.Firefox()
     driver.maximize_window()
-    driver.get("http:// ")
+    driver.get("http://test_sample ")
     driver.implicitly_wait(10)
 
     login = Admin_Page(driver)
-    login.typeUserName('aa@ecogaragedoors.com')
-    login.typePassword('aabb')
-    # login.typeUserName('timnew')
-    # login.typePassword('Tims@123')
+    login.typeUserName('test_sample')
+    login.typePassword('test_sample')
     login.clickLogin()
     # login.getURL
     login.check_defaultmenu
-    # login.check_findquote
-    # login.add_menu
-    # login.list_menu
-    # login.account_menu
-    # login.check_copyright
+
 
 
 

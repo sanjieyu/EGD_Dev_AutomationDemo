@@ -31,12 +31,12 @@ class SearchQuotes_UI_Test(unittest.TestCase,Search_Quote):
     def test_searchquotes_ui_001(self):
         '''Verify the url for Search Quotes page'''
         self.driver.implicitly_wait(2)
-        self.assertEqual('http://aabb/Quote/List',self.check_searchurl)
+        self.assertEqual('http://test_sample',self.check_searchurl)
 
     def test_searchquotes_ui_002(self):
         '''Verify the title for Search Quotes page'''
         self.driver.implicitly_wait(2)
-        self.assertEqual('Search Quotes',self.check_title)
+        self.assertEqual('test_sample',self.check_title)
     def test_searchquotes_ui_003(self):
         '''Verify the default section should be "Quotes" in Search Quotes page'''
         self.driver.implicitly_wait(2)
@@ -45,73 +45,72 @@ class SearchQuotes_UI_Test(unittest.TestCase,Search_Quote):
     def test_searchquotes_ui_004(self):
         '''Verify the default elements in Search Quotes page'''
         self.driver.implicitly_wait(2)
-        self.assertEqual(('Quotes','Doors','Search Results'),self.check_defaultelements)
+        self.assertEqual(('test_sample','test_sample','test_sample'),self.check_defaultelements)
 
     def test_searchquotes_ui_005(self):
         '''Verify each section of Quotes filter table in Search Quotes page'''
         self.driver.implicitly_wait(2)
-        self.assertEqual(('Date Range','Client Details','Quote Information'),self.check_section_quotes)
+        self.assertEqual(('test_sample','test_sample','test_sample'),self.check_section_quotes)
 
     def test_searchquotes_ui_006(self):
         '''Verify each filter in "Date Range" in Quotes filter table'''
         self.driver.implicitly_wait(2)
-        self.assertEqual(('Filter Date','User','Quote Status'),self.check_date_range)
+        self.assertEqual(('test_sample','test_sample','test_sample'),self.check_date_range)
 
     def test_searchquotes_ui_007(self):
         '''Verify each filter in "Client Details" in Quotes filter table'''
         self.driver.implicitly_wait(2)
-        self.assertEqual(('Client Name','Contact Number','Suburb','Postcode'),self.check_client_details)
+        self.assertEqual(('test_sample','test_sample','test_sample','test_sample'),self.check_client_details)
 
     def test_searchquotes_ui_008(self):
         '''Verify each filter in "Quote Information" in Quotes filter table'''
         self.driver.implicitly_wait(2)
-        self.assertEqual(('Proposal No','Door Design','Colour Category','Door Colour','Site Address'),
-                         self.check_quote_info)
+        self.assertEqual(('test_sample'),self.check_quote_info)
 
     def test_searchquotes_ui_009(self):
         '''Verify the default user name in "User" filter in Quotes filter table, should be the current login user'''
         self.driver.implicitly_wait(2)
-        self.assertEqual(('Yi Sun'),self.check_default_user)
+        self.assertEqual(('test_sample'),self.check_default_user)
 
     def test_searchquotes_ui_010(self):
         '''Verify the search by client name function, should find the correct proposal No. for this client'''
         self.driver.implicitly_wait(2)
-        self.assertEqual(('208849'),self.search_client_name)
+        self.assertEqual(('test_sample'),self.search_client_name)
 
     def test_searchquotes_ui_011(self):
         '''Verify the search by Proposal ID function, should find the correct proposal No. for this client'''
         self.driver.implicitly_wait(2)
-        self.assertEqual(('210088'),self.search_proposal_id)
+        self.assertEqual(('test_sample'),self.search_proposal_id)
 
     def test_searchquotes_ui_012(self):
         '''Verify the search by Contact Number function, should find the correct proposal No. for this client'''
         self.driver.implicitly_wait(2)
-        self.assertEqual(('210088'),self.search_contact_num)
+        self.assertEqual(('test_sample'),self.search_contact_num)
 
     def test_searchquotes_ui_013(self):
         '''Verify the search by Suburb function, should find the correct proposal No. for this client'''
         self.driver.implicitly_wait(2)
-        self.assertEqual(('210088'),self.search_suburb)
+        self.assertEqual(('test_sample'),self.search_suburb)
 
     def test_searchquotes_ui_014(self):
         '''Verify the search by Postcode function, should find the correct proposal No. for this client'''
         self.driver.implicitly_wait(2)
-        self.assertEqual(('210088'),self.search_postcode)
+        self.assertEqual(('test_sample'),self.search_postcode)
 
     def test_searchquotes_ui_015(self):
         '''Verify the search by Door Design function, should find the correct proposal No. for this client'''
         self.driver.implicitly_wait(2)
-        self.assertEqual(('204532'),self.search_door_design)
+        self.assertEqual(('test_sample'),self.search_door_design)
 
     def test_searchquotes_ui_016(self):
         '''Verify the search by Door Colour function, should find the correct proposal No. for this client'''
         self.driver.implicitly_wait(2)
-        self.assertEqual(('210392'),self.search_door_colour)
+        self.assertEqual(('test_sample'),self.search_door_colour)
 
     def test_searchquotes_ui_017(self):
         '''Verify the search by Colour Category function, should find the correct proposal No. for this client'''
         self.driver.implicitly_wait(2)
-        self.assertEqual(('204531'),self.search_door_category)
+        self.assertEqual(('test_sample'),self.search_door_category)
 
 
 if __name__ == '__main__':

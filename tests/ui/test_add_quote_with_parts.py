@@ -1,15 +1,15 @@
-# Author:Yi Sun(Tim) 2025-05-27
+# Author:Yi Sun(Tim) 2025-10-14
 
-'''Test the Track Option function'''
+'''Test Add a Quote with a OptiLift door function'''
 
 import time
 import unittest
 from selenium import webdriver
 from time import *
-from pages.track_option import *
+from pages.add_quote_with_parts import *
 from utils.read_config import *
 
-class TrackOption_UI_Test(unittest.TestCase,Track_Option):
+class AddQuoteWithOptiLiftDoor_UI_Test(unittest.TestCase,Add_Quote_With_OptiLift_Door):
     @classmethod
     def setUpClass(cls) -> None:
         cls.driver = webdriver.Firefox()
@@ -22,23 +22,20 @@ class TrackOption_UI_Test(unittest.TestCase,Track_Option):
         cls.driver.get(cls.url)
         cls.login.login(cls.admin_username,cls.admin_password)
         cls.driver.implicitly_wait(5)
-        cls.track_option  = Track_Option(cls.driver)
+        cls.addquote_with_optilift_door = Add_Quote_With_OptiLift_Door(cls.driver)
+        cls.addquote_with_optilift_door.add_door_func()
+        cls.addquote_with_optilift_door.get_proposal_number
+        cls.addquote_with_optilift_door.search_new_quote
 
 
     @classmethod
     def tearDownClass(cls) -> None:
         cls.driver.quit()
 
-    def test_track_option_fun_001(self):
-        '''Verify the T35'''
+    def test_addquote_with_optilift_door_fun_001(self):
+        '''Verify  Add a Quote with a OptiLift door function'''
         self.driver.implicitly_wait(2)
-        self.assertEqual('test_sample',self.track_option.check_track_t35)
-    #
-    def test_track_option_fun_002(self):
-        '''Verify the T50_Std'''
-        self.driver.implicitly_wait(2)
-        self.assertEqual('test_sample',self.track_option.check_track_t50)
-
+        self.assertEqual(('test_sample','test_sample'),self.verify_new_quote)
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)

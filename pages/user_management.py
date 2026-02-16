@@ -14,30 +14,22 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 
 class User_Management(Admin_Page):
-
-    user_title_loc = (By.NAME,'usermanager')
-    roles_assigned_loc = (By.CSS_SELECTOR, "[aria-label='roles_assigned']")
-    registered_users_loc = (By.CSS_SELECTOR, "[aria-label='registered_users']")
-    new_btn_loc = (By.ID,'btnAddUser')
-
+    """
+        Note: For security and confidentiality, specific XPath/CSS selectors
+        have been replaced with 'test_sample', and additional private locators
+        have been omitted from this public sample.
+    """
+    user_title_loc = (By.NAME,'test_sample')
+    roles_assigned_loc = (By.CSS_SELECTOR, "[aria-label='test_sample']")
+    new_btn_loc = (By.ID,'test_sample')
+    # [Remaining 10+ locators redacted for confidentiality]
     '''Add New User screen'''
-    newuser_title_loc = (By.CSS_SELECTOR, "label[for='NewUser']")
-    first_name_loc = (By.CSS_SELECTOR, "label[for='FirstName']")
-    last_name_loc = (By.CSS_SELECTOR, "label[for='LastName']")
-    email_loc  = (By.CSS_SELECTOR, "label[for='Email']")
-    first_name_box_lox = (By.ID,'userFirstName')
-    last_name_box_loc = (By.ID,'userLastName')
-    email_box_loc = (By.ID,'userEmail')
-    save_user_btn_loc = (By.XPATH,'//*[@id="btnUserSave"]')
-    close_user_btn_loc = (By.ID, 'btnClose')
-
-    error_msg_loc = (By.CSS_SELECTOR, "label[for='ErrorMsg']")
 
 
     def go_user_management(self):
         self.driver.find_element(*self.account_loc).click()
         self.driver.find_element(*self.usermanage_loc).click()
-        WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(self.user_title_loc))  # new added
+        WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(self.user_title_loc))
 
     @property
     def check_user_url(self):
@@ -76,7 +68,6 @@ class User_Management(Admin_Page):
         first_name = self.driver.find_element(*self.first_name_loc).text
         last_name = self.driver.find_element(*self.last_name_loc).text
         email = self.driver.find_element(*self.email_loc).text
-        print(newuser_title,first_name,last_name,email)
         return newuser_title,first_name,last_name,email
 
     @property
@@ -84,30 +75,25 @@ class User_Management(Admin_Page):
         '''Check the validation for adding the duplicate user'''
         # self.driver.find_element(*self.new_btn_loc).click()
         # self.driver.switch_to.window(self.driver.window_handles[-1]) # switch to new page
-        self.driver.find_element(*self.first_name_box_lox).send_keys("Yi")
-        self.driver.find_element(*self.last_name_box_loc).send_keys("Sun")
-        self.driver.find_element(*self.email_box_loc).send_keys("ysun@ecogaragedoors.com.au")
+        self.driver.find_element(*self.first_name_box_lox).send_keys("test_sample")
+        self.driver.find_element(*self.last_name_box_loc).send_keys("test_sample")
+        self.driver.find_element(*self.email_box_loc).send_keys("test_sample")
         save_user_btn = self.driver.find_element(*self.save_user_btn_loc)
         save_user_btn.click()
         error_msg = self.driver.find_element(*self.error_msg_loc).text
-        print(error_msg)
         return error_msg
 
 
 if __name__ == "__main__":
     driver = webdriver.Firefox()
     driver.maximize_window()
-    driver.get("http:// ")
+    driver.get("http://test_sample")
     driver.implicitly_wait(10)
 
     login = User_Management(driver)
-    login.typeUserName('aa@ecogaragedoors.com')
-    login.typePassword('aabb')
+    login.typeUserName('test_sample')
+    login.typePassword('test_sample')
     login.clickLogin()
     login.go_user_management()
-    # login.check_user_url
-    # login.check_user_title
-    # login.check_section
-    # login.check_new_button
     login.check_add_user
     login.validate_duplicate_user

@@ -20,20 +20,18 @@ from selenium.common.exceptions import ElementNotInteractableException
 from selenium.webdriver.common.keys import Keys
 
 class Change_Quote_Status():
-
+    """
+        Note: For security and confidentiality, specific XPath/CSS selectors
+        have been replaced with 'test_sample', and additional private locators
+        have been omitted from this public sample.
+    """
     '''loc for the status dropdown'''
-    setting_btn_loc = (By.ID,'btnSetting')
-    status_loc = (By.XPATH, '//*[@id="statusquote"]/div/span')
+    setting_btn_loc = (By.ID,'test_sample')
+    status_loc = (By.NAME,'test_sample')
 
+    # [Remaining 10+ locators redacted for confidentiality]
     '''The search result by proposal number in MYOB screen'''
-    proposal_num_myob_loc = (By.NAME,'pronum')
-
     '''loc for the elements in Status page'''
-    status_select_loc = (By.ID,'JobStatusId')
-    date_box_loc = (By.NAME,'ExpectedDeliveryDate')
-    save_btn_loc = (By.ID,'saveStatuses')
-
-
 
     def __init__(self,driver):
         self.driver = driver
@@ -56,17 +54,17 @@ class Change_Quote_Status():
     def change_status_new_order(self):
         '''Change the status to New Order for this new quote'''
         select_status = Select(self.driver.find_element(*self.status_select_loc))
-        select_status.select_by_visible_text("New Order")
+        select_status.select_by_visible_text("New test_sample")
         self.driver.find_element(*self.date_box_loc).click()
-        self.driver.find_element(*self.date_box_loc).send_keys("30/12/2025")
+        self.driver.find_element(*self.date_box_loc).send_keys("30/12/2024")
         self.driver.find_element(*self.save_btn_loc).click()
 
     def change_status_order(self):
         '''Change the status to MYOB - Ready for this new quote'''
         select_status = Select(self.driver.find_element(*self.status_select_loc))
-        select_status.select_by_visible_text("MYOB - Ready")
+        select_status.select_by_visible_text("test_sample")
         self.driver.find_element(*self.date_box_loc).click()
-        self.driver.find_element(*self.date_box_loc).send_keys("02/11/2025")
+        self.driver.find_element(*self.date_box_loc).send_keys("02/11/2024")
         self.driver.find_element(*self.save_btn_loc).click()
 
     def check_myob_status(self):
@@ -98,7 +96,7 @@ class Change_Quote_Status():
         self.go_panel_lift_safe.go_panel_lift_safe()
         sleep(1)
         first_order = self.go_panel_lift_safe.get_first_orderid
-        if first_order  == self.proposal_number + "A1":
+        if first_order  == self.proposal_number + "test_sample":
             print('move to Order successfully')
             return True
         else:
@@ -108,7 +106,7 @@ class Change_Quote_Status():
     def check_rollforming_status(self):
         '''Change the quote status from Order to Rollforming'''
         search_order_btn = self.go_panel_lift_safe.search_order_box_loc
-        self.driver.find_element(*search_order_btn).send_keys(self.proposal_number + "A1")
+        self.driver.find_element(*search_order_btn).send_keys(self.proposal_number + "test_sample")
 
 
         searched_order_statusbox_loc = (By.NAME,self.proposal_number + 'A1')
@@ -121,13 +119,11 @@ class Change_Quote_Status():
         sleep(4)
 
         self.add_quote_door.search_new_quote()  # searched this quote from Find a quote box
-        quote_status_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/div/div/div/div/div/div/table/tbody/tr/td[11]/span')
+        quote_status_loc = (By.XPATH,'test_sample')
         quote_status = self.driver.find_element(*quote_status_loc).text
-        if quote_status == 'In Production - Rollforming':
-            print('job status is correct, moved to rollforming sucessfully')
+        if quote_status == 'In test_sample - test_sample':
             return True
         else:
-            print('job status is wrong')
             return False
 
     def check_rollforming_size(self):
@@ -148,13 +144,13 @@ class Change_Quote_Status():
 if __name__ == '__main__':
     driver = webdriver.Firefox()
     driver.maximize_window()
-    driver.get("http:// ")
+    driver.get("http://test_sample ")
     driver.implicitly_wait(10)
 
     # login = Admin_Portal(driver)
     login = Admin_Portal(driver)
-    login.typeUserName('aa@ecogaragedoors.com')
-    login.typePassword('aabb')
+    login.typeUserName('test_sample')
+    login.typePassword('test_sample')
     login.clickLogin()
     login1 = Change_Quote_Status(driver)
     login1.goto_status_page()

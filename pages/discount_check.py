@@ -19,7 +19,7 @@ from selenium.common.exceptions import ElementNotInteractableException
 
 class Discount():
 
-    for_automation_test_loc = (By.CSS_SELECTOR, "[aria-label='testautomation']")
+    for_automation_test_loc = (By.CSS_SELECTOR, "[aria-label='test_sample']")
 
     def __init__(self,driver):
         self.driver = driver
@@ -39,10 +39,10 @@ class Discount():
     def discount_panellift(self):
         sleep(1)
         account_type = Select(self.driver.find_element(*self.add_quote1.account_type_select))
-        account_type.select_by_visible_text('Account')
+        account_type.select_by_visible_text('test_sample')
         account_customer_input = self.driver.find_element(*self.add_quote1.account_customer_select1)
         account_customer_input.clear()
-        account_customer_input.send_keys('For Automation Testing')
+        account_customer_input.send_keys('test_sample')
         self.driver.find_element(*self.for_automation_test_loc).click()
         self.driver.find_element(*self.add_quote1.supply_type_select).click()
         self.driver.find_element(*self.add_quote1.supply_type_select).click()
@@ -58,12 +58,12 @@ class Discount():
 if __name__ == '__main__':
     driver = webdriver.Firefox()
     driver.maximize_window()
-    driver.get("http:// ")
+    driver.get("http://test_sample ")
     driver.implicitly_wait(10)
 
     login = Admin_Portal(driver)
-    login.typeUserName('aa@ecogaragedoors.com')
-    login.typePassword('aabb')
+    login.typeUserName('test_sample')
+    login.typePassword('test_sample')
     login.clickLogin()
     login1 = Discount(driver)
     login1.add_panellift_door()

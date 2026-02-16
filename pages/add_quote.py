@@ -12,94 +12,19 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import ElementNotInteractableException
 
 class Add_Quote(Admin_Page):
+    """
+        Note: For security and confidentiality, specific XPath/CSS selectors
+        have been replaced with 'test_sample', and additional private locators
+        have been omitted from this public sample.
+        """
 
-    main_page_loc = (By.XPATH,'//*[@id="main"]')
+    main_page_loc = (By.ID,'test_sample')
 
     '''loc for each section in this page'''
-    proposal_details_loc = (By.NAME,'proposalinfo')
-    contact_details_loc = (By.NAME,'contactinfo')
-    site_details_loc = (By.NAME,'siteinfo')
-    doors_loc = (By.CSS_SELECTOR, "[aria-label='doors']")
-    add_door_btn = (By.ID,'btnAddQuote')
-    save_quote_btn = (By.ID,'btnSaveQuote')
-    proceed_quote_btn = (By.ID,'btnProceedFinal')
+    proposal_details_loc = (By.NAME,'test_sample')
+    contact_details_loc = (By.NAME,'test_sample')
 
-    '''Quote Sucessfully modified popup'''
-    proceed_ok_btn_loc = (By.ID,'btnProceedOk')
-    save_ok_btn_loc = (By.ID,'btnSaveOk')
-
-    '''loc for each element in "Proposal Details" section'''
-    proposal_num_loc =(By.NAME,'proposalnum')
-    pricing_cate_loc = (By.NAME,'pricingcate')
-    user_quote_loc = (By.NAME,'userquote')
-    account_type_loc = (By.NAME,'accounttype')
-    order_date_loc =(By.NAME,'orderdate')
-    quote_status_loc = (By.NAME,'quotestatus')
-    account_customer_loc = (By.NAME,'accountname')
-    supply_type_loc = (By.NAME,'supplytype')
-    proplsal_num_box = (By.ID,'ProposalNo')
-    pricing_cate_select = (By.ID,'PricingCategoryId')
-    user_quote_select = (By.ID,'UserAssignedId')
-    account_type_select = (By.ID,'PaymentTypeId')
-    order_date_select = (By.ID,'OrderDate')
-    quote_status_select = (By.ID,'QuoteStatusId')
-    account_customer_btn = (By.ID,'btnAccountk')
-    propertygroup_customer_loc = ((By.CSS_SELECTOR, "[aria-label='group']"))
-    account_customer_select1 = (By.ID,'account_customer_list_part')
-    account_customer_select = (By.XPATH,'//*[@id="accountCustomerData"]/div/div[1]/span')
-    supply_type_select = (By.ID,'SupplyTypeId')
-
-    '''loc for each element in "Client Contact Details" section'''
-    client_contact_details_loc = (By.XPATH,'//*[@id="clientContact"]/div/div[2]/span')
-    client_name_loc = (By.XPATH,'//*[@id="clientName"]/div/div[3]/span')
-    customer_purchase_order_loc = (By.XPATH,'//*[@id="purchaseOrder"]/div/div[4]/span')
-    contact_name_loc = (By.XPATH,'//*[@id="contactName"]/div/div[5]/span')
-    contact_mobile_loc = (By.XPATH,'//*[@id="contactMobile"]/div/div[6]/span')
-    contact_email_loc = (By.XPATH,'//*[@id="contactEmail"]/div/div[7]/span')
-    contact_address_loc = (By.XPATH,'//*[@id="contactAddress"]/div/div[8]/span')
-    contact_suburb_loc = (By.XPATH,'//*[@id="contactSuburb"]/div/div[9]/span')
-    contact_postcode_loc = (By.XPATH,'//*[@id="contactPostcode"]/div/div[10]/span')
-
-    client_name_box = (By.ID,'ClientName')
-    order_num_box = (By.ID,'ClientPurchaseOrderNumber')
-    contact_name_box = (By.ID,'ContactName')
-    contact_mobile_box = (By.ID,'ContactMobile')
-    contact_email_box = (By.ID,'ContactEmail')
-    contact_address_box = (By.ID,'ContactAddress')
-    contact_suburb_box = (By.ID,'ContactSuburb')
-    contact_postcode_box = (By.ID,'ContactPostcode')
-
-    '''loc for each element in "Site Contact Details" section'''
-    site_contact_details_loc = (By.XPATH,'//*[@id="siteContact"]/div/div[2]/span')
-    copy_client_details = (By.XPATH,'//*[@id="siteDetail"]/div/div[3]/span')
-    site_contact_name = (By.XPATH,'//*[@id="siteName"]/div/div[4]/span')
-    site_phone_loc = (By.XPATH,'//*[@id="siteMobile"]/div/div[5]/span')
-    site_email_loc = (By.XPATH,'//*[@id="sitetEmail"]/div/div[6]/span')
-    site_address_loc = (By.XPATH,'//*[@id="siteAddress"]/div/div[7]/span')
-    site_suburb_loc = (By.XPATH,'//*[@id="siteSuburb"]/div/div[9]/span')
-    site_postcode_loc = (By.XPATH,'//*[@id="sitePostcode"]/div/div[10]/span')
-
-    copy_checkbox_loc = (By.ID,'chkcopyclientdetails')
-    site_contactname_box = (By.ID,'SiteContactName')
-    site_phone_box = (By.ID,'SitePhone')
-    site_email_box = (By.ID,'SiteEmail')
-    site_address_box = (By.ID,'SiteAddress')
-    site_suburb_box = (By.ID,'SiteSuburb')
-    site_postcode_box = (By.ID,'SitePostcode')
-
-    '''loc for Doors'''
-    add_door_btn = (By.ID,'btnAddDoor')
-    add_door_menu = (By.CLASS_NAME,'dropdown-menu')
-
-    '''loc for Valication page'''
-    validation_error_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[7]/div/div/div[1]/h4')
-    validation_1_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[7]/div/div/div[1]/div[1]/ul/li[1]')
-    validation_2_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[7]/div/div/div[1]/div[1]/ul/li[2]')
-    validation_ok_btn = (By.ID,'btnCommentAdd')
-
-    '''loc for add successfully'''
-    quote_success_created_loc = (By.XPATH,'/html/body/div[3]/div[2]/div[1]/div/form/div/h1[1]/span/b')
-    success_btn_loc = (By.XPATH,'/html/body/div[86]/div/div[6]/button[1]')
+    # [Remaining 50+ locators redacted for confidentiality]
 
 
     def go_add(self):
@@ -111,7 +36,7 @@ class Add_Quote(Admin_Page):
         self.driver.find_element(*self.add_loc).click()
         self.driver.find_element(*self.quote_add_loc).click()
         WebDriverWait(self.driver,20).until(EC.visibility_of_element_located(self.contact_details_loc))
-        # sleep(2)
+
 
     @property
     def check_addquote_url(self):
@@ -456,13 +381,10 @@ class Add_Quote(Admin_Page):
         '''check the add new door menu'''
         door_item = []
         self.driver.implicitly_wait(3)
-        # main_page = self.driver.find_element(*self.main_page_loc)
-        # self.driver.execute_script("arguments[0].scrollTop = arguments[0].scrollHeight",main_page)
-        # self.driver.execute_script("arguments[0].scrollTop += 100",main_page)
         self.driver.execute_script("window.scrollTo(0,document.body.scrollHeight);")
         self.driver.find_element(*self.add_door_btn).click()
         add_door_menu = self.driver.find_element(*self.add_door_menu)
-        menu_element = add_door_menu.find_elements(By.XPATH,"/html/body/div[3]/div[2]/div[1]/div/fieldset/div/div/div[3]/div/ul")
+        menu_element = add_door_menu.find_elements(By.XPATH,"test_sample")
         for item in menu_element:
             # print('menu item is:',item.text)
             door_item.append(item.text)
@@ -486,7 +408,7 @@ class Add_Quote(Admin_Page):
         '''check Add Quote Successfully'''
         select_supplytype = Select(self.driver.find_element(*self.supply_type_select))
         select_supplytype.select_by_index(1)
-        self.driver.find_element(*self.contact_email_box).send_keys('ysun@ecogaragedoors.com.au')
+        self.driver.find_element(*self.contact_email_box).send_keys('test')
         select_accounttype = Select(self.driver.find_element(*self.account_type_select))
         select_accounttype.select_by_visible_text("Account")
         self.driver.find_element(*self.account_customer_btn).click()
@@ -505,14 +427,12 @@ class Add_Quote(Admin_Page):
         select_supplytype.select_by_index(2)
         select_accounttype = Select(self.driver.find_element(*self.account_type_select))
         select_accounttype.select_by_visible_text("Cash sale")
-        self.driver.find_element(*self.client_name_box).send_keys("Add by Automation")
-        self.driver.find_element(*self.contact_name_box).send_keys("Add by Automation")
-        self.driver.find_element(*self.contact_mobile_box).send_keys("0469000000")
-        self.driver.find_element(*self.contact_email_box).send_keys("ysun@ecogaragedoors.com.au")
+        self.driver.find_element(*self.client_name_box).send_keys("test_sample")
+        self.driver.find_element(*self.contact_name_box).send_keys("test_sample")
+        self.driver.find_element(*self.contact_mobile_box).send_keys("test_sample")
+        self.driver.find_element(*self.contact_email_box).send_keys("test_sample")
         self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
         self.driver.find_element(*self.save_quote_btn).click()
-        # self.driver.find_element(*self.save_ok_btn_loc).click()
-        # self.driver.find_element(*self.success_btn_loc).click()
         self.driver.find_element(*self.proceed_quote_btn).click()
         alert = self.driver.switch_to.alert
         alert.accept()
@@ -524,8 +444,8 @@ if __name__ == '__main__':
     driver.implicitly_wait(10)
 
     login = Add_Quote(driver)
-    login.typeUserName('xxxx@xxxx.com.au')
-    login.typePassword('xxxxxx')
+    login.typeUserName('xxxx@test_sample')
+    login.typePassword('test_sample')
     login.clickLogin()
     login.go_addquote()
     # login.check_addquote_url
